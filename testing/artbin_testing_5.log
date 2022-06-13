@@ -1,0 +1,470 @@
+------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git\artbin\testing\artbin_testing_5.log
+  log type:  text
+ opened on:  13 Jun 2022, 12:27:55
+
+. 
+. which artbin
+c:\ado\personal\a\artbin.ado
+*!version 2.0.1 EMZ    09june2022 
+
+. which art2bin
+c:\ado\personal\a\art2bin.ado
+*!version 1.01  09june2022
+
+. 
+. *********************************************
+. *********************************************
+. * Testing: Comparing to Cytel's East package
+. ********************************************
+. *********************************************
+. 
+. // 1 //
+. artbin, pr(0.1 0.1) margin(0.2) alpha(0.1) power(0.9) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .2
+Alternative hypothesis H1:             H1: pi2 - pi1 < .2
+
+Anticipated event probabilities        0.100  0.100 
+
+Alpha                                  0.100 (two-sided)
+                                       (taken as .05 one-sided)
+Power (designed)                       0.900
+
+Total sample size (calculated)         78
+
+Sample size per group (calculated)     39 39
+Expected total number of events        7.80     
+------------------------------------------------------------------------------
+
+. local samplesize1 = r(n)
+
+. 
+. if `samplesize1'!=78 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 78"
+.         exit 198
+. }
+
+. 
+. // 2 //
+. artbin, pr(0.3 0.3) margin(0.1) alpha(0.05) power(0.8) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .1
+Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+
+Anticipated event probabilities        0.300  0.300 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         660
+
+Sample size per group (calculated)     330 330
+Expected total number of events        198.00   
+------------------------------------------------------------------------------
+
+. local samplesize2 = r(n)
+
+. 
+. if `samplesize2'!=660 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 660"
+.         exit 198
+. }
+
+. 
+. // 3 //
+. artbin, pr(0.3 0.3) margin(0.05) alpha(0.05) power(0.9) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .05
+Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+
+Anticipated event probabilities        0.300  0.300 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.900
+
+Total sample size (calculated)         3532
+
+Sample size per group (calculated)     1766 1766
+Expected total number of events        1059.60  
+------------------------------------------------------------------------------
+
+. local samplesize3 = r(n)
+
+. 
+. if `samplesize3'!=3532 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 3532"
+.         exit 198
+. }
+
+. 
+. // 4 //
+. artbin, pr(0.15 0.15) margin(0.15) alpha(0.05) power(0.9) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .15
+Alternative hypothesis H1:             H1: pi2 - pi1 < .15
+
+Anticipated event probabilities        0.150  0.150 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.900
+
+Total sample size (calculated)         240
+
+Sample size per group (calculated)     120 120
+Expected total number of events        36.00    
+------------------------------------------------------------------------------
+
+. local samplesize4 = r(n)
+
+. 
+. if `samplesize4'!=240 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 240"
+.         exit 198
+. }
+
+. 
+. // 5 //
+. artbin, pr(0.2 0.2) margin(0.1) alpha(0.2) power(0.8) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .1
+Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+
+Anticipated event probabilities        0.200  0.200 
+
+Alpha                                  0.200 (two-sided)
+                                       (taken as .1 one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         290
+
+Sample size per group (calculated)     145 145
+Expected total number of events        58.00    
+------------------------------------------------------------------------------
+
+. local samplesize5 = r(n)
+
+. 
+. if `samplesize5'!=290 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 290"
+.         exit 198
+. }
+
+. 
+. // 6 //
+. artbin, pr(0.1 0.1) margin(0.05) alpha(0.05) power(0.9) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .05
+Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+
+Anticipated event probabilities        0.100  0.100 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.900
+
+Total sample size (calculated)         1514
+
+Sample size per group (calculated)     757 757
+Expected total number of events        151.40   
+------------------------------------------------------------------------------
+
+. local samplesize6 = r(n)
+
+. 
+. if `samplesize6'!=1514 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 1514"
+.         exit 198
+. }
+
+. 
+. // 7 //
+. artbin, pr(0.25 0.25) margin(0.2) alpha(0.05) power(0.9) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .2
+Alternative hypothesis H1:             H1: pi2 - pi1 < .2
+
+Anticipated event probabilities        0.250  0.250 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.900
+
+Total sample size (calculated)         198
+
+Sample size per group (calculated)     99 99
+Expected total number of events        49.50    
+------------------------------------------------------------------------------
+
+. local samplesize7 = r(n)
+
+. 
+. if `samplesize7'!=198 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 198"
+.         exit 198
+. }
+
+. 
+. // 8 //
+. artbin, pr(0.2 0.2) margin(0.15) alpha(0.05) power(0.9) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .15
+Alternative hypothesis H1:             H1: pi2 - pi1 < .15
+
+Anticipated event probabilities        0.200  0.200 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.900
+
+Total sample size (calculated)         300
+
+Sample size per group (calculated)     150 150
+Expected total number of events        60.00    
+------------------------------------------------------------------------------
+
+. local samplesize8 = r(n)
+
+. 
+. if `samplesize8'!=300 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 300"
+.         exit 198
+. }
+
+. 
+. // 9 //
+. artbin, pr(0.15 0.15) margin(0.05) alpha(0.05) power(0.9) wald
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        unfavourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 >= .05
+Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+
+Anticipated event probabilities        0.150  0.150 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.900
+
+Total sample size (calculated)         2144
+
+Sample size per group (calculated)     1072 1072
+Expected total number of events        321.60   
+------------------------------------------------------------------------------
+
+. local samplesize9 = r(n)
+
+. 
+. if `samplesize9'!=2144 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 2144"
+.         exit 198
+. }
+
+. 
+. // 10 //
+. artbin, pr(0.9 0.9) margin(-0.023) alpha(0.05) power(0.9) wald ar(1 2)
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        favourable
+                                       Inferred by the program
+Allocation ratio                       1:2
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis H0:                    H0: pi2 - pi1 <= -.023
+Alternative hypothesis H1:             H1: pi2 - pi1 > -.023
+
+Anticipated event probabilities        0.900  0.900 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.900
+
+Total sample size (calculated)         8046
+
+Sample size per group (calculated)     2682 5364
+Expected total number of events        7241.40  
+------------------------------------------------------------------------------
+
+. local samplesize10 = r(n)
+
+. 
+. if `samplesize10'!=8046 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 8046"
+.         exit 198
+. }
+
+. 
+. // REPORT SUCCESS
+. di as result _n "*************************************************************" //
+> /
+>         _n "*** ARTBIN HAS PASSED ALL SOFTWARE TESTING POINT 5 **********" ///
+>         _n "*************************************************************"
+
+*************************************************************
+*** ARTBIN HAS PASSED ALL SOFTWARE TESTING POINT 5 **********
+*************************************************************
+
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\git\artbin\testing\artbin_testing_5.log
+  log type:  text
+ closed on:  13 Jun 2022, 12:27:55
+------------------------------------------------------------------------------------
