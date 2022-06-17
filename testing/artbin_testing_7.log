@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_7.log
   log type:  text
- opened on:  13 Jun 2022, 14:06:32
+ opened on:  16 Jun 2022, 09:48:29
 
 . 
 . 
@@ -3251,6 +3251,136 @@ Total sample size = 3530
 
 . 
 . 
+. * Testing that the original artbin and new artbin give the same results
+. * original artbin: artbin_orig binary version 1.1.2 17apr2018
+. 
+. artbin, pr(.6 .7)
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          superiority
+Number of groups                       2
+Favourable/unfavourable outcome        favourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the score test
+Local or distant                       distant
+Continuity correction                  no
+
+Anticipated event probabilities        0.600  0.700 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         712
+
+Sample size per group (calculated)     356 356
+Expected total number of events        462.80   
+------------------------------------------------------------------------------
+
+. local newartbinSS = r(n)
+
+. artbin_orig, pr(.6 .7) distant(1)
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 1.1.1 05aug2016)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston & Friederike Barthel,
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          Superiority - binary outcome
+Statistical test assumed               Unconditional comparison of 2
+                                        binomial proportions
+Number of groups                       2
+Allocation ratio                       Equal group sizes
+
+Anticipated event probabilities        0.600, 0.700
+
+Alpha                                  0.050 (two-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         712
+Expected total number of events        463
+------------------------------------------------------------------------------
+
+. local origartbinSS = r(n)
+
+. if `newartbinSS' != `origartbinSS' {
+.         di as err " new and original artbin give different SS"
+.         exit 198
+. }
+
+. 
+. artbin, pr(.2 .25) local
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          superiority
+Number of groups                       2
+Favourable/unfavourable outcome        favourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the score test
+Local or distant                       local
+Continuity correction                  no
+
+Anticipated event probabilities        0.200  0.250 
+
+Alpha                                  0.050 (two-sided)
+                                       (taken as .025 one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         2190
+
+Sample size per group (calculated)     1095 1095
+Expected total number of events        492.75   
+------------------------------------------------------------------------------
+
+. local newartbinSS = r(n)
+
+. artbin_orig, pr(.2 .25) distant(0)
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 1.1.1 05aug2016)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston & Friederike Barthel,
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          Superiority - binary outcome
+Statistical test assumed               Unconditional comparison of 2
+                                        binomial proportions
+Number of groups                       2
+Allocation ratio                       Equal group sizes
+
+Anticipated event probabilities        0.200, 0.250
+
+Alpha                                  0.050 (two-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         2190
+Expected total number of events        493
+------------------------------------------------------------------------------
+
+. local origartbinSS = r(n)
+
+. if `newartbinSS' != `origartbinSS' {
+.         di as err " new and original artbin give different SS"
+.         exit 198
+. }
+
+. 
+. 
 . * Testing number of events
 . artbin, pr(0.25 0.35) margin(0.2) noround
 
@@ -3481,5 +3611,5 @@ Expected total number of events        115.94
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_7.log
   log type:  text
- closed on:  13 Jun 2022, 14:06:32
+ closed on:  16 Jun 2022, 09:48:29
 ------------------------------------------------------------------------------------

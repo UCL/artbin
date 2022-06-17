@@ -1,6 +1,6 @@
 * Testing the artbin dialogue box, VERSION 2.1 EMZ 16sep2021
 * Corresponds to Item 9 in the artbin Stata Journal Software Testing Section
-* last test 09/06/2022
+* last test 16/06/2022
 
 clear all
 set more off

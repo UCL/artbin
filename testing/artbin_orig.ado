@@ -128,14 +128,14 @@ if `ni' {
 	local altd `r(ddp)'	// Difference in probabilities under alternative hypothesis //
 
 	if `ssize' {
-		qui art2bin `p1' `p2', margin(`margin') ar(`ar21')	///
+		qui art2bin_orig `p1' `p2', margin(`margin') ar(`ar21')	///
 		alpha(`alpha') power(`power') nvmethod(`nvm')
 		local n `r(n)'
 	}
 	else {
 		local n0 = floor(`n'/(1+`ar21'))
 		local n1 = floor(`n'*`ar21'/(1+`ar21'))
-		qui art2bin `p1' `p2', margin(`margin') n0(`n0')	///
+		qui art2bin_orig `p1' `p2', margin(`margin') n0(`n0')	///
 			n1(`n1') alpha(`alpha') `Sided' nvmethod(`nvm')
 		local power `r(power)'
 	}

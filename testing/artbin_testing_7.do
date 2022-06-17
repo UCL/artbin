@@ -417,6 +417,28 @@ local art2binss2 = r(n)
 assert `artbinss2'==`art2binss2'
 
 
+* Testing that the original artbin and new artbin give the same results
+* original artbin: artbin_orig binary version 1.1.2 17apr2018
+
+artbin, pr(.6 .7)
+local newartbinSS = r(n)
+artbin_orig, pr(.6 .7) distant(1)
+local origartbinSS = r(n)
+if `newartbinSS' != `origartbinSS' {
+	di as err " new and original artbin give different SS"
+	exit 198
+}
+
+artbin, pr(.2 .25) local
+local newartbinSS = r(n)
+artbin_orig, pr(.2 .25) distant(0)
+local origartbinSS = r(n)
+if `newartbinSS' != `origartbinSS' {
+	di as err " new and original artbin give different SS"
+	exit 198
+}
+
+
 * Testing number of events
 artbin, pr(0.25 0.35) margin(0.2) noround
 assert `r(D)' == (0.25 * `r(n1)') + (0.35 * `r(n2)')
