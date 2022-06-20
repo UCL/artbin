@@ -32,7 +32,7 @@
 	
 /*
 2.0.1   09june2022  Removal of comma in between anticipated probabilities in output table.  Replaced p's with pi's in output table hypothesis test.  	
-					Minor formatting to output table.
+					Minor formatting to output table.  Allowed onesided if trend/dose specified.
 2.0.0   08nov2021   Release
 1.2.13  08nov2021   Minor change to favourable/unfavourable text in output table
 1.2.12  04nov2021   Fixed so that returned results for number of events -r(D)- is unrounded.
@@ -543,8 +543,8 @@ if `ccorrect' & (`ngroups'>2) {
 	di as err "Correction for continuity not allowed in comparison of > 2 groups"
 	exit 198
 }
-if `onesided' & (`ngroups'>2) {
-	di as err "One-sided not allowed in comparison of > 2 groups"
+if `onesided' & (`ngroups'>2 & (mi("`trend'") & mi("`doses'"))) {
+	di as err "One-sided not allowed in comparison of > 2 groups unless trend/doses specified"
 	exit 198
 }
 

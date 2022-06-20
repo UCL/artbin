@@ -1,13 +1,12 @@
 ------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\to do\explore_artbin.log
+       log:  C:\git\artbin\testing\IW_testing\explore_artbin.log
   log type:  text
- opened on:   9 Jun 2022, 12:49:57
+ opened on:  20 Jun 2022, 15:05:24
 
 . postutil clear
 
 . postfile ian str20(type method opt) n using `name'_postfile, replace
-(note: file explore_artbin_postfile.dta not found)
 
 . 
 . // 2 arms, superiority
@@ -80,7 +79,7 @@ noccorrect |     181.7228      183.7081      188.3731
 . 
 . log close
       name:  <unnamed>
-       log:  C:\git\artbin\testing\to do\explore_artbin.log
+       log:  C:\git\artbin\testing\IW_testing\explore_artbin.log
   log type:  text
- closed on:   9 Jun 2022, 12:49:57
+ closed on:  20 Jun 2022, 15:05:24
 ------------------------------------------------------------------------------------

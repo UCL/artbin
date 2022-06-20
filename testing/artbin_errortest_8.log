@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_errortest_8.log
   log type:  text
- opened on:  13 Jun 2022, 14:17:32
+ opened on:  20 Jun 2022, 15:02:34
 
 . 
 . which artbin 
@@ -699,26 +699,26 @@ Can not have margin with >2 groups
 . 
 . * superiority, power to be calculated
 . cap noi artbin, pr(0.05 0.1 0.2) alpha(0.05) onesided(1) n(100) 
-One-sided not allowed in comparison of > 2 groups
+One-sided not allowed in comparison of > 2 groups unless trend/doses specified
 
 . * get the error code "One-sided not allowed in comparison of > 2 groups" as requir
 > ed
 . 
 . cap noi artbin, pr(0.05 0.1 0.2) alpha(0.05) onesided n(100) 
-One-sided not allowed in comparison of > 2 groups
+One-sided not allowed in comparison of > 2 groups unless trend/doses specified
 
 . * get the error code "One-sided not allowed in comparison of > 2 groups" as requir
 > ed
 . 
 . * superiority, sample size to be calculated
 . cap noi artbin, pr(0.05 0.1 0.2) alpha(0.05) onesided(1) power(0.8) 
-One-sided not allowed in comparison of > 2 groups
+One-sided not allowed in comparison of > 2 groups unless trend/doses specified
 
 . * get the error code "One-sided not allowed in comparison of > 2 groups" as requir
 > ed
 . 
 . cap noi artbin, pr(0.05 0.1 0.2) alpha(0.05) onesided power(0.8) 
-One-sided not allowed in comparison of > 2 groups
+One-sided not allowed in comparison of > 2 groups unless trend/doses specified
 
 . * get the error code "One-sided not allowed in comparison of > 2 groups" as requir
 > ed
@@ -1325,5 +1325,5 @@ Expected total number of events        46.20
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_errortest_8.log
   log type:  text
- closed on:  13 Jun 2022, 14:17:32
+ closed on:  20 Jun 2022, 15:02:34
 ------------------------------------------------------------------------------------

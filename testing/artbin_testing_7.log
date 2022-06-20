@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_7.log
   log type:  text
- opened on:  16 Jun 2022, 09:48:29
+ opened on:  20 Jun 2022, 15:02:45
 
 . 
 . 
@@ -2293,6 +2293,143 @@ Can not select trend option for a 2-arm trial
 
 . * Error message: Can not select trend option for a 2-arm trial
 . 
+. * checking the below are the same, as allowing onesided to be used when trend/dose
+> s specified for >2 groups
+. artbin, pr(0.1 0.2 0.3) trend alpha(0.05) onesided
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          superiority
+Number of groups                       3
+Favourable/unfavourable outcome        not determined
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 3
+                                        binomial proportions
+                                        using the score test
+Local or distant                       distant
+Continuity correction                  no
+Linear trend test: doses are           1, 2, 3
+
+Anticipated event probabilities        0.100 0.200 0.300
+
+Alpha                                  0.050 (one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         147
+
+Sample size per group (calculated)     49 49 49
+Expected total number of events        29.40    
+------------------------------------------------------------------------------
+
+. local artbinos1 = r(n)
+
+. artbin, pr(0.1 0.2 0.3) trend alpha(0.1) 
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          superiority
+Number of groups                       3
+Favourable/unfavourable outcome        not determined
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 3
+                                        binomial proportions
+                                        using the score test
+Local or distant                       distant
+Continuity correction                  no
+Linear trend test: doses are           1, 2, 3
+
+Anticipated event probabilities        0.100 0.200 0.300
+
+Alpha                                  0.100 (two-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         147
+
+Sample size per group (calculated)     49 49 49
+Expected total number of events        29.40    
+------------------------------------------------------------------------------
+
+. local artbinos2 = r(n)
+
+. assert `artbinos1'==`artbinos2'
+
+. 
+. artbin, pr(0.1 0.2 0.3) doses(2 4 6) alpha(0.05) onesided
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          superiority
+Number of groups                       3
+Favourable/unfavourable outcome        not determined
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 3
+                                        binomial proportions
+                                        using the score test
+Local or distant                       distant
+Continuity correction                  no
+Linear trend test: doses are           2.00, 4.00, 6.00
+
+Anticipated event probabilities        0.100 0.200 0.300
+
+Alpha                                  0.050 (one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         147
+
+Sample size per group (calculated)     49 49 49
+Expected total number of events        29.40    
+------------------------------------------------------------------------------
+
+. local artbinos3 = r(n)
+
+. artbin, pr(0.1 0.2 0.3) doses(2 4 6) alpha(0.1) 
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          superiority
+Number of groups                       3
+Favourable/unfavourable outcome        not determined
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 3
+                                        binomial proportions
+                                        using the score test
+Local or distant                       distant
+Continuity correction                  no
+Linear trend test: doses are           2.00, 4.00, 6.00
+
+Anticipated event probabilities        0.100 0.200 0.300
+
+Alpha                                  0.100 (two-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         147
+
+Sample size per group (calculated)     49 49 49
+Expected total number of events        29.40    
+------------------------------------------------------------------------------
+
+. local artbinos4 = r(n)
+
+. assert `artbinos3'==`artbinos4'
+
+. 
+. 
 . * Additional sanity checks
 . *****************************
 . *****************************
@@ -3611,5 +3748,5 @@ Expected total number of events        115.94
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_7.log
   log type:  text
- closed on:  16 Jun 2022, 09:48:29
+ closed on:  20 Jun 2022, 15:02:46
 ------------------------------------------------------------------------------------

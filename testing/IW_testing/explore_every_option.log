@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\explore_every_option.log
+       log:  C:\git\artbin\testing\IW_testing\explore_every_option.log
   log type:  text
- opened on:   9 Jun 2022, 12:48:02
+ opened on:  20 Jun 2022, 15:05:34
 
 . which artbin`ver'
 c:\ado\personal\a\artbin.ado
@@ -2016,7 +2016,7 @@ Note: an error message was expected above
 
 
 cap noi artbin, pr(.4 .3 .2) onesided
-One-sided not allowed in comparison of > 2 groups
+One-sided not allowed in comparison of > 2 groups unless trend/doses specified
 Note: an error message was expected above
 
 . 
@@ -2028,7 +2028,7 @@ Note: an error message was expected above
 
 . log close
       name:  <unnamed>
-       log:  C:\git\artbin\testing\explore_every_option.log
+       log:  C:\git\artbin\testing\IW_testing\explore_every_option.log
   log type:  text
- closed on:   9 Jun 2022, 12:48:03
+ closed on:  20 Jun 2022, 15:05:35
 ------------------------------------------------------------------------------------

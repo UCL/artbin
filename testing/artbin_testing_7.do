@@ -304,6 +304,20 @@ artbin, pr(0.1 0.3) nchi local
 cap noi artbin, pr(0.1 0.3) nchi trend
 * Error message: Can not select trend option for a 2-arm trial
 
+* checking the below are the same, as allowing onesided to be used when trend/doses specified for >2 groups
+artbin, pr(0.1 0.2 0.3) trend alpha(0.05) onesided
+local artbinos1 = r(n)
+artbin, pr(0.1 0.2 0.3) trend alpha(0.1) 
+local artbinos2 = r(n)
+assert `artbinos1'==`artbinos2'
+
+artbin, pr(0.1 0.2 0.3) doses(2 4 6) alpha(0.05) onesided
+local artbinos3 = r(n)
+artbin, pr(0.1 0.2 0.3) doses(2 4 6) alpha(0.1) 
+local artbinos4 = r(n)
+assert `artbinos3'==`artbinos4'
+
+
 * Additional sanity checks
 *****************************
 *****************************

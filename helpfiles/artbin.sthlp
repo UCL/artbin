@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.13 16june2022}{...}
+{* *! version 0.14 20june2022}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
 {vieweralsosee "artbinwhatsnew" "artbin_whatsnew"}{...}
@@ -190,7 +190,7 @@ This is different to what Stata's {help power} does.
 
 {pmore}
 {cmd: artbin} assumes that multi-group trials will be analysed using a two-sided alternative,
-so {opt onesided} is not allowed.
+so {opt onesided} is not allowed unless {opt trend}/{opt doses()} is specified (see below).
 
 {phang}               
 {opt trend} is used for trials with more than two groups and 
@@ -266,7 +266,7 @@ with Peto's one-step approximation to the odds ratio (OR). Sample size/power
 is calculated in the unconditional case under either local or distant
 alternatives. Under local alternatives, the program uses the test statistic 
 covariance matrix appropriate to the null hypothesis of no difference among the 
-proportions under both the null and the alternative hypotheses.  This approach is 
+probabilities under both the null and the alternative hypotheses.  This approach is 
 reasonable if the odds ratio(s) under the alternative hypothesis are between about 
 0.5 and 2. For two-group studies, the sample sizes tend to be somewhat larger with 
 local alternatives than with global (non-local) alternatives. The default is 
