@@ -7,7 +7,7 @@
 This repository contains the Stata package, helpfiles plus code for testing and examples.
  
 ## Directories
-* package - artbin program, associated programs and dialog box
+* package - artbin program, associated programs and dialog box.
 * helpfiles - for the programs in package.
-* testing - testing programs and output
+* testing - testing programs and output.
 * examples - code and output for the examples in the accompanying Stata Journal paper (under review).
