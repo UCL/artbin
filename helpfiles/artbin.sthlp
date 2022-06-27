@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.14 20june2022}{...}
+{* *! version 0.15 27june2022}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
 {vieweralsosee "artbinwhatsnew" "artbin_whatsnew"}{...}
@@ -84,9 +84,9 @@ odds ratios will be very similar for superiority trials
 but potentially very different for  non-inferiority and substantial-superiority trials ({help artbin##quartagno:Quartagno, 2020}).
 
 {pstd}
-In a multi-group trial, {cmd:artbin} is based on a test of the global
-null hypothesis that there is a difference between two or more of the groups,
-the null hypothesis being that all the probabilities are equal.
+In a multi-group trial, {cmd:artbin} is based on a test of the global null 
+hypothesis that the probabilities are equal in all groups. The alternative 
+hypothesis is that there is a difference between two or more of the groups.
 
 {pstd}
 In a two-group superiority trial, {cmd:artbin} is based on a test of the null hypothesis 
@@ -139,8 +139,7 @@ while {it:m > 0} denotes a substantial-superiority trial.
 
 {pmore}
 The hypothesised margin for the difference in anticipated probabilities, {it:#}, must lie
-between -1 and 1. If {it:pi1^a + m} (the null value of {it:pi2}) lies
-outside (0,1), a warning is issued.
+between -1 and 1. 
 
 {phang}
 {opt favourable} or {opt unfavourable} are used with two-group trials
@@ -179,18 +178,22 @@ The default is {it:#} = 0, meaning no loss to follow-up.
 with level {it:#}. That is, {it:#} is the type 1 error probability. Default is {it:#} = 0.05.
 
 {phang}
-{opt onesided} is used in two-group trials. It specifies that the significance level given by
-{opt alpha()} is one-sided. Otherwise, the value of {opt alpha()} is halved to give a one-sided
-significance level. Thus for example {opt alpha(0.05)} is exactly the same as
-{opt alpha(0.025)} {opt onesided}.
+{opt onesided} is used for two-group trials and for trend tests in multi-group trials. 
+It specifies that the significance level given by {opt alpha()} is one-sided. 
+Otherwise, the value of {opt alpha()} is halved to give a one-sided significance level. 
+Thus for example {opt alpha(0.05)} is exactly the same as {opt alpha(0.025)} {opt onesided}.
 
 {pmore}
-{cmd: artbin} always assumes a two-group trial will be analysed using a one-sided alternative.
-This is different to what Stata's {help power} does.
+{cmd: artbin} always assumes that a two-group trial or a trend test in a multi-group trial will be 
+analysed using a one-sided alternative, regardless of whether the alpha level was specified as 
+one-sided or two-sided. {cmd: artbin} therefore uses a slightly different definition of power from
+{cmd: power}: when a two-tailed test is performed, {cmd: power} 
+reports the probability of rejecting the null hypothesis in either direction, whereas {cmd: artbin} 
+only considers rejecting the null hypothesis in the direction of interest. 
 
 {pmore}
-{cmd: artbin} assumes that multi-group trials will be analysed using a two-sided alternative,
-so {opt onesided} is not allowed unless {opt trend}/{opt doses()} is specified (see below).
+{cmd: artbin} assumes that multi-group trials will be analysed using a two-sided alternative, so 
+{opt onesided} is not allowed unless {opt trend}/{opt doses()} is specified (see below).
 
 {phang}               
 {opt trend} is used for trials with more than two groups and 

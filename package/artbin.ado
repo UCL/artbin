@@ -32,7 +32,8 @@
 	
 /*
 2.0.1   09june2022  Removal of comma in between anticipated probabilities in output table.  Replaced p's with pi's in output table hypothesis test.  	
-					Minor formatting to output table.  Allowed onesided if trend/dose specified.
+					Minor formatting to output table.  Allowed onesided if trend/dose specified.  Removed warning if p1 + m lies outside (0,1) as per 	
+					Ab's suggestion.
 2.0.0   08nov2021   Release
 1.2.13  08nov2021   Minor change to favourable/unfavourable text in output table
 1.2.12  04nov2021   Fixed so that returned results for number of events -r(D)- is unrounded.
@@ -395,8 +396,6 @@ if !mi("`unfavourable'") & !mi("`favourable'") {
 		local w2 `2'
 
 		local threshold = `w1' + `margin'
-		if (`threshold' < 0 | `threshold' > 1) di "{it: WARNING: p1 + margin is not in (0,1)}"
-		
 		
 		
 	if mi("`favourable'`unfavourable'") { // infer outcome direction if not specified

@@ -411,12 +411,6 @@ artbin, pr(0.1 0.2) n(1000) notable
 artbin, pr(0.1 0.2) n(1000)
 * as required
 
-* testing p1+margin is in (0,1), if not produce a warning message
-artbin, pr(.2 .2) margin(-0.25)
-art2bin .2 .2, margin(-0.25)
-* warning messages received as required.
-
-
 * checks artbin v art2bin
 artbin, pr(.1 .1) margin(.05)  // 1162
 local artbinss1 = r(n)

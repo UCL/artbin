@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_7.log
   log type:  text
- opened on:  20 Jun 2022, 15:02:45
+ opened on:  27 Jun 2022, 13:02:37
 
 . 
 . 
@@ -3258,48 +3258,6 @@ Expected total number of events        150.00
 
 . * as required
 . 
-. * testing p1+margin is in (0,1), if not produce a warning message
-. artbin, pr(.2 .2) margin(-0.25)
- WARNING: p1 + margin is not in (0,1)
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        favourable
-                                       Inferred by the program
-Allocation ratio                       equal group sizes
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the score test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 <= -.25
-Alternative hypothesis H1:             H1: pi2 - pi1 > -.25
-
-Anticipated event probabilities        0.200  0.200 
-
-Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
-Power (designed)                       0.800
-
-Total sample size (calculated)         84
-
-Sample size per group (calculated)     42 42
-Expected total number of events        16.80    
-------------------------------------------------------------------------------
-
-. art2bin .2 .2, margin(-0.25)
- WARNING: p1 + margin is not in (0,1)
-Total sample size = 84
-
-. * warning messages received as required.
-. 
-. 
 . * checks artbin v art2bin
 . artbin, pr(.1 .1) margin(.05)  // 1162
 
@@ -3748,5 +3706,5 @@ Expected total number of events        115.94
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_7.log
   log type:  text
- closed on:  20 Jun 2022, 15:02:46
+ closed on:  27 Jun 2022, 13:02:37
 ------------------------------------------------------------------------------------

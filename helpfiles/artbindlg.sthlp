@@ -37,8 +37,7 @@ is then {it:pi2 – pi1 <= m} and the alternative hypothesis is
 {it:pi2 – pi1 > m}. {it:m < 0} denotes a non-inferiority trial,
 while {it:m > 0} denotes a substantial-superiority trial.
 The hypothesised margin for the difference in anticipated probabilities, {it:#}, must lie
-between -1 and 1. If {it:pi1^a + m} (the null value of {it:pi2}) lies
-outside (0,1), a warning is issued.
+between -1 and 1. 
 {p_end}
 
 {p 0 4}
@@ -90,10 +89,10 @@ to follow-up is 20%, then 0.2 should be inputted.
 {p_end}
 
 {p 0 4}
-{cmd:One-sided test} is used in two-group trials. It specifies that the significance level given by
-{opt alpha} is one-sided. Otherwise, the value of {opt alpha} is halved to give a one-sided
-significance level. Thus for example {opt alpha(0.05)} is exactly the same as
-{opt alpha(0.025)} {opt onesided}.
+{cmd:One-sided test} is used for two-group trials and for trend tests in multi-group trials. 
+It specifies that the significance level given by {opt alpha()} is one-sided. 
+Otherwise, the value of {opt alpha()} is halved to give a one-sided significance level. 
+Thus for example {opt alpha(0.05)} is exactly the same as {opt alpha(0.025)} {opt onesided}.
 {p_end}
 
 {p 0 4}

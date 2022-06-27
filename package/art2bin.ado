@@ -54,7 +54,8 @@ For given sample size N, the programme estimates power. For continuity corrected
 Syntax art2bin p0 p1 [, margin(#) n0(#) n1(#) ar(#) alpha(#) power(#) nvmethod(#) onesided]
 ******************************************************************************************************************************** */
 *!version 1.01  09june2022
-* version 1.01  09june2022 EMZ   Changed p to pi in hypothesis tests.
+* version 1.01  09june2022 EMZ   Changed p to pi in hypothesis tests.  Removed warning if p1 + m lies outside (0,1) as per 	
+*					             Ab's suggestion.
 * version 1.00  08oct2021  EMZ   Release
 * version 0.16  21oct2021  EMZ   Changed some wording of the error messages.
 * version 0.15  07oct2021  EMZ   Changed version date
@@ -268,8 +269,7 @@ if !mi("`unfavourable'") & !mi("`favourable'") {
 		local w2 `p1'
 		
 		local threshold = `w1' + `margin'
-		if (`threshold' < 0 | `threshold' > 1) di "{it: WARNING: p1 + margin is not in (0,1)}"
-		
+				
 	if mi("`favourable'`unfavourable'") { // infer outcome direction if not specified
 	
 		if `w2' < `threshold' local trialoutcome = "Unfavourable"

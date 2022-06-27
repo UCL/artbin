@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\IW_testing\explore_every_option.log
+       log:  C:\git\artbin\testing\explore_every_option.log
   log type:  text
- opened on:  27 Jun 2022, 12:57:53
+ opened on:  27 Jun 2022, 12:56:33
 
 . which artbin`ver'
 c:\ado\personal\a\artbin.ado
@@ -2028,7 +2028,7 @@ Note: an error message was expected above
 
 . log close
       name:  <unnamed>
-       log:  C:\git\artbin\testing\IW_testing\explore_every_option.log
+       log:  C:\git\artbin\testing\explore_every_option.log
   log type:  text
- closed on:  27 Jun 2022, 12:57:53
+ closed on:  27 Jun 2022, 12:56:33
 ------------------------------------------------------------------------------------
