@@ -2,7 +2,7 @@
 {* *! version 0.15 27june2022}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
-{vieweralsosee "artbinwhatsnew" "artbin_whatsnew"}{...}
+{vieweralsosee "artbin_whatsnew" "artbin_whatsnew"}{...}
 {viewerjumpto "Syntax" "artbin##syntax"}{...}
 {viewerjumpto "Description" "artbin##description"}{...}
 {viewerjumpto "Options" "artbin##options"}{...}

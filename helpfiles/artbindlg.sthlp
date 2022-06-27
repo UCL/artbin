@@ -20,7 +20,7 @@
 
 {p 0 4}
 {cmd:Anticipated probabilities} specifies the anticipated probabilities to be compared. {it: pi1^a} is the anticipated probability in the control
-arm and {it: pi2^a}, {it:pi3^a}, ... are the anticipated probabilities in the
+group and {it: pi2^a}, {it:pi3^a}, ... are the anticipated probabilities in the
 treatment groups.
 {p_end}
 

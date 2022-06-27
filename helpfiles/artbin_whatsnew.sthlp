@@ -51,7 +51,7 @@ will now be {cmd:artbin, pr(.1 .2) local}, for example.
 
 {pstd} The user is to identify whether the outcome is {opt favourable} or {opt unfavourable} in the context of a trial.  With this information
 plus the {opt margin} the program will then determine the type of trial (i.e. non-inferiority/substantial-superiority/superiority). If the user does
-specify {opt favourable/unfavourable} the program will check the assumptions, the not then the program will infer it.  The {opt force} 
+specify {opt favourable/unfavourable} the program will check the assumptions, if not then the program will infer it.  The {opt force} 
 option can be used to override the program's inference of the favourability status, for example in the design of observational studies.
 
 {pstd} The {opt wald} option has also been included for the Wald test, as an alternative to the default score test.

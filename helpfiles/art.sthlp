@@ -2,7 +2,7 @@
 {* *! version 0.6 16june2022}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
-{vieweralsosee "artbinwhatsnew" "artbin_whatsnew"}{...}
+{vieweralsosee "artbin_whatsnew" "artbin_whatsnew"}{...}
 {viewerjumpto "Description" "art##description"}{...}
 {viewerjumpto "Changes from artbin version 1.1.2 to version 2.0.1" "art##whatsnew"}{...}
 {viewerjumpto "References" "art##refs"}{...}
@@ -78,7 +78,7 @@ will now be {cmd:artbin, pr(.1 .2) local}, for example.
 
 {pstd} The user is to identify whether the outcome is {opt favourable} or {opt unfavourable} in the context of a trial.  With this information
 plus the {opt margin} the program will then determine the type of trial (i.e. non-inferiority/substantial-superiority/superiority). If the user does
-specify {opt favourable/unfavourable} the program will check the assumptions, the not then the program will infer it.  The {opt force} 
+specify {opt favourable/unfavourable} the program will check the assumptions, if not then the program will infer it.  The {opt force} 
 option can be used to override the program's inference of the favourability status, for example in the design of observational studies.
 
 
