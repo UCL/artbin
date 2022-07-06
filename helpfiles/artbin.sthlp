@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.15 27june2022}{...}
+{* *! version 0.16 06july2022}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
 {vieweralsosee "artbin_whatsnew" "artbin_whatsnew"}{...}
@@ -102,8 +102,7 @@ treatment by at least a pre-specified amount, termed the {it:margin}. {cmd: artb
 supports the design of more complex non-inferiority trials in which
 {it: pi1^a} and {it: pi2^a} are unequal. Substantial-superiority trials are
 increasingly used; here, the null hypothesis is that the experimental
-treatment is better than the control treatment by at most {it:#},
-as specified by {opt margin(#)}.
+treatment is better than the control treatment by at most the margin.
 
 {pstd}
 To minimise the risk of error in two-group trials, 
@@ -187,13 +186,14 @@ Thus for example {opt alpha(0.05)} is exactly the same as {opt alpha(0.025)} {op
 {cmd: artbin} always assumes that a two-group trial or a trend test in a multi-group trial will be 
 analysed using a one-sided alternative, regardless of whether the alpha level was specified as 
 one-sided or two-sided. {cmd: artbin} therefore uses a slightly different definition of power from
-{cmd: power}: when a two-tailed test is performed, {cmd: power} 
+the {cmd: power} command: when a two-tailed test is performed, {cmd: power} 
 reports the probability of rejecting the null hypothesis in either direction, whereas {cmd: artbin} 
 only considers rejecting the null hypothesis in the direction of interest. 
 
 {pmore}
 {cmd: artbin} assumes that multi-group trials will be analysed using a two-sided alternative, so 
-{opt onesided} is not allowed unless {opt trend}/{opt doses()} is specified (see below).
+{opt onesided} is not allowed with multi-group trials unless {opt trend}/{opt doses()} is 
+specified (see below).
 
 {phang}               
 {opt trend} is used for trials with more than two groups and 
