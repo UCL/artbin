@@ -44,7 +44,8 @@ between -1 and 1.
 {cmd:Favourable or Unfavourable} are used with two-group trials
 to specify whether the outcome is {opt favourable} or {opt unfavourable}.
 If either option is used, {cmd:artbin} checks the assumptions;
-otherwise, it infers the favourability status.
+otherwise, it infers the favourability status.  Both American and 
+English spellings are allowed.
 {p_end}
 
 {p 0 4}
