@@ -1117,7 +1117,7 @@ if `ssize'==0 {
  	return scalar power=`power'
  	local mess (designed)
 }
-if !mi("`ltfu'") di as text _n "Loss to follow up assumed:" _col(`off') as text "`ltfuperc'"
+if !mi("`ltfu'") di as text _n "Loss to follow up assumed:" _col(`off') as res "`ltfuperc'"
 di as text _n "Total sample size `mess'" _col(`off') as res `n' 
 di as text _n "Sample size per group `mess'" _col(`off') as res `ntable'
 di as text "Expected total number of events" _col(`off') as res "`Dtable'" " 
