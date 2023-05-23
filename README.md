@@ -9,10 +9,10 @@ This repository contains the Stata package, helpfiles plus code for testing and 
 ## Directories
 * package - artbin program, associated programs and dialog box and helpfiles.
 * testing - testing programs and output.
-* examples - code and output for the examples in the accompanying Stata Journal paper (under review).
+* examples - code and output for the examples in the accompanying Stata Journal paper (see citation below).
 
 ## Installation within Stata
-You should be able to install this package from SSC, by typing ssc install art.
+You should be able to install this package from SSC, by typing -ssc install art-.
 
 To install it from github, use one of these:
 - `github install UCL/artbin, path(package)`
