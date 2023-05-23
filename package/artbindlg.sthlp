@@ -1,11 +1,12 @@
 {smcl}
-{* *! version 1.12 16june2022}{...}
+{* *! version 1.13 23may2023}{...}
 {* 23dec2014}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {viewerjumpto "Definitions and usage" "artbindlg##def"}{...}
 {viewerjumpto "Combination of options" "artbindlg##combinationsofoptions"}{...}
 {viewerjumpto "Examples" "artbindlg##examples"}{...}
 {viewerjumpto "References" "artbindlg##refs"}{...}
+{viewerjumpto "Citation" "artbindlg##citation"}{...}
 {viewerjumpto "Authors" "artbindlg##authors"}{...}
 {viewerjumpto "Also see" "artbindlg##alsosee"}{...}
 
@@ -169,7 +170,7 @@ Continuity Correction No    Do not round No
 
 . artbin, pr(0.2 0.3) alpha(0.05) power(0.8) fav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -197,6 +198,7 @@ Sample size per group (calculated)     294 294
 Expected total number of events        147.00   
 ------------------------------------------------------------------------------
 
+
 Machin et. al. 2008 (Table 3.1, p. 38) gives n = 294 per group.
 
 
@@ -216,7 +218,7 @@ Continuity Correction No    Do not round No
 
 . artbin, pr(0.1 0.2 0.3 0.4) local alpha(0.05) power(0.9)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -250,7 +252,7 @@ As Example 2 but with Trend checked (doses unspecified)
 
 . artbin, pr(0.1 0.2 0.3 0.4) local alpha(0.05) power(0.9) trend
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -278,6 +280,7 @@ Sample size per group (calculated)     40 40 40 40
 Expected total number of events        40.00    
 ------------------------------------------------------------------------------
 
+
 {hi:Example 4}
 
 As Example 1 but assuming a non-inferiority design and wald test
@@ -294,7 +297,7 @@ Continuity Correction No    Do not round No
 
 . artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) power(0.8) unf wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -331,9 +334,13 @@ Expected total number of events        100.80
 {phang}
 Machin, D., Campbell, M.J., Tan S.B. and Tan S.H. 2008. Sample Size Tables for Clinical Studies, Third Edition. Wiley.
 
-{phang}
-Marley-Zagar E, White IR, Royston P, Barthel F M-S, Parmar M, Babiker AG. {cmd: artbin}: Extended sample size for randomised 
-trials with binary outcomes.  Stata Journal, in preparation.
+{marker citation}{...}
+{title:Citation}
+
+{phang}If you find this command useful, please cite it as below: 
+
+{phang}Ella Marley-Zagar, Ian R. White, Patrick Royston, Friederike M.-S. Barthel, Mahesh K B Parmar, Abdel G. Babiker. artbin: Extended sample size for randomised trials with binary outcomes. Stata J 2023:1;24-52.
+{browse "https://journals.sagepub.com/doi/pdf/10.1177/1536867X231161971"}
 
 {marker authors}{...}
 {title:Authors and Updates}

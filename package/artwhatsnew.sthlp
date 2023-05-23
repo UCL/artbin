@@ -1,5 +1,5 @@
 {smcl}
-{* 01sep2022}{...}
+{* 23may2023}{...}
 
 {title:Title}
 
@@ -15,7 +15,7 @@ Please refer to individual ART dialogs and help files for further information.
 Most recent changes are listed first.
 
 
-{hline 8} {hi:update 09june2022} {hline}
+{hline 8} {hi:update 23may2023} {hline}
 
 {phang}
 1.	Substantial update to {help artbin}.  See {help artbin_whatsnew} for details.

@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.16 06july2022}{...}
+{* *! version 0.17 23may2023}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
 {vieweralsosee "artbin_whatsnew" "artbin_whatsnew"}{...}
@@ -11,6 +11,7 @@
 {viewerjumpto "Changes from artbin version 1.1.2 to version 2.0.1" "artbin##whatsnew"}{...}
 {viewerjumpto "Examples" "artbin##examples"}{...}
 {viewerjumpto "References" "artbin##references"}{...}
+{viewerjumpto "Citation" "artbin##citation"}{...}
 {viewerjumpto "Authors" "artbin##authors"}{...}
 {viewerjumpto "Also see" "artbin##also_see"}{...}
 
@@ -287,7 +288,7 @@ cell count is lower than about 5. Concerned users should check the power by simu
 
  
 {pstd}
-For a full description of the methods and formulae used in {cmd:artbin}, please see {help artbin##marleyzagar:the accompanying Stata Journal paper}.
+For a full description of the methods and formulae used in {cmd:artbin}, please see {help artbin##citation:the accompanying Stata Journal paper}.
 
 
 {marker observationaluse}{...}
@@ -333,7 +334,7 @@ with event probability 0.15 in the control group and 0.25 to 0.45 in the experim
 
 {phang}. {stata "artbin, pr(0.15 0.25 0.35 0.45)"}
 
-{pstd}The same, but assuming the primary anlaysis will test for trend across the four groups:
+{pstd}The same, but assuming the primary analysis will test for trend across the four groups:
 
 {phang}. {stata "artbin, pr(0.15 0.25 0.35 0.45) trend"}
 
@@ -345,16 +346,18 @@ with event probability 0.15 in the control group and 0.25 to 0.45 in the experim
 {marker references}{...}
 {title:References}
 
-{phang}{marker marleyzagar}
-Marley-Zagar E, White IR, Royston P, Barthel F M-S, Parmar M, Babiker AG. 
-{cmd: artbin}: Extended sample size for randomised trials with binary outcomes.
-Stata Journal, in preparation.
-
 {phang}{marker quartagno}
 Quartagno M, Walker AS, Babiker AG et al. Handling an uncertain control group event risk 
 in non-inferiority trials: non-inferiority frontiers and the power-stabilising transformation. 
 Trials 21, 145 (2020). {browse "https://doi.org/10.1186/s13063-020-4070-4"}
 
+{marker citation}{...}
+{title:Citation}
+
+{phang}If you find this command useful, please cite it as below: 
+
+{phang}Ella Marley-Zagar, Ian R. White, Patrick Royston, Friederike M.-S. Barthel, Mahesh K B Parmar, Abdel G. Babiker. artbin: Extended sample size for randomised trials with binary outcomes. Stata J 2023:1;24-52.
+{browse "https://journals.sagepub.com/doi/pdf/10.1177/1536867X231161971"}
 
 {marker authors}{...}
 {title:Authors}

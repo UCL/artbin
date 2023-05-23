@@ -1,0 +1,46 @@
+v 3
+d arbin: calculate sample size or power for randomized trials with binary outcomes
+d Program by Abdel Babiker, Friederike Maria-Sophie Barthel, Babak Choodari-Oskooei, Patrick Royston, Ella Marley-Zagar, Ian White
+d Version 2.0.2
+d Distribution-Date: 23may2023
+
+* main package files
+f artbin.ado
+f art2bin.ado
+f artformatnos.ado
+f artbin.sthlp
+f artbin_whatsnew.sthlp
+f artbin.dlg
+f artbindlg.sthlp
+
+* examples as in SJ article
+artbin_examples.do
+artbin_examples.log
+
+* main testing file
+main_testing_file.do
+
+* testing files called by main_testing_file, and their log files
+artbin_testing_1.do
+artbin_testing_1_double.log
+artbin_testing_1_float.log
+artbin_testing_2.do
+artbin_testing_2_double.log
+artbin_testing_2_float.log
+artbin_testing_3.do
+artbin_testing_3_double.log
+artbin_testing_3_float.log
+artbin_testing_4.do
+artbin_testing_4_double.log
+artbin_testing_4_float.log
+artbin_testing_5.do
+artbin_testing_5.log
+artbin_testing_6.do
+artbin_testing_6_double.log
+artbin_testing_6_float.log
+artbin_testing_7.do
+artbin_testing_7.log
+artbin_errortest_8.do
+artbin_errortest_8.log
+artbin_dlgboxtesting_9.do
+artbin_dlgboxoutput_9.txt

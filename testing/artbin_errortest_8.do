@@ -2,9 +2,9 @@
 ******************************
 * Testing Artbin Error Codes
 *******************************
-// artbin v 2.0.1
+// artbin v 2.0.2
 // Corresponds to Item 8 in the artbin Stata Journal Software Testing Section
-// Last updated 13 June 2022
+// Last updated 23 May 2023
 
 clear all
 set more off

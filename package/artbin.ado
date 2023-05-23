@@ -1,4 +1,5 @@
-*!version 2.0.1 EMZ    09june2022 
+*!version 2.0.2 EMZ    23may2023
+* version 2.0.1 EMZ    09june2022 
 * version 2.0.0 EMZ    08nov2021
 * version 1.2.13EMZ    08nov2021
 * version 1.2.12EMZ    04nov2021
@@ -31,9 +32,10 @@
 *	History
 	
 /*
+2.0.2   23may2023   ltfu() bux fix (previously applied to SS but not to power)
 2.0.1   09june2022  Removal of comma in between anticipated probabilities in output table.  Replaced p's with pi's in output table hypothesis test.  	
-					Minor formatting to output table.  Allowed onesided if trend/dose specified.  Removed warning if p1 + m lies outside (0,1) as per 	
-					Ab's suggestion.
+					Minor formatting to output table.  Allowed onesided for >2 groups if trend/dose specified.  Removed warning if p1 + m lies 
+					outside (0,1) as per Ab's suggestion.
 2.0.0   08nov2021   Release
 1.2.13  08nov2021   Minor change to favourable/unfavourable text in output table
 1.2.12  04nov2021   Fixed so that returned results for number of events -r(D)- is unrounded.
@@ -161,7 +163,7 @@ syntax , PR(numlist min=2 >0 <1) [ Margin(numlist max=1) ALpha(real 0.05) ARatio
 	DIstant(numlist max=1) LTFU(numlist max=1 >0 <1)]
 
 
-local version "binary version 2.0.1 09june2022"
+local version "binary version 2.0.2 23may2023"
 
 numlist "`pr'"
 local npr: word count `pr'
@@ -973,7 +975,8 @@ local maxwidth 78
 local artcalcused "k-arm"
 }
 
-
+* Account for loss to follow up
+if !mi("`ltfu'") local n = `n' /(1 - `ltfu')
 
 * Change rounding option so rounds UP to the nearest integer if noround is not specified - PER GROUP, FOR ALL ARMS (incl results from art2bin)
 
@@ -990,7 +993,6 @@ if `npr'==2 & `nar'==1 {
 * (otherwise artbin, pr(.15 .15) margin(.1) aratio(1 1.5) vs. artbin, pr(.15 .15) margin(.1) aratio(2 3) doea not give the same answer:
 * the latter is over-rounded so gives a higher SS)
 
-
 if `allr1'!=1 {
 	local baseallr = `allr1'
 	forvalues r=1/`npr' {
@@ -998,9 +1000,6 @@ if `allr1'!=1 {
 	}
 	local totalallr = `totalallr'/`baseallr'
 }
-
-* Account for loss to follow up
-if !mi("`ltfu'") local n = `n' /(1 - `ltfu')
 
 	local nbygroup=`n'/`totalallr'
 	

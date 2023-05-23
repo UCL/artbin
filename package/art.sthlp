@@ -1,19 +1,46 @@
 {smcl}
-{* *! version 0.3 16june2022}{...}
-{vieweralsosee "Main artbin help page" "artbin"}{...}
+{* *! version 0.7 23may2023}{...}
+{vieweralsosee "sampsi (if installed)" "sampsi"}{...}
+{vieweralsosee "power (if installed)" "power"}{...}
+{vieweralsosee "artbin_whatsnew" "artbin_whatsnew"}{...}
+{viewerjumpto "Description" "art##description"}{...}
+{viewerjumpto "Changes from artbin version 1.1.2 to version 2.0.1" "art##whatsnew"}{...}
+{viewerjumpto "References" "art##refs"}{...}
+{viewerjumpto "Author and updates" "art##updates"}{...}
+{viewerjumpto "Also see" "art##also_see"}{...}
 {title:Title}
 
 {phang}
-{bf:What's new in artbin} {hline 2} Changes from {cmd:artbin} version 1.1.2 to version 2.0.1
+{bf:ART} {hline 2} {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS. Suite of commands for complex sample size calculations in randomized controlled trials with
+a survival or a binary outcome.
 
-{title:New features}
+{p2colset 7 20 20 0}{...}
+{p2col:{bf:{help artbin:artbin}}}calculation of sample size or power in trials with a binary outcome, including non-inferiority / substantial-superiority trials and superiority trials with {it:k} groups.
+
+{p2col:{bf:{help artsurv:artsurv}}}calculation of sample size or power in trials with a survival outcome.
+
+{marker description}{...}
+{title:Description}
+
+{pstd}
+{bf:ART} is a suite of programs for the calculation of sample size or power for complex clinical trial designs under a
+survival time or binary outcome.  The package is able to handle noninferiority/substantial-superiority 2-group designs and superiority trials
+with {it:k}-groups.
+
+
+{title:Changes from {bf:{help artbin:artbin}} version 1.1.2 to version 2.0.2}{marker whatsnew}
+
+{pstd} For the complete list of changes please see {bf:{help artbin_whatsnew:artbin_whatsnew}}.  The main changes are listed below.
+
+{phang}
+{bf: New features:}
 
 {pstd}
 A {opt margin(#)} option for 2-group trials has been included.
 {p_end}
 {pstd}
 The user can now specify whether the outcome is {opt favourable} or {opt unfavourable} for a
-2-arm trial.
+2-group trial.
 {p_end}
 {pstd}
 The {opt wald} option has also been included for the Wald test.
@@ -34,8 +61,8 @@ to round the calculated sample size.
 A loss to follow-up option is now available ({opt ltfu(#)}).
 {p_end}
 
-
-{title:New syntax}
+{phang}
+{bf: New syntax:}
 
 {pstd} Some improvements have been made to {cmd:artbin}.  The user will need to alter previous coding using {cmd:artbin} to
 accomodate the following changes. 
@@ -54,44 +81,25 @@ plus the {opt margin} the program will then determine the type of trial (i.e. no
 specify {opt favourable/unfavourable} the program will check the assumptions, if not then the program will infer it.  The {opt force} 
 option can be used to override the program's inference of the favourability status, for example in the design of observational studies.
 
-{pstd} The {opt wald} option has also been included for the Wald test, as an alternative to the default score test.
 
-{pstd} Sample size per group is now reported, and rounding up to the nearest integer is performed per group. A {opt noround} option has been included for the case when the user does not want {cmd: artbin} to round the calculated sample size. 
-A loss to follow-up option is now available ({opt ltfu(#)}).
+{title:References}{marker refs}
 
-{pstd} The option {opt condit} always implies the {opt local} option as there is no conditional distant option available in {cmd:artbin}. If the {opt condit} option is selected then {opt local} will be used (instead of the default {opt distant}).
+{phang}
+Royston, P., & Barthel, F. M. S. (2010). Projection of power and events in clinical trials with a time-to-event outcome. Stata Journal, 10 (3), 386-394. 
 
-{pstd} The allocation ratio reects the fact that sample size is now rounded upwards in
-each group rather than overall, and the expected number of events is calculated using the rounded sample size (unless the {opt noround} option for 
-calculated sample size is used).
+{phang}
+Barthel, F. M. S., Royston, P., & Parmar, M. K. B. (2009). A menu-driven facility for sample-size calculation in novel multiarm, multistage randomized controlled trials with a time-to-event outcome. Stata Journal, 9 (4), 505-523. 
 
-{pstd} Earlier versions of {cmd: artbin} required a number of yes/no options to be specified numerically,
-e.g. {opt onesided(1)} or {opt onesided(0)}. In updating the syntax, we have enabled the more standard options e.g. 
-{opt onesided} and {opt ccorrect}, but the numerical version of the syntax is retained if the user wishes to use it.
+{phang}
+Barthel, F. M. S., Royston, P., & Babiker, A. (2005). A menu-driven facility for complex sample size calculation in randomized controlled trials with a survival or a binary outcome: Update. Stata Journal, 5 (1), 123-129. 
 
-{pstd} The number of groups is taken as the number of proportions in all cases and the {opt ngroups(#)} option is now redundant. 
-The mandatory option {opt pr()} is now a numlist instead of a string.
+{phang}
+Marley-Zagar E, White IR, Royston P, Barthel F M-S, Parmar M, Babiker AG. 
+{cmd: artbin}: Extended sample size for randomised trials with binary outcomes.
+Stata Journal, in preparation.
 
-{pstd} Changes have been made to the output table: now included in the description
-is whether the trial is non-inferiority, substantial-superiority or superiority,
-the trial outcome type, the statistical test assumed (including score or wald), whether local or distant 
-alternatives were used and the hypothesis tests and whether the continutity correction was used. 
-Minor formatting was also made to the existing allocation ratio, alpha, linear trend output and 
-version numbering output. Sample size per group is reported, and the returned values 
-have been streamlined to only include results as opposed to user-inputted options.
 
-{pstd} The text output has been changed from {it:p0} and {it:p1} to {it:pi1} and {it:pi2}.
-Therefore the control group event probability for non-inferiority trials is {it:pi1}.  
-
-{title:Program structure}
-
-{pstd}
-{cmd:artbin} calls a subroutine {cmd:art2bin} for all 2-group trials, which also allows for substantial-superiority
-trials. Previously {cmd:art2bin} was only called for non-inferiority trials in {cmd:artbin},
-now it is called for all 2-group trials. {cmd:art2bin} can be used as a standalone but we do not
-recommend this.
-
-{title:Authors}
+{title:Author and updates}{marker updates}
 
 {pstd}Abdel Babiker, MRC Clinical Trials Unit at UCL{break}
 {browse "mailto:a.babiker@ucl.ac.uk":Ab Babiker}
@@ -110,3 +118,13 @@ recommend this.
 
 {pstd}Ian White, MRC Clinical Trials Unit at UCL{break}
 {browse "mailto:ian.white@ucl.ac.uk":Ian White}
+
+{marker also_see}{...}
+{title:Also see}
+
+    Manual:  {hi:[R] sampsi}
+    Manual:  {hi:[R] power}
+
+{p 4 13 2}
+Online:  help for {help artmenu}, {help artbin}, {help artbindlg}
+

@@ -1,14 +1,14 @@
-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_2_float.log
   log type:  text
- opened on:  27 Jun 2022, 12:56:31
+ opened on:  23 May 2023, 17:06:49
 c:\ado\personal\a\artbin.ado
-*!version 2.0.1 EMZ    09june2022 
+*!version 2.0.2 EMZ    23may2023
 c:\ado\personal\a\art2bin.ado
 *!version 1.01  09june2022
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -37,7 +37,7 @@ Sample size per group (calculated)     578 578
 Expected total number of events        86.70    
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -66,7 +66,7 @@ Sample size per group (calculated)     155 155
 Expected total number of events        46.50    
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -95,7 +95,7 @@ Sample size per group (designed)       578 578
 Expected total number of events        86.70    
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -130,5 +130,5 @@ Expected total number of events        46.50
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_2_float.log
   log type:  text
- closed on:  27 Jun 2022, 12:56:31
-------------------------------------------------------------------------------------
+ closed on:  23 May 2023, 17:06:49
+-------------------------------------------------------------------------------------------------------------------

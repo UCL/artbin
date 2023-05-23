@@ -1,13 +1,13 @@
-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_5.log
   log type:  text
- opened on:  27 Jun 2022, 12:56:32
+ opened on:  23 May 2023, 17:06:50
 
 . 
 . which artbin
 c:\ado\personal\a\artbin.ado
-*!version 2.0.1 EMZ    09june2022 
+*!version 2.0.2 EMZ    23may2023
 
 . which art2bin
 c:\ado\personal\a\art2bin.ado
@@ -23,7 +23,7 @@ c:\ado\personal\a\art2bin.ado
 . // 1 //
 . artbin, pr(0.1 0.1) margin(0.2) alpha(0.1) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -66,7 +66,7 @@ Expected total number of events        7.80
 . // 2 //
 . artbin, pr(0.3 0.3) margin(0.1) alpha(0.05) power(0.8) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -109,7 +109,7 @@ Expected total number of events        198.00
 . // 3 //
 . artbin, pr(0.3 0.3) margin(0.05) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -152,7 +152,7 @@ Expected total number of events        1059.60
 . // 4 //
 . artbin, pr(0.15 0.15) margin(0.15) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -195,7 +195,7 @@ Expected total number of events        36.00
 . // 5 //
 . artbin, pr(0.2 0.2) margin(0.1) alpha(0.2) power(0.8) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -238,7 +238,7 @@ Expected total number of events        58.00
 . // 6 //
 . artbin, pr(0.1 0.1) margin(0.05) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -281,7 +281,7 @@ Expected total number of events        151.40
 . // 7 //
 . artbin, pr(0.25 0.25) margin(0.2) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -324,7 +324,7 @@ Expected total number of events        49.50
 . // 8 //
 . artbin, pr(0.2 0.2) margin(0.15) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -367,7 +367,7 @@ Expected total number of events        60.00
 . // 9 //
 . artbin, pr(0.15 0.15) margin(0.05) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -410,7 +410,7 @@ Expected total number of events        321.60
 . // 10 //
 . artbin, pr(0.9 0.9) margin(-0.023) alpha(0.05) power(0.9) wald ar(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.1 09june2022)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -451,8 +451,7 @@ Expected total number of events        7241.40
 
 . 
 . // REPORT SUCCESS
-. di as result _n "*************************************************************" //
-> /
+. di as result _n "*************************************************************" ///
 >         _n "*** ARTBIN HAS PASSED ALL SOFTWARE TESTING POINT 5 **********" ///
 >         _n "*************************************************************"
 
@@ -466,5 +465,5 @@ Expected total number of events        7241.40
       name:  <unnamed>
        log:  C:\git\artbin\testing\artbin_testing_5.log
   log type:  text
- closed on:  27 Jun 2022, 12:56:32
-------------------------------------------------------------------------------------
+ closed on:  23 May 2023, 17:06:50
+-------------------------------------------------------------------------------------------------------------------

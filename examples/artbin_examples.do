@@ -1,6 +1,6 @@
 // Corresponds to the examples in Section 3 of the artbin Stata Journal 
-// artbin v2.0.1
-// Last updated: 13 June 2022
+// artbin v2.0.2
+// Last updated: 23 May 2023
 
 clear all
 set more off

@@ -1,7 +1,7 @@
-// Verification code for the STATA program artbin artbin v2.0.1: comparing to Cytel's EAST software
+// Verification code for the STATA program artbin artbin v2.0.2: comparing to Cytel's EAST software
 // Corresponds to Item 5 in the artbin Stata Journal Software Testing Section
 // Created by Ella Marley-Zagar, 21 June 2021
-// Last updated: 13 June 2022
+// Last updated: 23 May 2023
 
 clear all
 set more off

@@ -1,0 +1,82 @@
+-------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git\artbin\testing\explore_artbin.log
+  log type:  text
+ opened on:  23 May 2023, 17:06:52
+
+. postutil clear
+
+. postfile ian str20(type method opt) n using `name'_postfile, replace
+
+. 
+. // 2 arms, superiority
+. foreach method in "local" "nolocal" "wald" "condit local" {
+  2.         foreach opt in noccorrect ccorrect {
+  3.                 cap artbin`ver', pr(.4 .2) alpha(0.025) power(.8) onesided noround `method' `opt'
+  4.                 if !_rc local n = r(n)
+  5.                 else local n=.
+  6.                 post ian ("2 arms sup") ("`method'") ("`opt'") (`n')
+  7.         }
+  8. }
+
+. 
+. 
+. // same for 3 arms
+. foreach method in "local" "nolocal" "wald" "condit local" {
+  2.         foreach opt in notrend trend {
+  3.                 cap artbin`ver', pr(.4 .35 .2) alpha(0.05) power(.8) noround `method' `opt'
+  4.                 if !_rc local n = r(n)
+  5.                 else local n=.
+  6.                 post ian ("3 arms") ("`method'") ("`opt'") (`n')
+  7.         }
+  8. }
+
+. 
+. // finally NI
+. foreach method in "local" "nolocal" "wald" "condit local" {
+  2.         foreach opt in noccorrect ccorrect {
+  3.                 cap artbin`ver', pr(.4 .4) margin(.2) alpha(0.05) power(.8) noround `method' `opt'
+  4.                 if !_rc local n = r(n)
+  5.                 else local n=.
+  6.                 post ian ("2 arms NI") ("`method'") ("`opt'") (`n')
+  7.         }
+  8. }
+
+. 
+. postclose ian
+
+. 
+. use `name'_postfile, clear
+
+. sencode type, gen(typenum)
+
+. sencode method, gen(methnum)
+
+. sencode opt, gen(optnum)
+
+. tabdisp optnum methnum, by(typenum) c(n) concise
+
+-------------------------------------------------------------------
+typenum    |                        methnum                        
+and optnum |        local       nolocal          wald  condit local
+-----------+-------------------------------------------------------
+2 arms sup |
+noccorrect |     164.8265      162.4485      156.9776      154.3972
+  ccorrect |     184.2838      181.8987      176.4107              
+-----------+-------------------------------------------------------
+3 arms     |
+   notrend |     288.6701      277.3939      251.0192      250.0257
+     trend |     254.7616      248.8853      235.4664      225.2188
+-----------+-------------------------------------------------------
+2 arms NI  |
+noccorrect |     181.7228      183.7081      188.3731              
+  ccorrect |     201.2258       203.216      207.8921              
+-------------------------------------------------------------------
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\git\artbin\testing\explore_artbin.log
+  log type:  text
+ closed on:  23 May 2023, 17:06:52
+-------------------------------------------------------------------------------------------------------------------

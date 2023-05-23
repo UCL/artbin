@@ -1,7 +1,7 @@
-// Verification code for the STATA program artbin v2.0.1
+// Verification code for the STATA program artbin v2.0.2
 // Corresponds to Item 3 in the artbin Stata Journal Software Testing Section
 // Created by Ella Marley-Zagar, 19 November 2018
-// Last updated: 13 June 2022
+// Last updated: 23 May 2023
 
 clear all
 set more off
