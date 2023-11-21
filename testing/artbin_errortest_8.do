@@ -10,7 +10,7 @@ clear all
 set more off
 prog drop _all
 
-log using C:\git\artbin\testing\artbin_errortest_8,  replace text
+log using artbin_errortest_8,  replace text
 
 which artbin 
 which art2bin

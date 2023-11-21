@@ -7,7 +7,6 @@ clear all
 set more off
 prog drop _all
 
-cd C:\git\artbin\testing\
 
 * first test as set type double, then set type float
 foreach type in float double {

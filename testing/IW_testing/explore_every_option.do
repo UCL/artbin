@@ -17,6 +17,7 @@ which artbin`ver'
 local returns 1
 
 // UTILITIES
+cap prog drop dicmd
 prog def dicmd
 noi di as input `"`0'"'
 `0'

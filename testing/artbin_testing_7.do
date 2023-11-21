@@ -7,8 +7,7 @@ clear all
 set more off
 prog drop _all
 
-cd C:\git\artbin\testing\
-
+set level 95 // since art2bin defaults to c(level), unlike artbin
 
 log using artbin_testing_7, replace text
 

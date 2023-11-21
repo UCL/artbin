@@ -1,14 +1,18 @@
 /*
 MAIN TESTING FILE FOR ARTBIN v2.0.2
 EMZ and IW, 23may2023
+Remove paths from all subsidiary files, 21nov2023
 */
 
 clear all
 set more off
 prog drop _all
 
-local cd C:\git\artbin\testing\
-
+local cd C:\git\artbin\testing\ // CHANGE THIS TO THE USER'S TESTING DIRECTORY
+local cd C:\ian\git\artbin\testing\ 
+cd `cd'
+set linesize 115
+cap log close
 
 // 1. We compared results for non-inferiority trials with those given by \citet{Julious2011}, \citet{Blackwelder1982}, \citet{Pocock2003} and the online calculator \citet{SealedEnvelope2012}. Exact agreement was achieved.  
 
