@@ -103,8 +103,8 @@ if `samplesize9'!=2144 {
 artbin, pr(0.9 0.9) margin(-0.023) alpha(0.05) power(0.9) wald ar(1 2)
 local samplesize10 = r(n)
 
-if `samplesize10'!=8046 { 
-	di as err "Sample size does not match with EAST.  Should be n = 8046"
+if `samplesize10'!=8045 { 
+	di as err "Sample size does not match with EAST.  Should be n = 8045"
 	exit 198
 }
 

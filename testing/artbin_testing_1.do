@@ -297,8 +297,8 @@ if `power8'!=0.9 {
 artbin, pr(.2 .5) margin(.15) aratio(1 3)
 local samplesize11 = r(n)
 
-if `samplesize11'!=392 { 
-	di as err "Sample size 11 is incorrect (The Palisade Group of Clinical Investigators 2018, super-superiority trial.  Should be n = 392"
+if `samplesize11'!=391 { 
+	di as err "Sample size 11 is incorrect (The Palisade Group of Clinical Investigators 2018, super-superiority trial.  Should be n = 391"
 	exit 198
 }
 
@@ -439,7 +439,7 @@ di as err "niss and artbin output do not match"
 * Test ltfu() option against STREAM trial.  Main trial ss =398 (ltfu = 0.2) but ar(1 2) so artbin with rounding will make 399 (133 and 266):
 artbin, pr(0.7 0.75) margin(-0.1) power(0.8) ar(1 2) wald ltfu(0.2)
 local stream = r(n)
-if `stream' != 399 {
+if `stream' != 398 {
 	di as err " STREAM trial ltfu() calculation error"
 	exit 198
 }

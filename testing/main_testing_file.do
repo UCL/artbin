@@ -73,5 +73,10 @@ do `cd'artbin_errortest_8
 // Note: We re-ran the test scripts #1,2,3,4 and 6 implementing the above tests with the default variable type (\texttt{set type}) as \texttt{float} and as \texttt{double}.
 
 
+// New tests of the ltfu option
+
+do `cd'artbin_test_ltfu
+
+
 
 /*** END OF MAIN TESTING PROGRAM FOR ARTBIN ***/
