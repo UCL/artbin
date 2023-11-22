@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\explore_artbin.log
+       log:  C:\ian\git\artbin\testing\explore_artbin.log
   log type:  text
- opened on:  23 May 2023, 17:06:52
+ opened on:  22 Nov 2023, 18:52:01
 
 . postutil clear
 
@@ -65,7 +65,7 @@ noccorrect |     164.8265      162.4485      156.9776      154.3972
   ccorrect |     184.2838      181.8987      176.4107              
 -----------+-------------------------------------------------------
 3 arms     |
-   notrend |     288.6701      277.3939      251.0192      250.0257
+   notrend |     288.6701       277.472      251.0192      250.0257
      trend |     254.7616      248.8853      235.4664      225.2188
 -----------+-------------------------------------------------------
 2 arms NI  |
@@ -76,7 +76,7 @@ noccorrect |     181.7228      183.7081      188.3731
 . 
 . log close
       name:  <unnamed>
-       log:  C:\git\artbin\testing\explore_artbin.log
+       log:  C:\ian\git\artbin\testing\explore_artbin.log
   log type:  text
- closed on:  23 May 2023, 17:06:52
+ closed on:  22 Nov 2023, 18:52:01
 -------------------------------------------------------------------------------------------------------------------

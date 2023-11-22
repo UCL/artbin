@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_testing_1_float.log
+       log:  C:\ian\git\artbin\testing\artbin_testing_1_float.log
   log type:  text
- opened on:  23 May 2023, 17:06:49
-c:\ado\personal\a\artbin.ado
-*!version 2.0.2 EMZ    23may2023
-c:\ado\personal\a\art2bin.ado
+ opened on:  22 Nov 2023, 18:52:00
+c:\ian\git\artbin\package\artbin.ado
+*!version 2.1.0 IW     22nov2023
+c:\ian\git\artbin\package\art2bin.ado
 *!version 1.01  09june2022
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -24,22 +24,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
+Null hypothesis                        H0: pi2 - pi1 >= .2
+Alternative hypothesis                 H1: pi2 - pi1 < .2
 
 Anticipated event probabilities        0.100  0.100 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         78
 
 Sample size per group (calculated)     39 39
-Expected total number of events        7.80     
+Expected total number of events        7.8
+Expected number of events per group    3.9 3.9
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -55,22 +56,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.300  0.300 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         3532
 
 Sample size per group (calculated)     1766 1766
-Expected total number of events        1059.60  
+Expected total number of events        1059.6
+Expected number of events per group    529.8 529.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -86,22 +88,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
+Null hypothesis                        H0: pi2 - pi1 >= .15
+Alternative hypothesis                 H1: pi2 - pi1 < .15
 
 Anticipated event probabilities        0.150  0.150 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         240
 
 Sample size per group (calculated)     120 120
-Expected total number of events        36.00    
+Expected total number of events        36
+Expected number of events per group    18 18
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -117,22 +120,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.200  0.200 
 
 Alpha                                  0.200 (two-sided)
-                                       (taken as .1 one-sided)
+                                        (taken as .1 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         290
 
 Sample size per group (calculated)     145 145
-Expected total number of events        58.00    
+Expected total number of events        58
+Expected number of events per group    29 29
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -148,22 +152,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.100  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         1514
 
 Sample size per group (calculated)     757 757
-Expected total number of events        151.40   
+Expected total number of events        151.4
+Expected number of events per group    75.7 75.7
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -179,22 +184,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
+Null hypothesis                        H0: pi2 - pi1 >= .2
+Alternative hypothesis                 H1: pi2 - pi1 < .2
 
 Anticipated event probabilities        0.250  0.250 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         198
 
 Sample size per group (calculated)     99 99
-Expected total number of events        49.50    
+Expected total number of events        49.5
+Expected number of events per group    24.75 24.75
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -210,22 +216,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
+Null hypothesis                        H0: pi2 - pi1 >= .15
+Alternative hypothesis                 H1: pi2 - pi1 < .15
 
 Anticipated event probabilities        0.200  0.200 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         300
 
 Sample size per group (calculated)     150 150
-Expected total number of events        60.00    
+Expected total number of events        60
+Expected number of events per group    30 30
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -241,19 +248,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.150  0.150 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         2144
 
 Sample size per group (calculated)     1072 1072
-Expected total number of events        321.60   
+Expected total number of events        321.6
+Expected number of events per group    160.8 160.8
 ------------------------------------------------------------------------------
 
 Estimated sample size for two-sample comparison of proportions (non-inferiority)
@@ -278,7 +286,7 @@ Assumptions:
 
 The total estimated sample size is 652
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -294,19 +302,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.050  0.050 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         652
 
 Sample size per group (calculated)     326 326
-Expected total number of events        32.60    
+Expected total number of events        32.6
+Expected number of events per group    16.3 16.3
 ------------------------------------------------------------------------------
 
 Estimated sample size for two-sample comparison of proportions (non-inferiority)
@@ -331,7 +340,7 @@ Assumptions:
 
 The total estimated sample size is 396
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -347,19 +356,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.200  0.200 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         396
 
 Sample size per group (calculated)     198 198
-Expected total number of events        79.20    
+Expected total number of events        79.2
+Expected number of events per group    39.6 39.6
 ------------------------------------------------------------------------------
 
 Estimated sample size for two-sample comparison of proportions (non-inferiority)
@@ -384,7 +394,7 @@ Assumptions:
 
 The total estimated sample size is 520
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -400,19 +410,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.300  0.300 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.700
 
 Total sample size (calculated)         520
 
 Sample size per group (calculated)     260 260
-Expected total number of events        156.00   
+Expected total number of events        156
+Expected number of events per group    78 78
 ------------------------------------------------------------------------------
 
 Estimated sample size for two-sample comparison of proportions (non-inferiority)
@@ -437,7 +448,7 @@ Assumptions:
 
 The total estimated sample size is 118
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -453,19 +464,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .3
-Alternative hypothesis H1:             H1: pi2 - pi1 < .3
+Null hypothesis                        H0: pi2 - pi1 >= .3
+Alternative hypothesis                 H1: pi2 - pi1 < .3
 
 Anticipated event probabilities        0.500  0.500 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         118
 
 Sample size per group (calculated)     59 59
-Expected total number of events        59.00    
+Expected total number of events        59
+Expected number of events per group    29.5 29.5
 ------------------------------------------------------------------------------
 
 Estimated sample size for two-sample comparison of proportions (non-inferiority)
@@ -490,7 +502,7 @@ Assumptions:
 
 The total estimated sample size is 2376
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -506,19 +518,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.600  0.600 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         2376
 
 Sample size per group (calculated)     1188 1188
-Expected total number of events        1425.60  
+Expected total number of events        1425.6
+Expected number of events per group    712.8 712.8
 ------------------------------------------------------------------------------
 
 Estimated sample size for two-sample comparison of proportions (non-inferiority)
@@ -543,7 +556,7 @@ Assumptions:
 
 The total estimated sample size is 396
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -559,22 +572,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.800  0.800 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.700
 
 Total sample size (calculated)         396
 
 Sample size per group (calculated)     198 198
-Expected total number of events        316.80   
+Expected total number of events        316.8
+Expected number of events per group    158.4 158.4
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -590,22 +604,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
+Null hypothesis                        H0: pi2 - pi1 >= .2
+Alternative hypothesis                 H1: pi2 - pi1 < .2
 
 Anticipated event probabilities        0.100  0.100 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (calculated)                     0.903
 
 Total sample size (designed)           78
 
 Sample size per group (designed)       39 39
-Expected total number of events        7.80     
+Expected total number of events        7.8
+Expected number of events per group    3.9 3.9
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -621,22 +636,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.300  0.300 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.900
 
 Total sample size (designed)           3532
 
 Sample size per group (designed)       1766 1766
-Expected total number of events        1059.60  
+Expected total number of events        1059.6
+Expected number of events per group    529.8 529.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -652,22 +668,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
+Null hypothesis                        H0: pi2 - pi1 >= .15
+Alternative hypothesis                 H1: pi2 - pi1 < .15
 
 Anticipated event probabilities        0.150  0.150 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.902
 
 Total sample size (designed)           240
 
 Sample size per group (designed)       120 120
-Expected total number of events        36.00    
+Expected total number of events        36
+Expected number of events per group    18 18
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -683,22 +700,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.200  0.200 
 
 Alpha                                  0.200 (two-sided)
-                                       (taken as .1 one-sided)
+                                        (taken as .1 one-sided)
 Power (calculated)                     0.802
 
 Total sample size (designed)           290
 
 Sample size per group (designed)       145 145
-Expected total number of events        58.00    
+Expected total number of events        58
+Expected number of events per group    29 29
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -714,22 +732,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.100  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.900
 
 Total sample size (designed)           1514
 
 Sample size per group (designed)       757 757
-Expected total number of events        151.40   
+Expected total number of events        151.4
+Expected number of events per group    75.7 75.7
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -745,22 +764,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
+Null hypothesis                        H0: pi2 - pi1 >= .2
+Alternative hypothesis                 H1: pi2 - pi1 < .2
 
 Anticipated event probabilities        0.250  0.250 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.901
 
 Total sample size (designed)           198
 
 Sample size per group (designed)       99 99
-Expected total number of events        49.50    
+Expected total number of events        49.5
+Expected number of events per group    24.75 24.75
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -776,22 +796,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
+Null hypothesis                        H0: pi2 - pi1 >= .15
+Alternative hypothesis                 H1: pi2 - pi1 < .15
 
 Anticipated event probabilities        0.200  0.200 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.901
 
 Total sample size (designed)           300
 
 Sample size per group (designed)       150 150
-Expected total number of events        60.00    
+Expected total number of events        60
+Expected number of events per group    30 30
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -807,22 +828,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.150  0.150 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.900
 
 Total sample size (designed)           2144
 
 Sample size per group (designed)       1072 1072
-Expected total number of events        321.60   
+Expected total number of events        321.6
+Expected number of events per group    160.8 160.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -838,658 +860,23 @@ Statistical test assumed               unconditional comparison of 2
                                         using the score test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 <= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 > .15
+Null hypothesis                        H0: pi2 - pi1 <= .15
+Alternative hypothesis                 H1: pi2 - pi1 > .15
 
 Anticipated event probabilities        0.200  0.500 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
-Total sample size (calculated)         392
+Total sample size (calculated)         391
 
-Sample size per group (calculated)     98 294
-Expected total number of events        166.60   
+Sample size per group (calculated)     98 293
+Expected total number of events        166.1
+Expected number of events per group    19.6 146.5
 ------------------------------------------------------------------------------
 
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.7
-            p2 = 0.9
-         delta = 0.2
-         alpha = .025 (one-sided)
-         power = .9
-    allocation = 1:1
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 20
-    Group 2: 20
-      Total: 40
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 23
-    Group 2: 23
-      Total: 46
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       equal group sizes
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.300  0.100 
-
-Alpha                                  0.025 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         40
-
-Sample size per group (calculated)     20 20
-Expected total number of events        8.00     
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.75
-            p2 = 0.85
-         delta = 0.1
-         alpha = .025 (one-sided)
-         power = .9
-    allocation = 1:1
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 83
-    Group 2: 83
-      Total: 166
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 86
-    Group 2: 86
-      Total: 172
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       equal group sizes
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.250  0.150 
-
-Alpha                                  0.025 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         166
-
-Sample size per group (calculated)     83 83
-Expected total number of events        33.20    
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.8
-            p2 = 0.7
-         delta = 0.15
-         alpha = .05 (one-sided)
-         power = .9
-    allocation = 1:1
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 1268
-    Group 2: 1268
-      Total: 2536
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 1265
-    Group 2: 1265
-      Total: 2530
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       equal group sizes
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.200  0.300 
-
-Alpha                                  0.050 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         2536
-
-Sample size per group (calculated)     1268 1268
-Expected total number of events        634.00   
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.85
-            p2 = 0.8
-         delta = 0.1
-         alpha = .025 (one-sided)
-         power = .9
-    allocation = 1:1
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 1209
-    Group 2: 1209
-      Total: 2418
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 1217
-    Group 2: 1217
-      Total: 2434
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       equal group sizes
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.150  0.200 
-
-Alpha                                  0.025 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         2418
-
-Sample size per group (calculated)     1209 1209
-Expected total number of events        423.15   
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.9
-            p2 = 0.9
-         delta = 0.05
-         alpha = .05 (one-sided)
-         power = .9
-    allocation = 1:1
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 617
-    Group 2: 617
-      Total: 1234
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 631
-    Group 2: 631
-      Total: 1262
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       equal group sizes
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.100  0.100 
-
-Alpha                                  0.050 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         1234
-
-Sample size per group (calculated)     617 617
-Expected total number of events        123.40   
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.7
-            p2 = 0.75
-         delta = 0.15
-         alpha = .025 (one-sided)
-         power = .9
-    allocation = 1:1
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 105
-    Group 2: 105
-      Total: 210
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 105
-    Group 2: 105
-      Total: 210
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       equal group sizes
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.300  0.250 
-
-Alpha                                  0.025 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         210
-
-Sample size per group (calculated)     105 105
-Expected total number of events        57.75    
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.7
-            p2 = 0.9
-         delta = 0.2
-         alpha = .025 (one-sided)
-         power = .9
-    allocation = 1:2
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 17
-    Group 2: 34
-      Total: 51
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 15
-    Group 2: 30
-      Total: 45
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       1:2
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.300  0.100 
-
-Alpha                                  0.025 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         51
-
-Sample size per group (calculated)     17 34
-Expected total number of events        8.50     
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.75
-            p2 = 0.85
-         delta = 0.1
-         alpha = .025 (one-sided)
-         power = .9
-    allocation = 1:3
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 61
-    Group 2: 182
-      Total: 243
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 50
-    Group 2: 149
-      Total: 199
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       1:3
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.250  0.150 
-
-Alpha                                  0.025 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         244
-
-Sample size per group (calculated)     61 183
-Expected total number of events        42.70    
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.8
-            p2 = 0.7
-         delta = 0.15
-         alpha = .05 (one-sided)
-         power = .9
-    allocation = 1:4
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 728
-    Group 2: 2912
-      Total: 3640
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 687
-    Group 2: 2745
-      Total: 3432
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       1:4
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.200  0.300 
-
-Alpha                                  0.050 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         3640
-
-Sample size per group (calculated)     728 2912
-Expected total number of events        1019.20  
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.85
-            p2 = 0.8
-         delta = 0.1
-         alpha = .025 (one-sided)
-         power = .9
-    allocation = 1:2
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 873
-    Group 2: 1745
-      Total: 2618
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 838
-    Group 2: 1675
-      Total: 2513
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       1:2
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.150  0.200 
-
-Alpha                                  0.025 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         2619
-
-Sample size per group (calculated)     873 1746
-Expected total number of events        480.15   
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.9
-            p2 = 0.9
-         delta = 0.05
-         alpha = .05 (one-sided)
-         power = .9
-    allocation = 1:4
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 386
-    Group 2: 1542
-      Total: 1928
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 333
-    Group 2: 1332
-      Total: 1665
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       1:4
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.100  0.100 
-
-Alpha                                  0.050 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         1930
-
-Sample size per group (calculated)     386 1544
-Expected total number of events        193.00   
-------------------------------------------------------------------------------
-
-+----------------------------------------------------------------------------+
-| Sample size calculation for non-inferiority trials using a risk difference |
-+----------------------------------------------------------------------------+
-            p1 = 0.7
-            p2 = 0.75
-         delta = 0.15
-         alpha = .025 (one-sided)
-         power = .9
-    allocation = 1:3
-not assessable = 0
-
-Sample size using observed values (approximate):
-    Group 1: 72
-    Group 2: 215
-      Total: 287
-
-Sample size using maximum likelihood estimation (more accurate):
-    Group 1: 62
-    Group 2: 186
-      Total: 248
-
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        unfavourable
-                                       Inferred by the program
-Allocation ratio                       1:3
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the wald test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
-Algorithm used:                        2-arm
-
-Anticipated event probabilities        0.300  0.250 
-
-Alpha                                  0.025 (one-sided)
-Power (designed)                       0.900
-
-Total sample size (calculated)         288
-
-Sample size per group (calculated)     72 216
-Expected total number of events        75.60    
-------------------------------------------------------------------------------
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1505,28 +892,29 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 <= -.1
-Alternative hypothesis H1:             H1: pi2 - pi1 > -.1
+Null hypothesis                        H0: pi2 - pi1 <= -.1
+Alternative hypothesis                 H1: pi2 - pi1 > -.1
 
 Anticipated event probabilities        0.700  0.750 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
-Loss to follow up assumed:             20 %
+Loss to follow up assumed              20 %
 
-Total sample size (calculated)         399
+Total sample size (calculated)         398
 
-Sample size per group (calculated)     133 266
-Expected total number of events        292.60   
+Sample size per group (calculated)     133 265
+Expected total number of events        233.48
+Expected number of events per group    74.48 159
 ------------------------------------------------------------------------------
 
 *************************************************************
 *** ARTBIN HAS PASSED ALL SOFTWARE TESTING POINT 1  *********
 *************************************************************
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_testing_1_float.log
+       log:  C:\ian\git\artbin\testing\artbin_testing_1_float.log
   log type:  text
- closed on:  23 May 2023, 17:06:49
+ closed on:  22 Nov 2023, 18:52:00
 -------------------------------------------------------------------------------------------------------------------

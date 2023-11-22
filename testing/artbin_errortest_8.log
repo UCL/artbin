@@ -1,16 +1,16 @@
 -------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_errortest_8.log
+       log:  C:\ian\git\artbin\testing\artbin_errortest_8.log
   log type:  text
- opened on:  23 May 2023, 17:06:52
+ opened on:  22 Nov 2023, 18:52:01
 
 . 
 . which artbin 
-c:\ado\personal\a\artbin.ado
-*!version 2.0.2 EMZ    23may2023
+c:\ian\git\artbin\package\artbin.ado
+*!version 2.1.0 IW     22nov2023
 
 . which art2bin
-c:\ado\personal\a\art2bin.ado
+c:\ian\git\artbin\package\art2bin.ado
 *!version 1.01  09june2022
 
 . 
@@ -76,7 +76,7 @@ Can not have margin with >2 groups
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -100,7 +100,8 @@ Power (designed)                       0.900
 Total sample size (calculated)         69
 
 Sample size per group (calculated)     23 23 23
-Expected total number of events        36.80    
+Expected total number of events        36.8
+Expected number of events per group    11.5 18.4 6.9
 ------------------------------------------------------------------------------
 
 . * gives a WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value 
@@ -173,7 +174,7 @@ option alpha() incorrectly specified
 . * Alpha in superiority trial
 . artbin, pr(0.1 0.2) alpha(0.1) power(0.8) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -193,13 +194,14 @@ Continuity correction                  no
 Anticipated event probabilities        0.100  0.200 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         314
 
 Sample size per group (calculated)     157 157
-Expected total number of events        47.10    
+Expected total number of events        47.1
+Expected number of events per group    15.7 31.4
 ------------------------------------------------------------------------------
 
 . * output says alpha is 2-sided, can be for superiority trial (Ian confirmed)
@@ -234,31 +236,60 @@ alpha() out of range
 . 
 . * Missing power
 . cap noi artbin, pr(0.05 0.1) alpha(0.05) power() 
-option power() incorrectly specified
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          superiority
+Number of groups                       2
+Favourable/unfavourable outcome        favourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the score test
+Local or distant                       distant
+Continuity correction                  no
+
+Anticipated event probabilities        0.050  0.100 
+
+Alpha                                  0.050 (two-sided)
+                                        (taken as .025 one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         870
+
+Sample size per group (calculated)     435 435
+Expected total number of events        65.25
+Expected number of events per group    21.75 43.5
+------------------------------------------------------------------------------
 
 . * gives the error message "option power() incorrectly specified" as required
 . 
 . * Power out of range: 0
 . cap noi artbin, pr(0.05 0.1) margin(0.1) alpha(0.05) power(0) 
-power() out of range
+power() invalid -- invalid number, outside of allowed range
 
 . * gives the error message "power() out of range" as required
 . 
 . * Power out of range: 1
 . cap noi artbin, pr(0.05 0.1) margin(0.1) alpha(0.05) power(1) 
-power() out of range
+power() invalid -- invalid number, outside of allowed range
 
 . * gives the error message "power() out of range" as required
 . 
 . * Power out of range: 100
 . cap noi artbin, pr(0.05 0.1) margin(0.1) alpha(0.05) power(100) 
-power() out of range
+power() invalid -- invalid number, outside of allowed range
 
 . * gives the error message "power() out of range" as required
 . 
 . * Power out of range: -0.8
 . cap noi artbin, pr(0.05 0.1) margin(0.1) alpha(0.05) power(-0.8) 
-power() out of range
+power() invalid -- invalid number, outside of allowed range
 
 . * gives the error message "power() out of range" as required
 . 
@@ -275,7 +306,7 @@ option n() incorrectly specified
 . * n out of range: 0
 . artbin, pr(0.05 0.1) margin(0.1) alpha(0.05) n(0) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -291,19 +322,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the score test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         944
 
 Sample size per group (calculated)     472 472
-Expected total number of events        70.80    
+Expected total number of events        70.8
+Expected number of events per group    23.6 47.2
 ------------------------------------------------------------------------------
 
 . * gives a result with a calculated sample size and a designed power of 0.8 as expected (by specifying n(0) / n() 
@@ -312,7 +344,7 @@ Expected total number of events        70.80
 . * very low n: 1
 . artbin, pr(0.05 0.1) margin(0.1) alpha(0.05) n(1) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -328,19 +360,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the score test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.023
 
 Total sample size (designed)           1
 
 Sample size per group (designed)       .5 .5
-Expected total number of events        0.07     
+Expected total number of events        .07
+Expected number of events per group    .03 .05
 ------------------------------------------------------------------------------
 
 . * calculates power, as expected
@@ -348,7 +381,7 @@ Expected total number of events        0.07
 . * very high n: 1,000,000
 . artbin, pr(0.05 0.1) margin(0.1) alpha(0.05) n(1000000) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -364,19 +397,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the score test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     1.000
 
 Total sample size (designed)           1000000
 
 Sample size per group (designed)       500000 500000
-Expected total number of events        75000.00 
+Expected total number of events        75000
+Expected number of events per group    25000 50000
 ------------------------------------------------------------------------------
 
 . * gives a power of 1 as expected (Ian confirmed)
@@ -405,7 +439,7 @@ Can not have margin with >2 groups
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -421,19 +455,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the score test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         944
 
 Sample size per group (calculated)     472 472
-Expected total number of events        70.80    
+Expected total number of events        70.8
+Expected number of events per group    23.6 47.2
 ------------------------------------------------------------------------------
 
 . * gives the a result and a warning message as expected: WARNING: Mismatch between the number of proportions and t
@@ -450,7 +485,7 @@ Can not have margin with >2 groups
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -474,7 +509,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         270
 
 Sample size per group (calculated)     90 90 90
-Expected total number of events        31.50    
+Expected total number of events        31.5
+Expected number of events per group    4.5 9 18
 ------------------------------------------------------------------------------
 
 . * gives the message WARNING: Mismatch between the number of proportions and the number of groups specified - ngro
@@ -486,7 +522,7 @@ Expected total number of events        31.50
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -506,13 +542,14 @@ Continuity correction                  no
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         870
 
 Sample size per group (calculated)     435 435
-Expected total number of events        65.25    
+Expected total number of events        65.25
+Expected number of events per group    21.75 43.5
 ------------------------------------------------------------------------------
 
 . * gives the message WARNING: Mismatch between the number of proportions and the number of groups specified - ngro
@@ -530,7 +567,7 @@ Can not have margin with >2 groups
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -546,19 +583,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the score test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.518
 
 Total sample size (designed)           500
 
 Sample size per group (designed)       250 250
-Expected total number of events        37.50    
+Expected total number of events        37.5
+Expected number of events per group    12.5 25
 ------------------------------------------------------------------------------
 
 . * gives the a result and a warning message as expected: WARNING: Mismatch between the number of proportions and t
@@ -575,7 +613,7 @@ Can not have margin with >2 groups
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -598,8 +636,9 @@ Power (calculated)                     0.972
 
 Total sample size (designed)           500
 
-Sample size per group (designed)       166.66667 166.66667 166.66667
-Expected total number of events        58.33    
+Sample size per group (designed)       166.67 166.67 166.67
+Expected total number of events        58.33
+Expected number of events per group    8.33 16.67 33.33
 ------------------------------------------------------------------------------
 
 . * gives the a result and a warning message as expected: WARNING: Mismatch between the number of proportions and t
@@ -610,7 +649,7 @@ Expected total number of events        58.33
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -630,13 +669,14 @@ Continuity correction                  no
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.565
 
 Total sample size (designed)           500
 
 Sample size per group (designed)       250 250
-Expected total number of events        37.50    
+Expected total number of events        37.5
+Expected number of events per group    12.5 25
 ------------------------------------------------------------------------------
 
 . * gives the a result and a warning message as expected: WARNING: Mismatch between the number of proportions and t
@@ -818,7 +858,40 @@ ltfu() invalid -- invalid number, outside of allowed range
 ltfu() invalid -- invalid number, outside of allowed range
 
 . cap noi artbin, pr(0.7 0.75) margin(-0.1) power(0.8) ar(1 2) wald ltfu(0)
-ltfu() invalid -- invalid number, outside of allowed range
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        favourable
+                                       Inferred by the program
+Allocation ratio                       1:2
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the wald test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis                        H0: pi2 - pi1 <= -.1
+Alternative hypothesis                 H1: pi2 - pi1 > -.1
+
+Anticipated event probabilities        0.700  0.750 
+
+Alpha                                  0.050 (two-sided)
+                                        (taken as .025 one-sided)
+Power (designed)                       0.800
+
+Loss to follow up assumed              0 %
+
+Total sample size (calculated)         318
+
+Sample size per group (calculated)     106 212
+Expected total number of events        233.2
+Expected number of events per group    74.2 159
+------------------------------------------------------------------------------
 
 . cap noi artbin, pr(0.7 0.75) margin(-0.1) power(0.8) ar(1 2) wald ltfu(1)
 ltfu() invalid -- invalid number, outside of allowed range
@@ -837,7 +910,7 @@ ltfu() invalid -- invalid number, outside of allowed range
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -861,7 +934,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         231
 
 Sample size per group (calculated)     77 77 77
-Expected total number of events        46.20    
+Expected total number of events        46.2
+Expected number of events per group    7.7 15.4 23.1
 ------------------------------------------------------------------------------
 
 . local samplesize1 = r(n)/2
@@ -869,7 +943,7 @@ Expected total number of events        46.20
 . * check the same as
 . artbin, pr(0.1 0.2 0.3) ngroups(3)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -893,7 +967,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         231
 
 Sample size per group (calculated)     77 77 77
-Expected total number of events        46.20    
+Expected total number of events        46.2
+Expected number of events per group    7.7 15.4 23.1
 ------------------------------------------------------------------------------
 
 . local samplesize2 = r(n)/2
@@ -909,7 +984,7 @@ Expected total number of events        46.20
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -933,7 +1008,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         164
 
 Sample size per group (calculated)     41 41 41 41
-Expected total number of events        41.00    
+Expected total number of events        41
+Expected number of events per group    4.1 8.2 12.3 16.4
 ------------------------------------------------------------------------------
 
 . local samplesize3 = r(n)/2
@@ -941,7 +1017,7 @@ Expected total number of events        41.00
 . * check the same as
 . artbin, pr(0.1 0.2 0.3 0.4) ngroups(4)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -965,7 +1041,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         164
 
 Sample size per group (calculated)     41 41 41 41
-Expected total number of events        41.00    
+Expected total number of events        41
+Expected number of events per group    4.1 8.2 12.3 16.4
 ------------------------------------------------------------------------------
 
 . local samplesize4 = r(n)/2
@@ -981,7 +1058,7 @@ Expected total number of events        41.00
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1005,7 +1082,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         125
 
 Sample size per group (calculated)     25 25 25 25 25
-Expected total number of events        37.50    
+Expected total number of events        37.5
+Expected number of events per group    2.5 5 7.5 10 12.5
 ------------------------------------------------------------------------------
 
 . local samplesize5 = r(n)/2
@@ -1013,7 +1091,7 @@ Expected total number of events        37.50
 . * check the same as
 . artbin, pr(0.1 0.2 0.3 0.4 0.5) ngroups(5)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1037,7 +1115,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         125
 
 Sample size per group (calculated)     25 25 25 25 25
-Expected total number of events        37.50    
+Expected total number of events        37.5
+Expected number of events per group    2.5 5 7.5 10 12.5
 ------------------------------------------------------------------------------
 
 . local samplesize6 = r(n)/2
@@ -1056,7 +1135,7 @@ Expected total number of events        37.50
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1076,13 +1155,14 @@ Continuity correction                  no
 Anticipated event probabilities        0.100  0.200 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         398
 
 Sample size per group (calculated)     199 199
-Expected total number of events        59.70    
+Expected total number of events        59.7
+Expected number of events per group    19.9 39.8
 ------------------------------------------------------------------------------
 
 . local samplesize7 = r(n)/2
@@ -1090,7 +1170,7 @@ Expected total number of events        59.70
 . * check the same as
 . artbin, pr(0.1 0.2) ngroups(2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1110,13 +1190,14 @@ Continuity correction                  no
 Anticipated event probabilities        0.100  0.200 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         398
 
 Sample size per group (calculated)     199 199
-Expected total number of events        59.70    
+Expected total number of events        59.7
+Expected number of events per group    19.9 39.8
 ------------------------------------------------------------------------------
 
 . local samplesize8 = r(n)/2
@@ -1132,7 +1213,7 @@ Expected total number of events        59.70
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1156,7 +1237,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         231
 
 Sample size per group (calculated)     77 77 77
-Expected total number of events        46.20    
+Expected total number of events        46.2
+Expected number of events per group    7.7 15.4 23.1
 ------------------------------------------------------------------------------
 
 . local samplesize9 = r(n)/2
@@ -1164,7 +1246,7 @@ Expected total number of events        46.20
 . * check the same as
 . artbin, pr(0.1 0.2 0.3) ngroups(3) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1188,7 +1270,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         231
 
 Sample size per group (calculated)     77 77 77
-Expected total number of events        46.20    
+Expected total number of events        46.2
+Expected number of events per group    7.7 15.4 23.1
 ------------------------------------------------------------------------------
 
 . local samplesize10 = r(n)/2
@@ -1205,7 +1288,7 @@ Expected total number of events        46.20
  WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ign
 > ored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1229,7 +1312,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         231
 
 Sample size per group (calculated)     77 77 77
-Expected total number of events        46.20    
+Expected total number of events        46.2
+Expected number of events per group    7.7 15.4 23.1
 ------------------------------------------------------------------------------
 
 . local samplesize11 = r(n)/2
@@ -1237,7 +1321,7 @@ Expected total number of events        46.20
 . * check the same as
 . artbin, pr(0.1 0.2 0.3) ngroups(3) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1261,7 +1345,8 @@ Power (designed)                       0.800
 Total sample size (calculated)         231
 
 Sample size per group (calculated)     77 77 77
-Expected total number of events        46.20    
+Expected total number of events        46.2
+Expected number of events per group    7.7 15.4 23.1
 ------------------------------------------------------------------------------
 
 . local samplesize12 = r(n)/2
@@ -1287,7 +1372,7 @@ Expected total number of events        46.20
 .         
 . log close
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_errortest_8.log
+       log:  C:\ian\git\artbin\testing\artbin_errortest_8.log
   log type:  text
- closed on:  23 May 2023, 17:06:52
+ closed on:  22 Nov 2023, 18:52:01
 -------------------------------------------------------------------------------------------------------------------

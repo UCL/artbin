@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_testing_4_float.log
+       log:  C:\ian\git\artbin\testing\artbin_testing_4_float.log
   log type:  text
- opened on:  23 May 2023, 17:06:50
-c:\ado\personal\a\artbin.ado
-*!version 2.0.2 EMZ    23may2023
-c:\ado\personal\a\art2bin.ado
+ opened on:  22 Nov 2023, 18:52:00
+c:\ian\git\artbin\package\artbin.ado
+*!version 2.1.0 IW     22nov2023
+c:\ian\git\artbin\package\art2bin.ado
 *!version 1.01  09june2022
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -24,9 +24,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .2
+Alternative hypothesis                 H1: pi2 - pi1 < .2
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.300  0.100 
 
@@ -36,10 +36,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         40
 
 Sample size per group (calculated)     20 20
-Expected total number of events        8.00     
+Expected total number of events        8
+Expected number of events per group    6 2
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -55,9 +56,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.250  0.150 
 
@@ -67,10 +68,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         166
 
 Sample size per group (calculated)     83 83
-Expected total number of events        33.20    
+Expected total number of events        33.2
+Expected number of events per group    20.75 12.45
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -86,9 +88,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .15
+Alternative hypothesis                 H1: pi2 - pi1 < .15
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.200  0.300 
 
@@ -98,10 +100,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         3112
 
 Sample size per group (calculated)     1556 1556
-Expected total number of events        778.00   
+Expected total number of events        778
+Expected number of events per group    311.2 466.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -117,9 +120,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.150  0.200 
 
@@ -129,10 +132,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         2418
 
 Sample size per group (calculated)     1209 1209
-Expected total number of events        423.15   
+Expected total number of events        423.15
+Expected number of events per group    181.35 241.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -148,9 +152,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.100  0.100 
 
@@ -160,10 +164,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         1514
 
 Sample size per group (calculated)     757 757
-Expected total number of events        151.40   
+Expected total number of events        151.4
+Expected number of events per group    75.7 75.7
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -179,9 +184,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .15
+Alternative hypothesis                 H1: pi2 - pi1 < .15
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.300  0.250 
 
@@ -191,10 +196,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         210
 
 Sample size per group (calculated)     105 105
-Expected total number of events        57.75    
+Expected total number of events        57.75
+Expected number of events per group    31.5 26.25
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -210,9 +216,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .2
+Alternative hypothesis                 H1: pi2 - pi1 < .2
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.250  0.250 
 
@@ -222,10 +228,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         198
 
 Sample size per group (calculated)     99 99
-Expected total number of events        49.50    
+Expected total number of events        49.5
+Expected number of events per group    24.75 24.75
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -241,9 +248,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.200  0.100 
 
@@ -253,10 +260,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         234
 
 Sample size per group (calculated)     117 117
-Expected total number of events        35.10    
+Expected total number of events        35.1
+Expected number of events per group    23.4 11.7
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -272,9 +280,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.150  0.150 
 
@@ -284,10 +292,11 @@ Power (designed)                       0.900
 Total sample size (calculated)         536
 
 Sample size per group (calculated)     268 268
-Expected total number of events        80.40    
+Expected total number of events        80.4
+Expected number of events per group    40.2 40.2
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -303,9 +312,9 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
-Algorithm used:                        2-arm
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
+Algorithm used                         2-arm
 
 Anticipated event probabilities        0.100  0.150 
 
@@ -315,14 +324,15 @@ Power (designed)                       0.900
 Total sample size (calculated)         1830
 
 Sample size per group (calculated)     915 915
-Expected total number of events        228.75   
+Expected total number of events        228.75
+Expected number of events per group    91.5 137.25
 ------------------------------------------------------------------------------
 
 *************************************************************
 *** ARTBIN HAS PASSED ALL SOFTWARE TESTING POINT 4 **********
 *************************************************************
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_testing_4_float.log
+       log:  C:\ian\git\artbin\testing\artbin_testing_4_float.log
   log type:  text
- closed on:  23 May 2023, 17:06:50
+ closed on:  22 Nov 2023, 18:52:00
 -------------------------------------------------------------------------------------------------------------------

@@ -1,16 +1,16 @@
 -------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_testing_5.log
+       log:  C:\ian\git\artbin\testing\artbin_testing_5.log
   log type:  text
- opened on:  23 May 2023, 17:06:50
+ opened on:  22 Nov 2023, 18:52:01
 
 . 
 . which artbin
-c:\ado\personal\a\artbin.ado
-*!version 2.0.2 EMZ    23may2023
+c:\ian\git\artbin\package\artbin.ado
+*!version 2.1.0 IW     22nov2023
 
 . which art2bin
-c:\ado\personal\a\art2bin.ado
+c:\ian\git\artbin\package\art2bin.ado
 *!version 1.01  09june2022
 
 . 
@@ -23,7 +23,7 @@ c:\ado\personal\a\art2bin.ado
 . // 1 //
 . artbin, pr(0.1 0.1) margin(0.2) alpha(0.1) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -39,19 +39,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
+Null hypothesis                        H0: pi2 - pi1 >= .2
+Alternative hypothesis                 H1: pi2 - pi1 < .2
 
 Anticipated event probabilities        0.100  0.100 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         78
 
 Sample size per group (calculated)     39 39
-Expected total number of events        7.80     
+Expected total number of events        7.8
+Expected number of events per group    3.9 3.9
 ------------------------------------------------------------------------------
 
 . local samplesize1 = r(n)
@@ -66,7 +67,7 @@ Expected total number of events        7.80
 . // 2 //
 . artbin, pr(0.3 0.3) margin(0.1) alpha(0.05) power(0.8) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -82,19 +83,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.300  0.300 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         660
 
 Sample size per group (calculated)     330 330
-Expected total number of events        198.00   
+Expected total number of events        198
+Expected number of events per group    99 99
 ------------------------------------------------------------------------------
 
 . local samplesize2 = r(n)
@@ -109,7 +111,7 @@ Expected total number of events        198.00
 . // 3 //
 . artbin, pr(0.3 0.3) margin(0.05) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -125,19 +127,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.300  0.300 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         3532
 
 Sample size per group (calculated)     1766 1766
-Expected total number of events        1059.60  
+Expected total number of events        1059.6
+Expected number of events per group    529.8 529.8
 ------------------------------------------------------------------------------
 
 . local samplesize3 = r(n)
@@ -152,7 +155,7 @@ Expected total number of events        1059.60
 . // 4 //
 . artbin, pr(0.15 0.15) margin(0.15) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -168,19 +171,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
+Null hypothesis                        H0: pi2 - pi1 >= .15
+Alternative hypothesis                 H1: pi2 - pi1 < .15
 
 Anticipated event probabilities        0.150  0.150 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         240
 
 Sample size per group (calculated)     120 120
-Expected total number of events        36.00    
+Expected total number of events        36
+Expected number of events per group    18 18
 ------------------------------------------------------------------------------
 
 . local samplesize4 = r(n)
@@ -195,7 +199,7 @@ Expected total number of events        36.00
 . // 5 //
 . artbin, pr(0.2 0.2) margin(0.1) alpha(0.2) power(0.8) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -211,19 +215,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.200  0.200 
 
 Alpha                                  0.200 (two-sided)
-                                       (taken as .1 one-sided)
+                                        (taken as .1 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         290
 
 Sample size per group (calculated)     145 145
-Expected total number of events        58.00    
+Expected total number of events        58
+Expected number of events per group    29 29
 ------------------------------------------------------------------------------
 
 . local samplesize5 = r(n)
@@ -238,7 +243,7 @@ Expected total number of events        58.00
 . // 6 //
 . artbin, pr(0.1 0.1) margin(0.05) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -254,19 +259,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.100  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         1514
 
 Sample size per group (calculated)     757 757
-Expected total number of events        151.40   
+Expected total number of events        151.4
+Expected number of events per group    75.7 75.7
 ------------------------------------------------------------------------------
 
 . local samplesize6 = r(n)
@@ -281,7 +287,7 @@ Expected total number of events        151.40
 . // 7 //
 . artbin, pr(0.25 0.25) margin(0.2) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -297,19 +303,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .2
-Alternative hypothesis H1:             H1: pi2 - pi1 < .2
+Null hypothesis                        H0: pi2 - pi1 >= .2
+Alternative hypothesis                 H1: pi2 - pi1 < .2
 
 Anticipated event probabilities        0.250  0.250 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         198
 
 Sample size per group (calculated)     99 99
-Expected total number of events        49.50    
+Expected total number of events        49.5
+Expected number of events per group    24.75 24.75
 ------------------------------------------------------------------------------
 
 . local samplesize7 = r(n)
@@ -324,7 +331,7 @@ Expected total number of events        49.50
 . // 8 //
 . artbin, pr(0.2 0.2) margin(0.15) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -340,19 +347,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .15
-Alternative hypothesis H1:             H1: pi2 - pi1 < .15
+Null hypothesis                        H0: pi2 - pi1 >= .15
+Alternative hypothesis                 H1: pi2 - pi1 < .15
 
 Anticipated event probabilities        0.200  0.200 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         300
 
 Sample size per group (calculated)     150 150
-Expected total number of events        60.00    
+Expected total number of events        60
+Expected number of events per group    30 30
 ------------------------------------------------------------------------------
 
 . local samplesize8 = r(n)
@@ -367,7 +375,7 @@ Expected total number of events        60.00
 . // 9 //
 . artbin, pr(0.15 0.15) margin(0.05) alpha(0.05) power(0.9) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -383,19 +391,20 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .05
-Alternative hypothesis H1:             H1: pi2 - pi1 < .05
+Null hypothesis                        H0: pi2 - pi1 >= .05
+Alternative hypothesis                 H1: pi2 - pi1 < .05
 
 Anticipated event probabilities        0.150  0.150 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         2144
 
 Sample size per group (calculated)     1072 1072
-Expected total number of events        321.60   
+Expected total number of events        321.6
+Expected number of events per group    160.8 160.8
 ------------------------------------------------------------------------------
 
 . local samplesize9 = r(n)
@@ -410,7 +419,7 @@ Expected total number of events        321.60
 . // 10 //
 . artbin, pr(0.9 0.9) margin(-0.023) alpha(0.05) power(0.9) wald ar(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -426,26 +435,27 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 <= -.023
-Alternative hypothesis H1:             H1: pi2 - pi1 > -.023
+Null hypothesis                        H0: pi2 - pi1 <= -.023
+Alternative hypothesis                 H1: pi2 - pi1 > -.023
 
 Anticipated event probabilities        0.900  0.900 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
-Total sample size (calculated)         8046
+Total sample size (calculated)         8045
 
-Sample size per group (calculated)     2682 5364
-Expected total number of events        7241.40  
+Sample size per group (calculated)     2682 5363
+Expected total number of events        7240.5
+Expected number of events per group    2413.8 4826.7
 ------------------------------------------------------------------------------
 
 . local samplesize10 = r(n)
 
 . 
-. if `samplesize10'!=8046 { 
-.         di as err "Sample size does not match with EAST.  Should be n = 8046"
+. if `samplesize10'!=8045 { 
+.         di as err "Sample size does not match with EAST.  Should be n = 8045"
 .         exit 198
 . }
 
@@ -463,7 +473,7 @@ Expected total number of events        7241.40
 . 
 . log close
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_testing_5.log
+       log:  C:\ian\git\artbin\testing\artbin_testing_5.log
   log type:  text
- closed on:  23 May 2023, 17:06:50
+ closed on:  22 Nov 2023, 18:52:01
 -------------------------------------------------------------------------------------------------------------------

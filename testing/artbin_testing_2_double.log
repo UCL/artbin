@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_testing_2_double.log
+       log:  C:\ian\git\artbin\testing\artbin_testing_2_double.log
   log type:  text
- opened on:  23 May 2023, 17:06:49
-c:\ado\personal\a\artbin.ado
-*!version 2.0.2 EMZ    23may2023
-c:\ado\personal\a\art2bin.ado
+ opened on:  22 Nov 2023, 18:52:00
+c:\ian\git\artbin\package\artbin.ado
+*!version 2.1.0 IW     22nov2023
+c:\ian\git\artbin\package\art2bin.ado
 *!version 1.01  09june2022
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -28,16 +28,17 @@ Continuity correction                  no
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         1156
 
 Sample size per group (calculated)     578 578
-Expected total number of events        86.70    
+Expected total number of events        86.7
+Expected number of events per group    28.9 57.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -57,16 +58,17 @@ Continuity correction                  no
 Anticipated event probabilities        0.100  0.200 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         310
 
 Sample size per group (calculated)     155 155
-Expected total number of events        46.50    
+Expected total number of events        46.5
+Expected number of events per group    15.5 31
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -86,16 +88,17 @@ Continuity correction                  no
 Anticipated event probabilities        0.050  0.100 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (calculated)                     0.900
 
 Total sample size (designed)           1156
 
 Sample size per group (designed)       578 578
-Expected total number of events        86.70    
+Expected total number of events        86.7
+Expected number of events per group    28.9 57.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -115,20 +118,21 @@ Continuity correction                  no
 Anticipated event probabilities        0.100  0.200 
 
 Alpha                                  0.100 (two-sided)
-                                       (taken as .05 one-sided)
+                                        (taken as .05 one-sided)
 Power (calculated)                     0.801
 
 Total sample size (designed)           310
 
 Sample size per group (designed)       155 155
-Expected total number of events        46.50    
+Expected total number of events        46.5
+Expected number of events per group    15.5 31
 ------------------------------------------------------------------------------
 
 *************************************************************
 *** ARTBIN HAS PASSED ALL SOFTWARE TESTING POINT 2 **********
 *************************************************************
       name:  <unnamed>
-       log:  C:\git\artbin\testing\artbin_testing_2_double.log
+       log:  C:\ian\git\artbin\testing\artbin_testing_2_double.log
   log type:  text
- closed on:  23 May 2023, 17:06:49
+ closed on:  22 Nov 2023, 18:52:00
 -------------------------------------------------------------------------------------------------------------------
