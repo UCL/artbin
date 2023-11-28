@@ -3,6 +3,8 @@
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
 {vieweralsosee "artbin_whatsnew" "artbin_whatsnew"}{...}
+{vieweralsosee "art" "art"}{...}
+{vieweralsosee "artsurv" "artsurv"}{...}
 {viewerjumpto "Syntax" "artbin##syntax"}{...}
 {viewerjumpto "Description" "artbin##description"}{...}
 {viewerjumpto "Options" "artbin##options"}{...}
@@ -65,6 +67,9 @@
 
 {marker description}{...}
 {title:Description}
+
+{pstd}
+{cmd:artbin} is part of the {help art:ART} suite: {cmd:A}ssessment of {cmd:R}esources for {cmd:T}rials.
 
 {pstd}
 {cmd:artbin} calculates the power or total sample size for various tests comparing {it:K}
@@ -387,6 +392,6 @@ Trials 21, 145 (2020). {browse "https://doi.org/10.1186/s13063-020-4070-4"}
     Manual:  {hi:[R] power}
 
 {p 4 13 2}
-Online:  help for {help artmenu}, {help artbindlg}
+Online:  help for {help artmenu}, {help artbindlg}, {help art}, {help artsurv}
 
 
