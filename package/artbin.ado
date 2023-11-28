@@ -41,6 +41,7 @@
 					add expected events per group to output
 					add undocumented options debug, convcrit, format
 					small tidying of output
+					return artbin_version
 2.0.2   23may2023   ltfu() bug fix (previously applied to SS but not to power)
 2.0.1   09june2022  Removal of comma in between anticipated probabilities in output table.  Replaced p's with pi's in output table hypothesis test.  	
 					Minor formatting to output table.  Allowed onesided for >2 groups if trend/dose specified.  Removed warning if p1 + m lies 
@@ -159,6 +160,11 @@
 */
 program define artbin, rclass
 version 8
+
+if _caller() >= 12 {
+    local hidden hidden
+}
+return `hidden' local artbin_version "2.1.0"
 
 gettoken number : 1
 if "`1'"! = "," {
