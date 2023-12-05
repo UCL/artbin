@@ -317,6 +317,13 @@ calculate sample size or power for a 2-group trial with ordered categorical outc
 For a detailed description of what's new in artbin, please see {helpb artbin_whatsnew}.
 
 
+{title:Changes from {cmd:artbin} version 2.0.1 to version 2.1}
+
+{pstd}An error in the {cmd:ltfu()} option when calculating power from sample size has been corrected.
+
+{pstd}Rounding now behaves exactly as stated in the help file, i.e. sample sizes are rounded up to the nearest integer in each group.
+
+
 {marker examples}{...}
 {title:Examples}
 
