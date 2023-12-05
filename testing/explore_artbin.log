@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\explore_artbin.log
   log type:  text
- opened on:  22 Nov 2023, 18:52:01
+ opened on:   5 Dec 2023, 16:30:49
 
 . postutil clear
 
@@ -74,9 +74,12 @@ noccorrect |     181.7228      183.7081      188.3731
 -------------------------------------------------------------------
 
 . 
+. erase `name'_postfile.dta
+
+. 
 . log close
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\explore_artbin.log
   log type:  text
- closed on:  22 Nov 2023, 18:52:01
+ closed on:   5 Dec 2023, 16:30:50
 -------------------------------------------------------------------------------------------------------------------

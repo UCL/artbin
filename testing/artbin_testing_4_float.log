@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\artbin_testing_4_float.log
   log type:  text
- opened on:  22 Nov 2023, 18:52:00
+ opened on:   5 Dec 2023, 16:30:49
 c:\ian\git\artbin\package\artbin.ado
 *!version 2.1.0 IW     22nov2023
 c:\ian\git\artbin\package\art2bin.ado
@@ -334,5 +334,5 @@ Expected number of events per group    91.5 137.25
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\artbin_testing_4_float.log
   log type:  text
- closed on:  22 Nov 2023, 18:52:00
+ closed on:   5 Dec 2023, 16:30:49
 -------------------------------------------------------------------------------------------------------------------

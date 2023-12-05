@@ -53,4 +53,6 @@ sencode method, gen(methnum)
 sencode opt, gen(optnum)
 tabdisp optnum methnum, by(typenum) c(n) concise
 
+erase `name'_postfile.dta
+
 log close
