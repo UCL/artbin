@@ -10,7 +10,7 @@ clear all
 set more off
 prog drop _all
 
-log using artbin_errortest_8,  replace text
+log using artbin_errortest_8,  replace text nomsg
 
 which artbin 
 which art2bin

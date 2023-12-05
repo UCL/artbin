@@ -14,7 +14,7 @@ foreach type in float double {
 
 set type `type'
 
-log using artbin_testing_1_`type', replace text
+log using artbin_testing_1_`type', replace text nomsg
 
 which artbin
 which art2bin
@@ -304,7 +304,7 @@ if `samplesize11'!=391 {
 
 
 
-/*
+
 * Testing artbin compared to niss
 *************************************
 * Note: niss needs a margin specified (can not be set to 0, as then makes it a superiority trial).  
@@ -434,7 +434,7 @@ if (`niss12' != `art12') &  (`niss12' + 1 != `art12') {  // rounding difference
 di as err "niss and artbin output do not match"
 	exit 198
 }
-*/
+
 
 * Test ltfu() option against STREAM trial.  Main trial ss =398 (ltfu = 0.2) but ar(1 2) so artbin with rounding will make 399 (133 and 266):
 artbin, pr(0.7 0.75) margin(-0.1) power(0.8) ar(1 2) wald ltfu(0.2)

@@ -4,7 +4,7 @@
 
 prog drop _all
 
-log using artbin_testltfu, replace text
+log using artbin_testltfu, replace text nomsg
 
 which artbin
 which art2bin
@@ -46,5 +46,10 @@ foreach opts in "pr(.02 .02) margin(.02) aratio(1 2)" ///
 * check it works with non-integer ltfu*n
 artbin, pr(.02 .02) margin(.02) ltfu(.05) n(1836)
 assert r(n)==1836
+
+// REPORT SUCCESS
+di as result _n "*************************************************************" ///
+	_n "*** ARTBIN HAS PASSED SOFTWARE TESTING OF LTFU()    *********" ///
+	_n "*************************************************************"
 
 log close

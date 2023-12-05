@@ -13,7 +13,7 @@ foreach type in float double {
 
 set type `type'
 
-log using artbin_testing_4_`type', replace text
+log using artbin_testing_4_`type', replace text nomsg
 
 which artbin
 which art2bin

@@ -9,7 +9,7 @@ prog drop _all
 
 set level 95 // since art2bin defaults to c(level), unlike artbin
 
-log using artbin_testing_7, replace text
+log using artbin_testing_7, replace text nomsg
 
 
 which artbin

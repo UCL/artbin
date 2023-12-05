@@ -149,6 +149,10 @@ foreach opt in "margin(.1)" "ccorrect" /* "favourable" */ "onesided" {
 
 
 
+// REPORT SUCCESS
+di as result _n "*************************************************************" ///
+	_n "*** ARTBIN HAS PASSED TESTING OF EVERY OPTION ***************" ///
+	_n "*************************************************************"
 
-di "*** ARTBIN HAS PASSED ALL THESE TESTS ***"
+
 log close

@@ -54,8 +54,6 @@ do `cd'artbin_testing_6
 
 
 do `cd'artbin_testing_7
-do `cd'\IW_testing\explore_every_option
-do `cd'\IW_testing\explore_artbin
 
 
 // 8. We checked error messages in a number of impossible cases, to ensure that we obtained error messages as required.
@@ -73,7 +71,9 @@ do `cd'artbin_errortest_8
 // Note: We re-ran the test scripts #1,2,3,4 and 6 implementing the above tests with the default variable type (\texttt{set type}) as \texttt{float} and as \texttt{double}.
 
 
-// Added after publication in the SJ: new tests of the ltfu option 
+// Added after publication in the SJ: new tests 
+
+do `cd'explore_every_option
 
 do `cd'artbin_test_ltfu
 

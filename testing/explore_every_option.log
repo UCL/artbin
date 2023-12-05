@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\explore_every_option.log
   log type:  text
- opened on:   5 Dec 2023, 16:30:49
+ opened on:   5 Dec 2023, 17:15:04
 
 . which artbin`ver'
 c:\ian\git\artbin\package\artbin.ado
@@ -2167,13 +2167,20 @@ Note: an error message was expected above
 . 
 . 
 . 
-. 
-. di "*** ARTBIN HAS PASSED ALL THESE TESTS ***"
-*** ARTBIN HAS PASSED ALL THESE TESTS ***
+. // REPORT SUCCESS
+. di as result _n "*************************************************************" ///
+>         _n "*** ARTBIN HAS PASSED TESTING OF EVERY OPTION ***************" ///
+>         _n "*************************************************************"
 
+*************************************************************
+*** ARTBIN HAS PASSED TESTING OF EVERY OPTION ***************
+*************************************************************
+
+. 
+. 
 . log close
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\explore_every_option.log
   log type:  text
- closed on:   5 Dec 2023, 16:30:49
+ closed on:   5 Dec 2023, 17:15:05
 -------------------------------------------------------------------------------------------------------------------

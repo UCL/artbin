@@ -5,7 +5,7 @@
 prog drop _all
 
 cap log close
-log using artbin_test_rounding, replace text
+log using artbin_test_rounding, replace text nomsg
 
 which artbin
 which art2bin
@@ -41,5 +41,10 @@ foreach opts in ///
 		assert r(n)==r(n1)+r(n2)+r(n3)
 	}
 }
+
+// REPORT SUCCESS
+di as result _n "*************************************************************" ///
+	_n "*** ARTBIN HAS PASSED SOFTWARE TESTING OF ROUNDING  *********" ///
+	_n "*************************************************************"
 
 log close

@@ -1,8 +1,3 @@
--------------------------------------------------------------------------------------------------------------------
-      name:  <unnamed>
-       log:  C:\ian\git\artbin\testing\artbin_testing_2_double.log
-  log type:  text
- opened on:   5 Dec 2023, 16:30:48
 c:\ian\git\artbin\package\artbin.ado
 *!version 2.1.0 IW     22nov2023
 c:\ian\git\artbin\package\art2bin.ado
@@ -131,8 +126,3 @@ Expected number of events per group    15.5 31
 *************************************************************
 *** ARTBIN HAS PASSED ALL SOFTWARE TESTING POINT 2 **********
 *************************************************************
-      name:  <unnamed>
-       log:  C:\ian\git\artbin\testing\artbin_testing_2_double.log
-  log type:  text
- closed on:   5 Dec 2023, 16:30:48
--------------------------------------------------------------------------------------------------------------------
