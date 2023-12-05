@@ -1,7 +1,7 @@
 /*
-MAIN TESTING FILE FOR ARTBIN v2.0.2
+MAIN TESTING FILE FOR ARTBIN v2.1.0
 EMZ and IW, 23may2023
-Remove paths from all subsidiary files, 21nov2023
+Remove paths from all subsidiary files, 05dec2023
 */
 
 clear all
@@ -50,7 +50,7 @@ do `cd'artbin_testing_5
 do `cd'artbin_testing_6
 
 
-// 7. We tested every permuation of 2-arm/more than 2-arms and non-inferiority/substantial-superiority/superiority trials with margin, local/distant, conditional/unconditional, trend and Wald test options to check that the results were as expected, and that sample size was increased/decreased accordingly.
+// 7. We tested every permutation of 2-arm/more than 2-arms and non-inferiority/substantial-superiority/superiority trials with margin, local/distant, conditional/unconditional, trend and Wald test options to check that the results were as expected, and that sample size was increased/decreased accordingly.
 
 
 do `cd'artbin_testing_7
@@ -73,9 +73,11 @@ do `cd'artbin_errortest_8
 // Note: We re-ran the test scripts #1,2,3,4 and 6 implementing the above tests with the default variable type (\texttt{set type}) as \texttt{float} and as \texttt{double}.
 
 
-// New tests of the ltfu option
+// Added after publication in the SJ: new tests of the ltfu option 
 
 do `cd'artbin_test_ltfu
+
+do `cd'artbin_test_rounding
 
 
 
