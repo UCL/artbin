@@ -4,4 +4,4 @@ d Stata software from the MRC Clinical Trials Unit at UCL
 
 p artbin Calculate sample size or power for randomized trials with binary outcomes
 
-l artcat https://raw.githubusercontent.com/UCL/artcat/master/package/ Sample size for ordered categorical outcome
+l artcat https://raw.githubusercontent.com/UCL/artcat/main/package/ Sample size for ordered categorical outcome
