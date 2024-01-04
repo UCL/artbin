@@ -1,9 +1,9 @@
 c:\ian\git\artbin\package\artbin.ado
-*!version 2.1.0 IW     22nov2023
+*!version 2.1.0 IW     04jan2024
 c:\ian\git\artbin\package\art2bin.ado
 *!version 1.01  09june2022
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -35,7 +35,7 @@ Expected total number of events        7.8
 Expected number of events per group    3.9 3.9
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -67,7 +67,7 @@ Expected total number of events        1059.6
 Expected number of events per group    529.8 529.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -99,7 +99,7 @@ Expected total number of events        36
 Expected number of events per group    18 18
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -131,7 +131,7 @@ Expected total number of events        58
 Expected number of events per group    29 29
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -163,7 +163,7 @@ Expected total number of events        151.4
 Expected number of events per group    75.7 75.7
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -195,7 +195,7 @@ Expected total number of events        49.5
 Expected number of events per group    24.75 24.75
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -227,7 +227,7 @@ Expected total number of events        60
 Expected number of events per group    30 30
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -281,7 +281,7 @@ Assumptions:
 
 The total estimated sample size is 652
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -335,7 +335,7 @@ Assumptions:
 
 The total estimated sample size is 396
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -389,7 +389,7 @@ Assumptions:
 
 The total estimated sample size is 520
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -443,7 +443,7 @@ Assumptions:
 
 The total estimated sample size is 118
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -497,7 +497,7 @@ Assumptions:
 
 The total estimated sample size is 2376
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -551,7 +551,7 @@ Assumptions:
 
 The total estimated sample size is 396
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -583,7 +583,7 @@ Expected total number of events        316.8
 Expected number of events per group    158.4 158.4
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -615,7 +615,7 @@ Expected total number of events        7.8
 Expected number of events per group    3.9 3.9
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -647,7 +647,7 @@ Expected total number of events        1059.6
 Expected number of events per group    529.8 529.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -679,7 +679,7 @@ Expected total number of events        36
 Expected number of events per group    18 18
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -711,7 +711,7 @@ Expected total number of events        58
 Expected number of events per group    29 29
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -743,7 +743,7 @@ Expected total number of events        151.4
 Expected number of events per group    75.7 75.7
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -775,7 +775,7 @@ Expected total number of events        49.5
 Expected number of events per group    24.75 24.75
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -807,7 +807,7 @@ Expected total number of events        60
 Expected number of events per group    30 30
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -839,7 +839,7 @@ Expected total number of events        321.6
 Expected number of events per group    160.8 160.8
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -893,7 +893,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 46
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -947,7 +947,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 172
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1001,7 +1001,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 2530
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1055,7 +1055,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 2434
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1109,7 +1109,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 1262
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1163,7 +1163,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 210
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1217,7 +1217,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 45
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1271,7 +1271,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 199
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1325,7 +1325,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 3432
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1379,7 +1379,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 2513
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1433,7 +1433,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 1665
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1487,7 +1487,7 @@ Sample size using maximum likelihood estimation (more accurate):
       Total: 248
 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1519,7 +1519,7 @@ Expected total number of events        75.35
 Expected number of events per group    21.6 53.75
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White

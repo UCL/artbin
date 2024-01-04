@@ -3,7 +3,7 @@
 . 
 . which artbin
 c:\ian\git\artbin\package\artbin.ado
-*!version 2.1.0 IW     22nov2023
+*!version 2.1.0 IW     04jan2024
 
 . which art2bin
 c:\ian\git\artbin\package\art2bin.ado
@@ -17,7 +17,7 @@ c:\ian\git\artbin\package\art2bin.ado
 . * Superiority >2 local.  Goes to k-arm local as required.
 . artbin, pr(0.1 0.2 0.3) local alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -52,7 +52,7 @@ Expected number of events per group    7.8 15.6 23.4
 . * Superiority >2 nchi local.  Goes to k-arm local as required.
 . artbin, pr(0.1 0.2 0.3) nchi local alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -86,7 +86,7 @@ Expected number of events per group    7.8 15.6 23.4
 . * Superiority >2 nolocal.  Goes to k-arm distant as required.
 . artbin, pr(0.1 0.2 0.3) alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -121,7 +121,7 @@ Expected number of events per group    7.7 15.4 23.1
 . * Superiority >2 nchi nolocal.  Goes to k-arm distant as required.  
 . artbin, pr(0.1 0.2 0.3) nchi alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -155,7 +155,7 @@ Expected number of events per group    7.7 15.4 23.1
 . * Superiority =2 nonchi local. Goes to art2bin local as required.                  
 . artbin, pr(0.1 0.2) local alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -190,7 +190,7 @@ Expected number of events per group    20.1 40.2
 . * Superiority =2 nonchi nolocal. Should go to art2bin distant.                      
 . artbin, pr(0.1 0.2) alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -225,7 +225,7 @@ Expected number of events per group    19.9 39.8
 . * NI nonchi nolocal. Should go to art2bin distant.      
 . artbin, pr(0.2 0.1) margin(0.01) alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -262,7 +262,7 @@ Expected number of events per group    33.2 16.6
 . * Substantial-superiority       nonchi nolocal. Should go to art2bin distant.
 . artbin, pr(0.3 0.1) margin(-0.1) alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -300,7 +300,7 @@ Expected number of events per group    71.1 23.7
 . artbin, pr(0.2 0.1) margin(0.01) nchi alg
  WARNING: nchi will be ignored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -339,7 +339,7 @@ Expected number of events per group    33.2 16.6
 . artbin, pr(0.3 0.1) margin(-0.1) nchi alg
  WARNING: nchi will be ignored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -377,7 +377,7 @@ Expected number of events per group    71.1 23.7
 . * Superiority, =2, nchi, local/nolocal. 
 . artbin, pr(0.1 0.2) nchi alg        /* Currently goes to k-arm not art2bin, as nchi. */
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -409,7 +409,7 @@ Expected number of events per group    19.9 39.8
 
 . artbin, pr(0.1 0.2) nchi local alg /* Currently goes to k-arm  not art2bin, as nchi. */
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -450,7 +450,7 @@ You are using the old syntax: pr(p1 p2) ni.  The new syntax for the equivalent e
 . * Error message as required
 . artbin, pr(0.1 0.2) margin(0.01) local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -488,7 +488,7 @@ Expected number of events per group    24.6 49.2
 . artbin, pr(0.1 0.2) margin(0.01) nchi local 
  WARNING: nchi will be ignored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -525,7 +525,7 @@ Expected number of events per group    24.6 49.2
 . * Super-superiority, nonchi, local.  Ab says margin!=0 and local now allowed
 . artbin, pr(0.1 0.2) margin(-0.05) local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -563,7 +563,7 @@ Expected number of events per group    9.4 18.8
 . artbin, pr(0.1 0.2) nchi margin(-0.05) local
  WARNING: nchi will be ignored.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -600,7 +600,7 @@ Expected number of events per group    9.4 18.8
 . * Check non-zero margin and local gives error message. .  Ab says margin!=0 and local now allowed
 . artbin, pr(0.1 0.3) margin(-0.1) local  
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -634,7 +634,7 @@ Expected number of events per group    3 9
 
 . artbin, pr(0.1 0.3) margin(0.1) local 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -670,7 +670,7 @@ Expected number of events per group    23.8 71.4
 . * Check ok:
 . artbin, pr(0.1 0.3) margin(0) local               /* ok */
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -708,7 +708,7 @@ Expected number of events per group    6.3 18.9
 . * As Ian also put it: check that nchi doesn’t change the answer with 2 groups, superiority, local.
 . artbin, pr(0.1 0.2) local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -740,7 +740,7 @@ Expected number of events per group    20.1 40.2
 
 . artbin, pr(0.1 0.2) local nchi
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -773,7 +773,7 @@ Expected number of events per group    20.1 40.2
 . 
 . artbin, pr(0.7 0.85) local                                                   
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -805,7 +805,7 @@ Expected number of events per group    85.4 103.7
 
 . artbin, pr(0.7 0.85) local nchi
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -842,7 +842,7 @@ Expected number of events per group    85.4 103.7
 . 
 . artbin, pr(0.1 0.3)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -880,7 +880,7 @@ Expected number of events per group    6.2 18.6
 . 
 . artbin, pr(0.1 0.3) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -918,7 +918,7 @@ Expected number of events per group    6.2 18.6
 . 
 . artbin, pr(0.1 0.3) margin(-0.05) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -957,47 +957,7 @@ Expected number of events per group    4.1 12.3
 . 
 . artbin, pr(0.1 0.3) margin(-0.05) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
-------------------------------------------------------------------------------
-A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
-Ella Marley-Zagar and Ian White
-MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
-------------------------------------------------------------------------------
-Type of trial                          non-inferiority
-Number of groups                       2
-Favourable/unfavourable outcome        favourable
-                                       Inferred by the program
-Allocation ratio                       equal group sizes
-Statistical test assumed               unconditional comparison of 2
-                                        binomial proportions
-                                        using the score test
-Local or distant                       distant
-Continuity correction                  no
-Null hypothesis                        H0: pi2 - pi1 <= -.05
-Alternative hypothesis                 H1: pi2 - pi1 > -.05
-
-Anticipated event probabilities        0.100  0.300 
-
-Alpha                                  0.050 (two-sided)
-                                        (taken as .025 one-sided)
-Power (designed)                       0.800
-
-Total sample size (calculated)         82
-
-Sample size per group (calculated)     41 41
-Expected total number of events        16.4
-Expected number of events per group    4.1 12.3
-------------------------------------------------------------------------------
-
-. /*
-> NON-INFERIORITY
-> as required
-> */
-. 
-. 
-. artbin, pr(0.1 0.3) margin(-0.05) 
-
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1037,7 +997,47 @@ Expected number of events per group    4.1 12.3
 . 
 . artbin, pr(0.1 0.3) margin(-0.05) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          non-inferiority
+Number of groups                       2
+Favourable/unfavourable outcome        favourable
+                                       Inferred by the program
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the score test
+Local or distant                       distant
+Continuity correction                  no
+Null hypothesis                        H0: pi2 - pi1 <= -.05
+Alternative hypothesis                 H1: pi2 - pi1 > -.05
+
+Anticipated event probabilities        0.100  0.300 
+
+Alpha                                  0.050 (two-sided)
+                                        (taken as .025 one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         82
+
+Sample size per group (calculated)     41 41
+Expected total number of events        16.4
+Expected number of events per group    4.1 12.3
+------------------------------------------------------------------------------
+
+. /*
+> NON-INFERIORITY
+> as required
+> */
+. 
+. 
+. artbin, pr(0.1 0.3) margin(-0.05) 
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1076,7 +1076,7 @@ Expected number of events per group    4.1 12.3
 . 
 . artbin, pr(0.1 0.3) margin(-0.05) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1120,7 +1120,7 @@ Expected number of events per group    4.1 12.3
 . * superiority trial - favourable, because p2>p1
 . artbin, pr(.2 .3)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1153,7 +1153,7 @@ Expected number of events per group    58.8 88.2
 . * Further sanity checks
 . artbin, pr(.2 .3) fav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1200,7 +1200,7 @@ artbin thinks your outcome is favourable. Please check your command. If your com
 . * conversely, if p1>p2 should say unfavourable
 . artbin, pr(.3 .2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1233,7 +1233,7 @@ Expected number of events per group    88.2 58.8
 . * Further sanity checks
 . artbin, pr(.3 .2) unfav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1280,7 +1280,7 @@ artbin thinks your outcome is unfavourable. Please check your command. If your c
 . * standard NI trial - unfavourable, because margin>0
 . artbin, pr(.2 .2) margin(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1315,7 +1315,7 @@ Expected number of events per group    51 51
 . * Further sanity checks
 . artbin, pr(.2 .2) margin(.1) unfav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1366,7 +1366,7 @@ artbin thinks your outcome is unfavourable. Please check your command. If your c
 . * standard NI trial - favourable, because margin<0
 . artbin, pr(.2 .2) margin(-.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1401,7 +1401,7 @@ Expected number of events per group    51 51
 . * Further sanity checks
 . artbin, pr(.2 .2) margin(-.1) fav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1453,7 +1453,7 @@ artbin thinks your outcome is favourable. Please check your command. If your com
 . * - unfavourable, because margin>0
 . artbin, pr(.2 .18) margin(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1488,7 +1488,7 @@ Expected number of events per group    34.4 30.96
 . * Further sanity checks
 . artbin, pr(.2 .18) margin(.1) unfav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1540,7 +1540,7 @@ artbin thinks your outcome is unfavourable. Please check your command. If your c
 . * SS trial & favourable, because p2-p1>margin>0
 . artbin, pr(.2 .4) margin(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1575,7 +1575,7 @@ Expected number of events per group    64 128
 . * Further sanity checks
 . artbin, pr(.2 .4) margin(.1) fav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1626,7 +1626,7 @@ artbin thinks your outcome is favourable. Please check your command. If your com
 . * NI trial & unfavourable, because p2-p1<margin>0
 . artbin, pr(.2 .25) margin(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1661,7 +1661,7 @@ Expected number of events per group    218.6 273.25
 . * Further sanity checks
 . artbin, pr(.2 .25) margin(.1) unfav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1712,7 +1712,7 @@ artbin thinks your outcome is unfavourable. Please check your command. If your c
 . * SS trial & unfavourable, because p2-p1<margin<0
 . artbin, pr(.4 .2) margin(-.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1747,7 +1747,7 @@ Expected number of events per group    128 64
 . * Further sanity checks
 . artbin, pr(.4 .2) margin(-.1) unfav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1798,7 +1798,7 @@ artbin thinks your outcome is unfavourable. Please check your command. If your c
 . * NI trial & favourable, because p2-p1>margin<0
 . artbin, pr(.2 .25) margin(-.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1833,7 +1833,7 @@ Expected number of events per group    24.8 31
 . * Further sanity checks
 . artbin, pr(.2 .25) margin(-.1) fav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1890,7 +1890,7 @@ artbin thinks your outcome is favourable. Please check your command. If your com
 . 
 . artbin, pr(0.1 0.3) alg
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1925,7 +1925,7 @@ Expected number of events per group    6.2 18.6
 . artbin, pr(0.1 0.3) condit
  NOTE: As conditional has been selected local will be used.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1972,7 +1972,7 @@ Can not select conditional option for non-inferiority/substantial-superiority tr
 . 
 . artbin, pr(0.1 0.3) margin(0)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2005,7 +2005,7 @@ Expected number of events per group    6.2 18.6
 . artbin, pr(0.1 0.3) margin(0) condit
  NOTE: As conditional has been selected local will be used.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2042,7 +2042,7 @@ Can not select trend option for a 2-arm trial
 . 
 . artbin, pr(0.1 0.3 0.4)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2073,7 +2073,7 @@ Expected number of events per group    3.8 11.4 15.2
 . * Says unconditional as required
 . artbin, pr(0.1 0.3 0.4) condit local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2104,7 +2104,7 @@ Expected number of events per group    2.8 8.4 11.2
 . * Says conditional as required
 . artbin, pr(0.1 0.3 0.4) trend
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2136,7 +2136,7 @@ Expected number of events per group    3.3 9.9 13.2
 . * Has trend test on output as required
 . artbin, pr(0.1 0.3 0.4) condit local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2167,7 +2167,7 @@ Expected number of events per group    2.8 8.4 11.2
 . * ok
 . artbin, pr(0.1 0.3 0.4) local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2198,7 +2198,7 @@ Expected number of events per group    4.1 12.3 16.4
 . * gives a different answer to unconditional and distant as required
 . artbin, pr(0.1 0.3 0.4) trend
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2232,7 +2232,7 @@ Expected number of events per group    3.3 9.9 13.2
 . 
 . artbin, pr(0.1 0.3) nchi
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2265,7 +2265,7 @@ Expected number of events per group    6.2 18.6
 . artbin, pr(0.1 0.3) nchi condit
  NOTE: As conditional has been selected local will be used.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2305,7 +2305,7 @@ Can not select conditional AND local options for 2-arm nchi trial
 . * Error message: Can not select conditional AND local options for 2-arm nchi trial
 . artbin, pr(0.1 0.3) nchi local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2343,7 +2343,7 @@ Can not select trend option for a 2-arm trial
 . * checking the below are the same, as allowing onesided to be used when trend/doses specified for >2 groups
 . artbin, pr(0.1 0.2 0.3) trend alpha(0.05) onesided
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2376,7 +2376,7 @@ Expected number of events per group    4.9 9.8 14.7
 
 . artbin, pr(0.1 0.2 0.3) trend alpha(0.1) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2412,7 +2412,7 @@ Expected number of events per group    4.9 9.8 14.7
 . 
 . artbin, pr(0.1 0.2 0.3) doses(2 4 6) alpha(0.05) onesided
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2445,7 +2445,7 @@ Expected number of events per group    4.9 9.8 14.7
 
 . artbin, pr(0.1 0.2 0.3) doses(2 4 6) alpha(0.1) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2496,7 +2496,7 @@ Please specify the same number of aratios() as pr() for >2 groups
 . * Superiority >2 nchi nolocal
 . artbin, pr(0.1 0.2 0.3) nchi aratio(1 2 3)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2528,7 +2528,7 @@ Expected number of events per group    5.1 20.2 45.3
 . * Superiority =2 nchi local
 . artbin, pr(0.1 0.2) nchi local aratio(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2561,7 +2561,7 @@ Expected number of events per group    16.4 65.6
 . * Superiority =2 nchi nolocal
 . artbin, pr(0.1 0.2) nchi aratio(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2594,7 +2594,7 @@ Expected number of events per group    15.5 61.8
 . * Superiority =2 nonchi local. 
 . artbin, pr(0.1 0.2) local aratio(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2628,7 +2628,7 @@ Expected number of events per group    16.4 65.6
 . * Superiority =2 nonchi nolocal
 . artbin, pr(0.1 0.2) aratio(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2662,7 +2662,7 @@ Expected number of events per group    15.5 61.8
 . * NI nonchi nolocal     
 . artbin, pr(0.1 0.2) margin(-0.1) aratio(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2698,7 +2698,7 @@ Expected number of events per group    4.5 17.8
 . * Super-superiority     nonchi nolocal  
 . artbin, pr(0.3 0.1) margin(-0.1) aratio(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2734,7 +2734,7 @@ Expected number of events per group    55.8 37.1
 . * margin(0) local
 . artbin, pr(0.1 0.3) margin(0) local aratio(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2770,7 +2770,7 @@ Expected number of events per group    5.3 31.8
 . *artbin_v$version, pr(0.05 0.08) alpha(0.05) power(0.8) ni(1) ar(1 2)
 . artbin, pr(0.05 0.05) margin(0.03) alpha(0.05) power(0.8) ar(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2805,7 +2805,7 @@ Expected number of events per group    28.6 57.2
 . * description table now displays allocation ratio correctly as 1:2 (and the sample size is still 1716 
 . artbin, pr(0.05 0.05) margin(0.03) alpha(0.05) power(0.8) ar(1 2) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2843,7 +2843,7 @@ Expected number of events per group    28.58 57.17
 . * Checking non-integer allocation ratios allowed
 . artbin, pr(.15 .15) margin(.1) aratio(1 1.5)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2878,7 +2878,7 @@ Expected number of events per group    24.15 36.15
 . * this is the same as:
 . artbin, pr(.15 .15) margin(.1) aratio(2 3)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2918,7 +2918,7 @@ Expected number of events per group    24.15 36.15
 . 
 . artbin, pr(.2(.01).3 .5)                                                   
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2950,7 +2950,7 @@ Expected number of events per group    10.4 10.92 11.44 11.96 12.48 13 13.52 14.
 . 
 . artbin, pr(.2(.05).3)                                                       
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2983,7 +2983,7 @@ Expected number of events per group    72.2 90.25 108.3
 . * Checking a variety of formats of p are accepted:
 . artbin, pr(0.1 .2 0.3 .4)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3015,7 +3015,7 @@ Expected number of events per group    4.1 8.2 12.3 16.4
 . * Check long pr's
 . artbin, pr(0.000001 0.000002)    //***** Anticipated event probabilities in table to 3 dp ****//
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3051,7 +3051,7 @@ Expected number of events per group    23.55 47.09
 . 
 . artbin, pr(.2 .25) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3083,7 +3083,7 @@ Expected number of events per group    218.2 272.75
 
 . artbin, pr(.2 .25) wald nvm(1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3120,7 +3120,7 @@ Need nvm(1) if Wald specified
 . * error message as required
 . artbin, pr(.1 .2 .3) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3156,7 +3156,7 @@ Expected number of events per group    6.9 13.8 20.7
 . * was 1 dp:
 . artbin, pr(0.3 0.1) margin(0) alpha(0.05) power(0.90) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3189,7 +3189,7 @@ Expected number of events per group    24.6 8.2
 . * was 2 dp:
 . artbin, pr(0.15 0.2) margin(0) alpha(0.1) power(0.90) ccorrect(1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3222,7 +3222,7 @@ Expected number of events per group    154.05 205.4
 . * was 0 dp:
 . artbin, pr(0.2 0.3) margin(0.15) alpha(0.05) onesided(1) power(0.9) nvm(1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3260,7 +3260,7 @@ Total sample size (calculated) is: 398
 
 . artbin, pr(0.1 0.2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3295,7 +3295,7 @@ Power (calculated) is: 0.994
 
 . artbin, pr(0.1 0.2) n(1000)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3330,7 +3330,7 @@ Expected number of events per group    50 100
 . * checks artbin v art2bin
 . artbin, pr(.1 .1) margin(.05)  // 1162
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3374,7 +3374,7 @@ Total sample size = 1162
 . 
 . artbin, pr(0.3 0.3) margin(0.05) ngroups(2) alpha(0.05) power(0.9) 
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3422,7 +3422,7 @@ Total sample size = 3530
 . 
 . artbin, pr(.6 .7)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3486,7 +3486,7 @@ Expected total number of events        463
 . 
 . artbin, pr(.2 .25) local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3552,7 +3552,7 @@ Expected total number of events        493
 . * Testing number of events
 . artbin, pr(0.25 0.35) margin(0.2) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3589,7 +3589,7 @@ Expected number of events per group    80.38 112.53
 . 
 . artbin, pr(0.3 0.5) margin(0.1) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3626,7 +3626,7 @@ Expected number of events per group    110.64 184.39
 . 
 . artbin, pr(0.4 0.6) margin(0.05) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3663,7 +3663,7 @@ Expected number of events per group    68.8 103.2
 . 
 . artbin, pr(0.3 0.5) margin(-0.1) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3700,7 +3700,7 @@ Expected number of events per group    12.35 20.58
 . 
 . artbin, pr(0.2 0.3 0.4) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -3733,7 +3733,7 @@ Expected number of events per group    20.03 30.04 40.05
 . 
 . artbin, pr(0.4 0.6) ar(1 2) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 22nov2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
