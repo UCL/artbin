@@ -16,10 +16,10 @@ You should be able to install this package from SSC, by typing `ssc install art`
 
 To install it from github, use one of these:
 - `github install UCL/artbin, path(package)`
-- `net from https://raw.githubusercontent.com/UCL/artbin/master/package/`
+- `net from https://raw.githubusercontent.com/UCL/artbin/main/package/`
 
 ## Paper
- If you find this command useful, please cite it as below:
+If you find this command useful, please cite it as below:
 
 Ella Marley-Zagar, Ian R. White, Patrick Royston, Friederike M.-S. Barthel, Mahesh K B Parmar, Abdel G. Babiker. 
 artbin: Extended sample size for randomised trials with binary outcomes. 
