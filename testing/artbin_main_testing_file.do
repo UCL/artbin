@@ -73,7 +73,7 @@ do `cd'artbin_errortest_8
 
 // Added after publication in the SJ: new tests 
 
-do `cd'explore_every_option
+do `cd'artbin_test_every_option
 
 do `cd'artbin_test_ltfu
 

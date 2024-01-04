@@ -1,5 +1,5 @@
 /* 
-explore_every_option.do
+artbin_test_every_option.do
 explore every option in v118 help file 
 IW 26feb2021
 options untested here
@@ -9,7 +9,7 @@ options untested here
 	force
 updated for v126 4may2021, still not testing n, ap2, force
 */
-local name explore_every_option
+local name artbin_test_every_option
 *local ver _v126
 cap log close
 log using `name', text replace
