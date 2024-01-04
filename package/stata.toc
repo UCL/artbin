@@ -1,6 +1,6 @@
 v 3
 
-d Ian White's Stata software
+d Stata software from the MRC Clinical Trials Unit at UCL
 
 p artbin: calculate sample size or power for randomized trials with binary outcomes
 

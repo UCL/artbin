@@ -15,41 +15,41 @@ f artbin.dlg
 f artbindlg.sthlp
 
 * examples as in SJ article
-f artbin_examples.do
-f artbin_examples.log
+f ../testing/artbin_examples.do
+f ../testing/artbin_examples.log
 
 * main testing file
-f main_testing_file.do
+f ../testing/main_testing_file.do
 
 * testing files called by main_testing_file, and their log files
-f artbin_testing_1.do
-f artbin_testing_1_double.log
-f artbin_testing_1_float.log
-f artbin_testing_2.do
-f artbin_testing_2_double.log
-f artbin_testing_2_float.log
-f artbin_testing_3.do
-f artbin_testing_3_double.log
-f artbin_testing_3_float.log
-f artbin_testing_4.do
-f artbin_testing_4_double.log
-f artbin_testing_4_float.log
-f artbin_testing_5.do
-f artbin_testing_5.log
-f artbin_testing_6.do
-f artbin_testing_6_double.log
-f artbin_testing_6_float.log
-f artbin_testing_7.do
-f artbin_testing_7.log
-f artbin_errortest_8.do
-f artbin_errortest_8.log
-f artbin_dlgboxtesting_9.do
-f artbin_dlgboxoutput_9.txt
+f ../testing/artbin_testing_1.do
+f ../testing/artbin_testing_1_double.log
+f ../testing/artbin_testing_1_float.log
+f ../testing/artbin_testing_2.do
+f ../testing/artbin_testing_2_double.log
+f ../testing/artbin_testing_2_float.log
+f ../testing/artbin_testing_3.do
+f ../testing/artbin_testing_3_double.log
+f ../testing/artbin_testing_3_float.log
+f ../testing/artbin_testing_4.do
+f ../testing/artbin_testing_4_double.log
+f ../testing/artbin_testing_4_float.log
+f ../testing/artbin_testing_5.do
+f ../testing/artbin_testing_5.log
+f ../testing/artbin_testing_6.do
+f ../testing/artbin_testing_6_double.log
+f ../testing/artbin_testing_6_float.log
+f ../testing/artbin_testing_7.do
+f ../testing/artbin_testing_7.log
+f ../testing/artbin_errortest_8.do
+f ../testing/artbin_errortest_8.log
+f ../testing/artbin_dlgboxtesting_9.do
+f ../testing/artbin_dlgboxoutput_9.txt
 
 * ditto, added after publication in the SJ
-f explore_every_option.do
-f explore_every_option.log
-f artbin_test_ltfu.do
-f artbin_test_ltfu.log
-f artbin_test_rounding.do
-f artbin_test_rounding.log
+f ../testing/explore_every_option.do
+f ../testing/explore_every_option.log
+f ../testing/artbin_test_ltfu.do
+f ../testing/artbin_test_ltfu.log
+f ../testing/artbin_test_rounding.do
+f ../testing/artbin_test_rounding.log
