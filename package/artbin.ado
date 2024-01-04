@@ -1,13 +1,13 @@
-*!version 2.1.0 IW     22nov2023
+*!version 2.1.0 IW     04jan2024
 * version 2.0.2 EMZ    23may2023
-* version 2.0.1 EMZ    09june2022 
+* version 2.0.1 EMZ    09jun2022 
 * version 2.0.0 EMZ    08nov2021
 * version 1.2.13EMZ    08nov2021
 * version 1.2.12EMZ    04nov2021
 * version 1.2.11EMZ    21oct2021
 * version 1.2.10EMZ    07oct2021
 * version 1.2.9 EMZ    16sep2021
-* version 1.2.8 EMZ    21june2021
+* version 1.2.8 EMZ    21jun2021
 * version 1.2.7 EMZ    20may2021
 * version 1.2.6 EMZ    15apr2021
 * version 1.2.5 EMZ    12apr2021
@@ -180,7 +180,7 @@ syntax , PR(numlist min=2 >0 <1) [ Margin(numlist max=1) ALpha(real 0.05) ARatio
 	]
 
 
-local version "binary version 2.1.0 22nov2023"
+local version "binary version 2.1.0 04jan2024"
 
 if `n'>0 & !mi("`power'") {
 	di as err "You can't specify both n() and power()"

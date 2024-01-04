@@ -1,8 +1,8 @@
 v 3
-d arbin: calculate sample size or power for randomized trials with binary outcomes
+d artbin: calculate sample size or power for randomized trials with binary outcomes
 d Program by Abdel Babiker, Friederike Maria-Sophie Barthel, Babak Choodari-Oskooei, Patrick Royston, Ella Marley-Zagar, Ian White
 d Version 2.1.0
-d Distribution-Date: 5dec2023
+d Distribution-Date: 4jan2024
 
 * main package files
 f artbin.ado
