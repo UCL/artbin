@@ -1,6 +1,7 @@
 v 3
 d artbin: calculate sample size or power for randomized trials with binary outcomes
-d Program by Abdel Babiker, Friederike Maria-Sophie Barthel, Babak Choodari-Oskooei, Patrick Royston, Ella Marley-Zagar, Ian White
+d Program by Abdel Babiker, Friederike Maria-Sophie Barthel, Babak Choodari-Oskooei, 
+d   Patrick Royston, Ella Marley-Zagar, Ian White
 d Version 2.1.0
 d Distribution-Date: 4jan2024
 
@@ -14,33 +15,41 @@ f artbin.dlg
 f artbindlg.sthlp
 
 * examples as in SJ article
-artbin_examples.do
-artbin_examples.log
+f artbin_examples.do
+f artbin_examples.log
 
 * main testing file
-main_testing_file.do
+f main_testing_file.do
 
 * testing files called by main_testing_file, and their log files
-artbin_testing_1.do
-artbin_testing_1_double.log
-artbin_testing_1_float.log
-artbin_testing_2.do
-artbin_testing_2_double.log
-artbin_testing_2_float.log
-artbin_testing_3.do
-artbin_testing_3_double.log
-artbin_testing_3_float.log
-artbin_testing_4.do
-artbin_testing_4_double.log
-artbin_testing_4_float.log
-artbin_testing_5.do
-artbin_testing_5.log
-artbin_testing_6.do
-artbin_testing_6_double.log
-artbin_testing_6_float.log
-artbin_testing_7.do
-artbin_testing_7.log
-artbin_errortest_8.do
-artbin_errortest_8.log
-artbin_dlgboxtesting_9.do
-artbin_dlgboxoutput_9.txt
+f artbin_testing_1.do
+f artbin_testing_1_double.log
+f artbin_testing_1_float.log
+f artbin_testing_2.do
+f artbin_testing_2_double.log
+f artbin_testing_2_float.log
+f artbin_testing_3.do
+f artbin_testing_3_double.log
+f artbin_testing_3_float.log
+f artbin_testing_4.do
+f artbin_testing_4_double.log
+f artbin_testing_4_float.log
+f artbin_testing_5.do
+f artbin_testing_5.log
+f artbin_testing_6.do
+f artbin_testing_6_double.log
+f artbin_testing_6_float.log
+f artbin_testing_7.do
+f artbin_testing_7.log
+f artbin_errortest_8.do
+f artbin_errortest_8.log
+f artbin_dlgboxtesting_9.do
+f artbin_dlgboxoutput_9.txt
+
+* ditto, added after publication in the SJ
+f explore_every_option.do
+f explore_every_option.log
+f artbin_test_ltfu.do
+f artbin_test_ltfu.log
+f artbin_test_rounding.do
+f artbin_test_rounding.log
