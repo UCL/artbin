@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 2.1.0 05dec2023}{...}
+{* *! version 2.1.0 04jan2024}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
 {vieweralsosee "artbin_whatsnew" "artbin_whatsnew"}{...}
@@ -60,7 +60,7 @@
 
 
 {syntab:Method}
-{synopt :{opt lo:cal}}calculates under the local hypothesis{p_end}
+{synopt :{opt lo:cal}}calculates under local alternatives (only valid for small treatment effects){p_end}
 {synopt :{opt noround}}the calculated sample size in each group should not be rounded up to the nearest integer{p_end}
 {synopt :{opt force}}overrides the program's inference of the favourable/ unfavourable outcome type{p_end}
 {synoptline}
@@ -251,7 +251,7 @@ available with {opt condit}. The default is no continuity correction.
 
 {phang}
 {opt local} specifies that the calculation should use the variance of the difference in proportions only under the null.
-This approximation is valid when the treatment effect is small. 
+This approximation is valid when the treatment effect is small ("local alternatives"). 
 The default uses the variance of the difference in proportions both under the null and under the alternative hypothesis.  
 The local method is not recommended and is only included to allow comparisons with other software.
 
@@ -340,6 +340,10 @@ For a detailed description of what's new in artbin, please see {helpb artbin_wha
 {pstd}The same, but assuming a Wald test and requiring 90% power:
 
 {phang}. {stata "artbin, pr(0.25 0.35) favourable wald power(0.9)"}
+
+{pstd}The same, but allowing for 20% loss to follow-up:
+
+{phang}. {stata "artbin, pr(0.25 0.35) ltfu(0.2)"}
 
 {pstd}Find the sample size for a trial comparing four groups using a Pearson chisquared test,
 with event probability 0.15 in the control group and 0.25 to 0.45 in the experimental groups:
