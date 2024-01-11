@@ -11,6 +11,7 @@
 {viewerjumpto "Remarks" "artbin##remarks"}{...}
 {viewerjumpto "Use for Observational Studies" "artbin##observationaluse"}{...}
 {viewerjumpto "Changes from artbin version 1.1.2 to version 2.0.1" "artbin##whatsnew"}{...}
+{viewerjumpto "Changes from artbin version 2.0.1 to version 2.1" "artbin##whatsnew21"}{...}
 {viewerjumpto "Examples" "artbin##examples"}{...}
 {viewerjumpto "References" "artbin##references"}{...}
 {viewerjumpto "Citation" "artbin##citation"}{...}
@@ -316,7 +317,7 @@ calculate sample size or power for a 2-group trial with ordered categorical outc
 {pstd}
 For a detailed description of what's new in artbin, please see {helpb artbin_whatsnew}.
 
-
+{marker whatsnew21}
 {title:Changes from {cmd:artbin} version 2.0.1 to version 2.1}
 
 {pstd}An error in the {cmd:ltfu()} option when calculating power from sample size has been corrected.
