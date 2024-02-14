@@ -194,8 +194,13 @@ forvalues a=1/`npr' {
 	local pr`a' : word `a' of `pr'
 }
 
+if "`ni2'"=="0" {
+	di as err "You are using the old artbin syntax: pr(p1 p2) ni(0)." _n "The new syntax for a superiority trial is simply: pr(p1 p1)."
+	exit 198
+	}
 if !mi("`ni'") | !mi("`ni2'") {
-	di as err "You are using the old syntax: pr(p1 p2) ni.  The new syntax for the equivalent expression is pr(p1 p1) margin(p2-p1)"
+	if !mi("`ni2'") local ni ni(#)
+	di as err "You are using the old artbin syntax: pr(p1 p2) `ni'." _n "The new syntax for a non-inferiority trial is: pr(p1 p1) margin(p2-p1)."
 	exit 198
 	}
 	
