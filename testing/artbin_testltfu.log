@@ -2,7 +2,7 @@
 . 
 . which artbin
 c:\ian\git\artbin\package\artbin.ado
-*!version 2.1.0 IW     04jan2024
+*!version 2.1.1 IW     30apr2024
 
 . which art2bin
 c:\ian\git\artbin\package\art2bin.ado
@@ -13,7 +13,7 @@ c:\ian\git\artbin\package\art2bin.ado
 . * evaluate ltfu() for power->n
 . artbin, pr(.02 .02) margin(.02) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -51,7 +51,7 @@ Expected number of events per group    17.44 17.44
 
 . artbin, pr(.02 .02) margin(.02) noround ltfu(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -100,7 +100,7 @@ Results to compare:  34.874733 34.874733
 . * evaluate ltfu() for n->power
 . artbin, pr(.02 .02) margin(.02) noround n(1000) ltfu(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -138,7 +138,7 @@ Expected number of events per group    9 9
 
 . artbin, pr(.02 .02) margin(.02) noround n(900)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -191,7 +191,7 @@ Results to compare:  .5007017 .5007017
   6.         assert reldif(r(n), `norig') < 1E-7
   7. }
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -225,7 +225,7 @@ Expected total number of events        18
 Expected number of events per group    6 12
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -260,7 +260,7 @@ Expected number of events per group    6 12
 ------------------------------------------------------------------------------
 Results to compare:  1000 1000
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -292,7 +292,7 @@ Expected total number of events        30
 Expected number of events per group    6 24
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -325,7 +325,7 @@ Expected number of events per group    6 24
 ------------------------------------------------------------------------------
 Results to compare:  999.99996 1000
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -355,7 +355,7 @@ Expected total number of events        30
 Expected number of events per group    9 12 9
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -386,7 +386,7 @@ Expected number of events per group    9 12 9
 ------------------------------------------------------------------------------
 Results to compare:  1000 1000
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -417,7 +417,7 @@ Expected total number of events        36
 Expected number of events per group    6 12 18
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -454,7 +454,7 @@ Results to compare:  1000 1000
 . * check it works with non-integer ltfu*n
 . artbin, pr(.02 .02) margin(.02) ltfu(.05) n(1836)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White

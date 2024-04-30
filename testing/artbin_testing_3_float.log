@@ -1,5 +1,5 @@
 c:\ian\git\artbin\package\artbin.ado
-*!version 2.1.0 IW     04jan2024
+*!version 2.1.1 IW     30apr2024
 c:\ian\git\artbin\package\art2bin.ado
 *!version 1.01  09june2022
 
@@ -22,7 +22,7 @@ Estimated sample sizes:
             N =     1,242
   N per group =       621
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -72,7 +72,7 @@ Estimated sample sizes:
             N =     1,636
   N per group =       818
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -122,7 +122,7 @@ Estimated sample sizes:
             N =       494
   N per group =       247
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -172,7 +172,7 @@ Estimated sample sizes:
             N =       286
   N per group =       143
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -222,7 +222,7 @@ Estimated sample sizes:
             N =     2,054
   N per group =     1,027
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -272,7 +272,7 @@ Estimated sample sizes:
             N =       184
   N per group =        92
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White

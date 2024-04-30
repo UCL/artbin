@@ -2,11 +2,11 @@
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\artbin_test_every_option.log
   log type:  text
- opened on:   4 Jan 2024, 19:03:45
+ opened on:  30 Apr 2024, 18:12:05
 
 . which artbin`ver'
 c:\ian\git\artbin\package\artbin.ado
-*!version 2.1.0 IW     04jan2024
+*!version 2.1.1 IW     30apr2024
 
 . local returns 1
 
@@ -27,7 +27,7 @@ c:\ian\git\artbin\package\artbin.ado
 . dicmd `command'
 artbin, pr(.4 .2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -71,7 +71,7 @@ Expected number of events per group    32.8 16.4
 
 artbin, pr(.4 .2) margin(-.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -115,7 +115,7 @@ scalars:
 
 artbin, pr(.4 .2) alpha(0.01)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -157,7 +157,7 @@ scalars:
 
 artbin, pr(.4 .2) aratios(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -199,7 +199,7 @@ scalars:
 
 artbin, pr(.4 .2) local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -241,7 +241,7 @@ scalars:
 
 artbin, pr(.4 .2) ccorrect(1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -283,7 +283,7 @@ scalars:
 
 artbin, pr(.4 .2) ccorrect
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -325,7 +325,7 @@ scalars:
 
 artbin, pr(.4 .2) power(.9)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -376,7 +376,7 @@ scalars:
 
 artbin, pr(.4 .2) margin(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -420,7 +420,7 @@ scalars:
 
 artbin, pr(.4 .2) alpha(0.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -463,7 +463,7 @@ scalars:
 artbin, pr(.4 .2) condit
  NOTE: As conditional has been selected local will be used.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -504,7 +504,7 @@ scalars:
 
 artbin, pr(.4 .2) onesided(1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -545,7 +545,7 @@ scalars:
 
 artbin, pr(.4 .2) onesided
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -586,7 +586,7 @@ scalars:
 
 artbin, pr(.4 .2) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -628,7 +628,7 @@ scalars:
 
 artbin, pr(.4 .2) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -670,7 +670,7 @@ scalars:
 
 artbin, pr(.4 .2) power(.7)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -721,7 +721,7 @@ scalars:
 
 artbin, pr(.4 .2) power(.8)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -763,7 +763,7 @@ scalars:
 
 artbin, pr(.4 .2) unfavourable
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -822,7 +822,7 @@ Can not select trend option for a 2-arm trial
 . dicmd `command'
 artbin, pr(.2 .2) margin(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -868,7 +868,7 @@ Expected number of events per group    51 51
 
 artbin, pr(.2 .2) margin(.1) alpha(0.01)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -912,7 +912,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) aratios(1 2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -956,7 +956,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1000,7 +1000,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) ccorrect(1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1044,7 +1044,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) ccorrect
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1088,7 +1088,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) power(.9)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1141,7 +1141,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) alpha(0.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1185,7 +1185,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) onesided(1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1228,7 +1228,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) onesided
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1271,7 +1271,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1315,7 +1315,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1359,7 +1359,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) power(.7)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1422,7 +1422,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) power(.8)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1466,7 +1466,7 @@ scalars:
 
 artbin, pr(.2 .2) margin(.1) unfavourable
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1535,7 +1535,7 @@ Note: the above error message was expected
 . dicmd `command'
 artbin, pr(.4 .3 .2)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1577,7 +1577,7 @@ Expected number of events per group    40.4 30.3 20.2
 
 artbin, pr(.4 .3 .2) alpha(0.01)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1619,7 +1619,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) aratios(3 2 1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1661,7 +1661,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) local
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1703,7 +1703,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) power(.9)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1754,7 +1754,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) alpha(0.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1797,7 +1797,7 @@ scalars:
 artbin, pr(.4 .3 .2) condit
  NOTE: As conditional has been selected local will be used.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1839,7 +1839,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1881,7 +1881,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1923,7 +1923,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) trend
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -1966,7 +1966,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) doses(1 2 3)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2009,7 +2009,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) power(.7)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2060,7 +2060,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) power(.8)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2102,7 +2102,7 @@ scalars:
 
 artbin, pr(.4 .3 .2) unfavourable
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.0 04jan2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -2182,5 +2182,5 @@ Note: an error message was expected above
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\artbin_test_every_option.log
   log type:  text
- closed on:   4 Jan 2024, 19:03:45
+ closed on:  30 Apr 2024, 18:12:05
 -------------------------------------------------------------------------------------------------------------------
