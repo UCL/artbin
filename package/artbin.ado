@@ -1,4 +1,5 @@
-*!version 2.1.0 IW     04jan2024
+*!version 2.1.1 IW     30apr2024
+* version 2.1.0 IW     04jan2024
 * version 2.0.2 EMZ    23may2023
 * version 2.0.1 EMZ    09jun2022 
 * version 2.0.0 EMZ    08nov2021
@@ -33,6 +34,7 @@
 *	History
 	
 /*
+2.1.1 parse aratios as numlist not string - better error messages
 2.1.0   22nov2023   ltfu() was wrong for n -> power
 					give error if n and power specified (previously power was ignored)
 					improve iterative algorithm for >2 groups
@@ -161,10 +163,14 @@
 program define artbin, rclass
 version 8
 
+* update these two lines
+local artbin_version 2.1.1
+local artbin_date 30apr2024
+
 if _caller() >= 12 {
     local hidden hidden
 }
-return `hidden' local artbin_version "2.1.0"
+return `hidden' local artbin_version "`artbin_version'"
 
 gettoken number : 1
 if "`1'"! = "," {
@@ -172,7 +178,7 @@ if "`1'"! = "," {
 	exit 198
 }
 
-syntax , PR(numlist min=2 >0 <1) [ Margin(numlist max=1) ALpha(real 0.05) ARatios(string) UNFavourable FAVourable UNFavorable FAVorable COndit LOcal 	///
+syntax , PR(numlist min=2 >0 <1) [ Margin(numlist max=1) ALpha(real 0.05) ARatios(numlist >0) UNFavourable FAVourable UNFavorable FAVorable COndit LOcal 	///
 	DOses(string) N(integer 0) NGroups(numlist max=1) ni NI2(numlist max=1) Onesided Onesided2(numlist max=1)		///
 	POwer(numlist max=1 >0 <1) TRend NVMethod(numlist max=1) ap2(real 0) Ccorrect Ccorrect2(numlist max=1) nchi WAld FORCE NOROUND NOTABLE ALGorithm ///
 	DIstant(numlist max=1) LTFU(numlist max=1 >=0 <1) ///
@@ -180,7 +186,7 @@ syntax , PR(numlist min=2 >0 <1) [ Margin(numlist max=1) ALpha(real 0.05) ARatio
 	]
 
 
-local version "binary version 2.1.0 04jan2024"
+local version "binary version `artbin_version' `artbin_date'"
 
 if `n'>0 & !mi("`power'") {
 	di as err "You can't specify both n() and power()"
