@@ -3,7 +3,7 @@
 . 
 . which artbin
 c:\ian\git\artbin\package\artbin.ado
-*!version 2.1.1 IW     30apr2024
+*!version 2.1.2 IW     19feb2026
 
 . which art2bin
 c:\ian\git\artbin\package\art2bin.ado

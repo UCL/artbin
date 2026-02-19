@@ -2,11 +2,11 @@
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\artbin_test_every_option.log
   log type:  text
- opened on:  30 Apr 2024, 18:12:05
+ opened on:  19 Feb 2026, 15:27:24
 
 . which artbin`ver'
 c:\ian\git\artbin\package\artbin.ado
-*!version 2.1.1 IW     30apr2024
+*!version 2.1.2 IW     19feb2026
 
 . local returns 1
 
@@ -2182,5 +2182,5 @@ Note: an error message was expected above
       name:  <unnamed>
        log:  C:\ian\git\artbin\testing\artbin_test_every_option.log
   log type:  text
- closed on:  30 Apr 2024, 18:12:05
+ closed on:  19 Feb 2026, 15:27:24
 -------------------------------------------------------------------------------------------------------------------

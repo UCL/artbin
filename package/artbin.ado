@@ -1,4 +1,5 @@
-*!version 2.1.1 IW     30apr2024
+*!version 2.1.2 IW     19feb2026
+* version 2.1.1 IW     30apr2024
 * version 2.1.0 IW     04jan2024
 * version 2.0.2 EMZ    23may2023
 * version 2.0.1 EMZ    09jun2022 
@@ -34,6 +35,7 @@
 *	History
 	
 /*
+2.1.2 remove pre-syntax check that gives error if no space after comma
 2.1.1 parse aratios as numlist not string - better error messages
 2.1.0   22nov2023   ltfu() was wrong for n -> power
 					give error if n and power specified (previously power was ignored)
@@ -164,19 +166,13 @@ program define artbin, rclass
 version 8
 
 * update these two lines
-local artbin_version 2.1.1
-local artbin_date 30apr2024
+local artbin_version 2.1.2
+local artbin_date 19feb2026
 
 if _caller() >= 12 {
     local hidden hidden
 }
 return `hidden' local artbin_version "`artbin_version'"
-
-gettoken number : 1
-if "`1'"! = "," {
-    di as err "artbin syntax is: artbin, pr()"
-	exit 198
-}
 
 syntax , PR(numlist min=2 >0 <1) [ Margin(numlist max=1) ALpha(real 0.05) ARatios(numlist >0) UNFavourable FAVourable UNFavorable FAVorable COndit LOcal 	///
 	DOses(string) N(integer 0) NGroups(numlist max=1) ni NI2(numlist max=1) Onesided Onesided2(numlist max=1)		///
