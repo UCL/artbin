@@ -12,7 +12,7 @@ updated for v126 4may2021, still not testing n, ap2, force
 local name artbin_test_every_option
 *local ver _v126
 cap log close
-log using `name', text replace
+log using `name', replace text nomsg
 which artbin`ver'
 local returns 1
 
