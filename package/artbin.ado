@@ -1105,7 +1105,7 @@ local ntotaltable : di `format' `ntotal'
 * loss to follow up as a percentage for the table
 if !mi("`ltfu'")  {
 	local ltfuperc = `ltfu' * 100
-	local ltfuperc = "`ltfuperc' %"
+	local ltfuperc = "`ltfuperc'%"
 }
 
 if "`notable'"=="" {

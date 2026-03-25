@@ -13,7 +13,7 @@ c:\ian\git\artbin\package\art2bin.ado
 . * evaluate ltfu() for power->n
 . artbin, pr(.02 .02) margin(.02) noround
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -51,7 +51,7 @@ Expected number of events per group    17.44 17.44
 
 . artbin, pr(.02 .02) margin(.02) noround ltfu(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -76,7 +76,7 @@ Alpha                                  0.050 (two-sided)
                                         (taken as .025 one-sided)
 Power (designed)                       0.800
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (calculated)         1937.49
 
@@ -100,7 +100,7 @@ Results to compare:  34.874733 34.874733
 . * evaluate ltfu() for n->power
 . artbin, pr(.02 .02) margin(.02) noround n(1000) ltfu(.1)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -125,7 +125,7 @@ Alpha                                  0.050 (two-sided)
                                         (taken as .025 one-sided)
 Power (calculated)                     0.501
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (designed)           1000
 
@@ -138,7 +138,7 @@ Expected number of events per group    9 9
 
 . artbin, pr(.02 .02) margin(.02) noround n(900)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -191,7 +191,7 @@ Results to compare:  .5007017 .5007017
   6.         assert reldif(r(n), `norig') < 1E-7
   7. }
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -216,7 +216,7 @@ Alpha                                  0.050 (two-sided)
                                         (taken as .025 one-sided)
 Power (calculated)                     0.562
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (designed)           1000
 
@@ -225,7 +225,7 @@ Expected total number of events        18
 Expected number of events per group    6 12
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -250,7 +250,7 @@ Alpha                                  0.050 (two-sided)
                                         (taken as .025 one-sided)
 Power (designed)                       0.562
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (calculated)         1000
 
@@ -260,7 +260,7 @@ Expected number of events per group    6 12
 ------------------------------------------------------------------------------
 Results to compare:  1000 1000
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -283,7 +283,7 @@ Alpha                                  0.050 (two-sided)
                                         (taken as .025 one-sided)
 Power (calculated)                     0.334
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (designed)           1000
 
@@ -292,7 +292,7 @@ Expected total number of events        30
 Expected number of events per group    6 24
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -315,7 +315,7 @@ Alpha                                  0.050 (two-sided)
                                         (taken as .025 one-sided)
 Power (designed)                       0.334
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (calculated)         1000
 
@@ -325,7 +325,7 @@ Expected number of events per group    6 24
 ------------------------------------------------------------------------------
 Results to compare:  999.99996 1000
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -346,7 +346,7 @@ Anticipated event probabilities        0.020 0.040 0.060
 Alpha                                  0.050 (two-sided)
 Power (calculated)                     0.609
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (designed)           1000
 
@@ -355,7 +355,7 @@ Expected total number of events        30
 Expected number of events per group    9 12 9
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -376,7 +376,7 @@ Anticipated event probabilities        0.020 0.040 0.060
 Alpha                                  0.050 (two-sided)
 Power (designed)                       0.609
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (calculated)         1000
 
@@ -386,7 +386,7 @@ Expected number of events per group    9 12 9
 ------------------------------------------------------------------------------
 Results to compare:  1000 1000
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -408,7 +408,7 @@ Anticipated event probabilities        0.020 0.040 0.060
 Alpha                                  0.050 (two-sided)
 Power (calculated)                     0.706
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (designed)           1000
 
@@ -417,7 +417,7 @@ Expected total number of events        36
 Expected number of events per group    6 12 18
 ------------------------------------------------------------------------------
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -439,7 +439,7 @@ Anticipated event probabilities        0.020 0.040 0.060
 Alpha                                  0.050 (two-sided)
 Power (designed)                       0.706
 
-Loss to follow up assumed              10 %
+Loss to follow up assumed              10%
 
 Total sample size (calculated)         1000
 
@@ -454,7 +454,7 @@ Results to compare:  1000 1000
 . * check it works with non-integer ltfu*n
 . artbin, pr(.02 .02) margin(.02) ltfu(.05) n(1836)
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.1 30apr2024)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.2 19feb2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -479,7 +479,7 @@ Alpha                                  0.050 (two-sided)
                                         (taken as .025 one-sided)
 Power (calculated)                     0.800
 
-Loss to follow up assumed              5 %
+Loss to follow up assumed              5%
 
 Total sample size (designed)           1836
 
