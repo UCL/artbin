@@ -4,6 +4,8 @@
 // Last updated: 23 May 2023
 // Uses onesided 'swich on/off' option for one/two-sided
 
+// artbin v2.1.3
+// 26nov2026 TMP: added cap noi for checks with ccorrect & nchi 
 clear all
 set more off
 prog drop _all
@@ -153,11 +155,13 @@ cap noi artbin, pr(0.3 0.4) ngroups(2) alpha(0.05) onesided(0) onesided power(0.
 
 artbin, pr(0.1 0.3) ccorrect
 
-artbin, pr(0.1 0.3) nchi ccorrect
+cap noi artbin, pr(0.1 0.3) nchi ccorrect
+* gives error message as required
 
 artbin, pr(0.1 0.3) ccorrect(1)
 
-artbin, pr(0.1 0.3) nchi ccorrect(1)
+cap noi artbin, pr(0.1 0.3) nchi ccorrect(1)
+* gives error message as required
 
 artbin, pr(0.1 0.3) ccorrect ccorrect(1)
 

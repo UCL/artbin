@@ -2,9 +2,9 @@
 ******************************
 * Testing Artbin Error Codes
 *******************************
-// artbin v 2.0.2
+// artbin v 2.1.3
 // Corresponds to Item 8 in the artbin Stata Journal Software Testing Section
-// Last updated 23 May 2023
+// Last updated 26nov2026
 
 clear all
 set more off
@@ -48,11 +48,11 @@ cap noi artbin, pr(0.5 100) alpha(0.05) power(0.90)
 
 * 3 groups of probability, NI design, ngroups(2)
 cap noi artbin, pr(0.5 0.8 0.3) margin(0.1) ngroups(2) alpha(0.05) power(0.90) 
-* gives "Can not have margin with >2 groups" (as expected) 
+* gives "Cannot have margin with >2 groups" (as expected) 
 
 * 3 groups of probability, NI design, ngroups(3)
 cap noi artbin, pr(0.5 0.8 0.3) margin(0.1) ngroups(3) alpha(0.05) power(0.90) 
-* gives "Can not have margin with >2 groups" (as expected) 
+* gives "Cannot have margin with >2 groups" (as expected) 
 
 * 3 groups of probability, Superiority design, ngroups(2)
 artbin, pr(0.5 0.8 0.3) ngroups(2) alpha(0.05) power(0.90) 
@@ -92,7 +92,7 @@ cap noi artbin, pr(1.1 1.1 1.1) alpha(0.05) power(0.90)
 
 * Same control and treatment proportions
 cap noi artbin, pr(0.1 0.1) alpha(0.05) power(0.9) 
-* gives "Event probabilities can not be equal with 2 groups" (as expected)
+* gives "Event probabilities cannot be equal with 2 groups" (as expected)
 
 
 * Trying incorrect/missing values of alpha 
@@ -171,12 +171,12 @@ cap noi artbin, pr(0.05 0.1) margin(0.1) alpha(0.05) n(-500)
 * Gives the error message "Sample size n() out of range" as required
 
 
-* Testing error code: if margin & ((`npr'>2)|(`ngroups'>2)) di as err "Only two groups allowed for non-inferiority/substantial superiority designs" Can not have margin with >2 groups/"
+* Testing error code: if margin & ((`npr'>2)|(`ngroups'>2)) di as err "Only two groups allowed for non-inferiority/substantial superiority designs" Cannot have margin with >2 groups/"
 *************************************************************************************************************************************************
 
 * npr>2, sample size calculated, NI
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) power(0.8) 
-* gives the error code "Can not have margin with >2 groups" as required
+* gives the error code "Cannot have margin with >2 groups" as required
 
 
 * ngroups>2, sample size calculated, NI
@@ -185,7 +185,7 @@ artbin, pr(0.05 0.1) margin(0.1) ngroups(3) alpha(0.05) power(0.8)
 
 * npr>2 and ngroups>2, sample size calculated, NI
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) power(0.8) 
-* gives the error code "Can not have margin with >2 groups" as required
+* gives the error code "Cannot have margin with >2 groups" as required
 
 * npr>2, ngroups<npr, sample size calculated, superiority
 artbin, pr(0.05 0.1 0.2) ngroups(2) alpha(0.05) power(0.8) 
@@ -198,7 +198,7 @@ artbin, pr(0.05 0.1) ngroups(3) alpha(0.05) power(0.8)
 
 * npr>2, power calculated, NI
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) ngroups(2) alpha(0.05) n(500) 
-* gives the error code "Can not have margin with >2 groups" as required
+* gives the error code "Cannot have margin with >2 groups" as required
 
 
 * ngroups>2, power calculated, NI
@@ -207,7 +207,7 @@ artbin, pr(0.05 0.1) margin(0.1) ngroups(3) alpha(0.05) n(500)
 
 * npr>2 and ngroups>2, power calculated, NI
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) n(500) 
-* gives the error code "Can not have margin with >2 groups" as required
+* gives the error code "Cannot have margin with >2 groups" as required
 
 * npr>2, power calculated, superiority
 artbin, pr(0.05 0.1 0.2) ngroups(2) alpha(0.05) n(500) 
@@ -231,11 +231,11 @@ cap noi artbin, pr(0.05 0.1 0.2) alpha(0.05) ccorrect(1)
 
 * non-inferiority, power to be calculated
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) n(500) ccorrect(1)
-* gives the error code "Can not have margin with >2 groups" as required
+* gives the error code "Cannot have margin with >2 groups" as required
 
 * non-inferiority, sample size to be calculated
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) ccorrect(1)
-* gives the error code "Can not have margin with >2 groups" as required
+* gives the error code "Cannot have margin with >2 groups" as required
 
 
 * Testing the error code if `onesided' & (`ngroups'>2) di as err "One-sided not allowed in comparison of > 2 groups"
@@ -257,38 +257,61 @@ cap noi artbin, pr(0.05 0.1 0.2) alpha(0.05) onesided power(0.8)
 
 * non-inferiority, power to be calculated
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) onesided(1) n(500) 
-* get the error code "Can not have margin with >2 groups" which has superseeded the one-sided error code.
+* get the error code "Cannot have margin with >2 groups" which has superseeded the one-sided error code.
 
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) onesided n(500) 
-* get the error code "Can not have margin with >2 groups" which has superseeded the one-sided error code.
+* get the error code "Cannot have margin with >2 groups" which has superseeded the one-sided error code.
 
 * non-inferiority, sample size to be calculated
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) onesided(1) power(0.8) 
-* get the error code "Can not have margin with >2 groups" which has superseeded the one-sided error code.
+* get the error code "Cannot have margin with >2 groups" which has superseeded the one-sided error code.
 
 cap noi artbin, pr(0.05 0.1 0.2) margin(0.1) alpha(0.05) onesided power(0.8) 
-* get the error code "Can not have margin with >2 groups" which has superseeded the one-sided error code.
+* get the error code "Cannot have margin with >2 groups" which has superseeded the one-sided error code.
 
 
-* Testing the error code if `ap2'<0 | `ap2'>1 di as err  "Group 2 event probability under the alternative hypothesis must be >0 & <1" (only for NI trials)
+* Testing the error code if `ap2'<0 | `ap2'>1 di as err  "Group 2 event probability under the alternative hypothesis must be >0 & <1"
+* ap2() has no effect (v2.1.3): a valid non-zero value is accepted with the warning "ap2() has no effect and is ignored",
+* and results equal those without ap2()
 *************************************************************************************************************************************************************
 
 * sample size to be calculated, ap2<0
-cap noi artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) power(0.8) ap2(-0.1) 
+cap noi artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) power(0.8) ap2(-0.1)
 * get the error code "Group 2 event probability under the alternative hypothesis must be >0 & <1" as required.
+assert _rc==198
 
 * power to be calculated, ap2<0
 cap noi artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) n(500) ap2(-0.1)
 * get the error code "Group 2 event probability under the alternative hypothesis must be >0 & <1" as required.
+assert _rc==198
 
 * sample size to be calculated, ap2>1
-cap noi artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) power(0.8) ap2(1.5) 
+cap noi artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) power(0.8) ap2(1.5)
 * get the error code "Group 2 event probability under the alternative hypothesis must be >0 & <1" as required.
+assert _rc==198
 
 * power to be calculated, ap2>1
 cap noi artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) n(500) ap2(1.5)
 * get the error code "Group 2 event probability under the alternative hypothesis must be >0 & <1" as required.
+assert _rc==198
 
+* valid value: accepted with a warning, and results equal those without ap2()
+artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) power(0.8)
+local n0 = r(n)
+artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) n(500)
+local p0 = r(power)
+
+* sample size to be calculated
+cap noi artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) power(0.8) ap2(0.4)
+* get the warning "ap2() has no effect and is ignored" as required.
+assert _rc==0
+assert r(n)==`n0'
+
+* power to be calculated
+cap noi artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) n(500) ap2(0.4)
+* get the warning "ap2() has no effect and is ignored" as required.
+assert _rc==0
+assert r(power)==`p0'
 
 * test error code for aratios
 **********************************
@@ -307,11 +330,19 @@ cap noi artbin, pr(0.1 0.2) local wald
 cap noi artbin, pr(0.1 0.2) local nvm(1)
 * error message as required: Need nvm(3) if local specified
 cap noi artbin, pr(0.1 0.2 0.3) local nvm(1)
-* error message as required: Need nvm(3) if local specified
+* v2.1.3: nvm() is ignored for >2 groups, with a warning (previously an error)
+assert _rc==0
+local n_nvm = r(n)
+qui artbin, pr(0.1 0.2 0.3) local
+assert r(n)==`n_nvm'
 cap noi artbin, pr(0.1 0.2) local nvm(2)
 * error message as required: Need nvm(3) if local specified
 cap noi artbin, pr(0.1 0.2 0.3) local nvm(2)
-* error message as required: Need nvm(3) if local specified
+* v2.1.3: nvm() is ignored for >2 groups, with a warning (previously an error)
+assert _rc==0
+local n_nvm = r(n)
+qui artbin, pr(0.1 0.2 0.3) local
+assert r(n)==`n_nvm'
 
 
 * Check that wald and nvm!=1 not allowed together
@@ -323,8 +354,11 @@ cap noi artbin, pr(0.1 0.2 0.3) wald nvm(2)
 cap noi artbin, pr(0.1 0.2) wald nvm(3)
 * error message as required: Need nvm(1) if Wald specified
 cap noi artbin, pr(0.1 0.2 0.3) wald nvm(3)
-* error message as required: Need nvm(1) if Wald specified
-	
+* v2.1.3: nvm() is ignored for >2 groups, with a warning (previously an error)
+assert _rc==0
+local n_nvm = r(n)
+qui artbin, pr(0.1 0.2 0.3) wald
+assert r(n)==`n_nvm'	
 
 * Test incorrect ltfu() inputs
 **********************************
@@ -412,6 +446,23 @@ if `samplesize11'!=`samplesize12' {
 	exit 198
 }
 
+//----------------------------------------------
+* New error checks in v2.1.3 (documented options)
+//----------------------------------------------
+* more aratios() than groups
+cap noi artbin, pr(.1 .2) aratio(1 2 3)
+assert _rc==198
+* margin() must lie strictly between -1 and 1
+cap noi artbin, pr(.2 .2) margin(1)
+assert _rc==198
+cap noi artbin, pr(.2 .2) margin(-1)
+assert _rc==198
+* more doses() than groups
+cap noi artbin, pr(.1 .2 .3) doses(1 2 3 4)
+assert _rc==198
+* all doses() equal
+cap noi artbin, pr(.1 .2 .3) doses(1 1 1)
+assert _rc==198
 	
 // REPORT SUCCESS
 di as result _n "*************************************************************" ///
