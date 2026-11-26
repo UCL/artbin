@@ -49,11 +49,16 @@ by cif (the continuity-corrected inflation factor) given by
 See Fleiss, Levin, and M. C. Paik (2003): Statistical Methods for Rates and Proportions.
 
 For given sample size N, the programme estimates power. For continuity corrected power, the designed sample size n is first deflated by a factor of
- [1 - (a/n)*(1-a/(4*n))], provided that n > a/(4*n), where a = (1+r)/(r*abs(d-mrg)).
+ [1 - (a/n)*(1-a/(4*n))], provided that n > a/2, where a = (1+r)/(r*abs(d-mrg)).
 
 Syntax art2bin p0 p1 [, margin(#) n0(#) n1(#) ar(#) alpha(#) power(#) nvmethod(#) onesided]
 ******************************************************************************************************************************** */
-*!version 1.01  09june2022
+*!version 1.02  25nov2026  TMP	 - Add range check for margin(); must lie between -1 and 1
+*								 - Stop applying continuity-correction deflation when n is outside its valid range, so power no longer falls as n rises for small n
+*								 - Add error for when nvmethod is not 1,2,3
+*								 - Add option force
+*								 - Correct r(Dart) with ccorrect when power is specified
+*								 - Remove unused nvmethod reset
 * version 1.01  09june2022 EMZ   Changed p to pi in hypothesis tests.  Removed warning if p1 + m lies outside (0,1) as per 	
 *					             Ab's suggestion.
 * version 1.00  08oct2021  EMZ   Release
@@ -110,9 +115,14 @@ version 8
                   Alpha(real `dalpha')  Power(real `dpower') NVMethod(numlist max=1)	  ///
 				  ONESided CCorrect VERsion(string)			                             ///
 				  UNFavourable FAVourable UNFavorable FAVorable                         /// Added in unfavourable/favourable options
-				  LOcal WAld NOROUND] 												   /// Added  options incl. noround
-				  
-
+				  LOcal WAld NOROUND FORCE] 											/// Added  options incl. noround
+		
+		
+	if `margin'<=-1 | `margin'>=1 {
+		di as err "Margin must lie strictly between -1 and 1"
+		exit 198
+	}
+	
 ********************************************************************************
 	if "`version'"=="" local version "binary version 2.0.2 23may2023"
 ********************************************************************************
@@ -179,7 +189,7 @@ version 8
 * If nvm() is not specified and wald is selected, default to nvm(1) 
 	if "`wald'"!="" & "`nvmethod'"=="" {
 		local nvmethod = 1
-*	  	di "{it: WARNING: the default nvm(3) has been changed to nvm(1) as Wald has been selected}"
+*	  	di "{it:WARNING: the default nvm(3) has been changed to nvm(1) as Wald has been selected}"
 	  }
 	
 * Add in error messages to not allow local and wald at the same time
@@ -189,12 +199,13 @@ version 8
 	}
 
 * Make nvmethod=3 the default if not specified	
-	 if "`nvmethod'"!="" {
-		if `nvmethod'>3 | `nvmethod'<1  {
-		local nvmethod 3
+	if "`nvmethod'"!="" {
+		if !inlist(`nvmethod',1,2,3) {
+			di as err "nvmethod() must be 1, 2 or 3"
+			exit 198
 		}
-	 }
-	 else if "`nvmethod'"=="" local nvmethod 3
+	}
+	else local nvmethod 3
 
 
 * Do not allow local & nvmethod ~=3
@@ -292,14 +303,14 @@ if !mi("`unfavourable'") & !mi("`favourable'") {
 			exit 198
 		}
 		else if "`trialoutcome'" == "Unfavourable" & `threshold' < `w2' & "`force'" == "force" {
-			di "{it: WARNING: artbin thinks your outcome should be favourable.}"
+			di "{it:WARNING: artbin thinks your outcome should be favourable.}"
 		}
 		if "`trialoutcome'" == "Favourable" & `threshold' > `w2' & "`force'" == "" {
 			di as err "artbin thinks your outcome is unfavourable. Please check your command. If your command is correct then consider using the -force- option."
 			exit 198
 		}
 		else if "`trialoutcome'" == "Favourable" & `threshold' > `w2' & "`force'" == "force" {
-			di "{it: WARNING: artbin thinks your outcome should be unfavourable.}"
+			di "{it:WARNING: artbin thinks your outcome should be unfavourable.}"
 		}
 		
 		* Define NI and substantial-superiority
@@ -329,9 +340,9 @@ if !mi("`unfavourable'") & !mi("`favourable'") {
 	// Estimating event probabilities and variance of the test stat //
 	// under the null hypothesis //
 	local nvm = `nvmethod'
-	if `nvm'>3 | `nvm'<1 {
-		local nvm 3
-	}
+	*if `nvm'>3 | `nvm'<1 {
+	*	local nvm 3
+	*}
 	if `nvm' == 1 {
 		local p0null = `p0'
 		local p1null = `p1'
@@ -364,9 +375,17 @@ if !mi("`unfavourable'") & !mi("`favourable'") {
 		local p1null = `p0null' + `mrg'
 
 		_inrange01 `p0null' `p1null'
+		
+		if r(res)==0 {
+			di as error "Event probabilities under H0 could not be estimated within (0,1)"
+			di as error "Please check pr() and margin()."
+			exit 498
+		}
+		/*
 		if r(res)==0 {
            di as error "You have found a case that we have never encountered before!  Please contact the artbin authors to let us know, many thanks."
 		}
+		*/
 	}
 	local D = abs(`p1'-`p0'-`mrg')
 	local za = invnormal(1-`alpha'/2)
@@ -415,6 +434,7 @@ else {
 		return scalar power = `Power'
 	}
 	else {
+		/*
 		if `cc' {
 		  _cc, n(`n0') ad(`D') r(`ar10') deflate(1)
 		  local n0 = r(n)
@@ -423,13 +443,26 @@ else {
 
 		if "`local'"~="" local Power = normal(((`D'*sqrt(`n0') - `za'*`snull'))/`snull')
 		if "`wald'"~=""  local Power = normal(((`D'*sqrt(`n0') - `za'*`salt'))/`salt')
-
+		*/
+		
+		local n0eff `n0'
+		if `cc' {
+		  _cc, n(`n0') ad(`D') r(`ar10') deflate(1)
+		  local n0eff = r(n)
+		}
+		local Power = normal(((`D'*sqrt(`n0eff') - `za'*`snull'))/`salt')
+		if "`local'"~="" local Power = normal(((`D'*sqrt(`n0eff') - `za'*`snull'))/`snull')
+		if "`wald'"~=""  local Power = normal(((`D'*sqrt(`n0eff') - `za'*`salt'))/`salt')
+		return scalar n  = `n0'+`n1'
+		return scalar n0 = `n0'
+		return scalar n1 = `n1'
+		
 		dis as txt "Power = " as res `Power'
 		return scalar power = `Power'
 	}
 return scalar alpha = `alpha'	
 return local allocr "`allocr'"
-return local power =  `Power'
+*return local power =  `Power'
 local Dart = (`n0'*`p0') + (`n1'*`p1')   
 *if "`noround'"=="" local Dart =ceil(`Dart')
 *else local Dart = `Dart'
@@ -456,7 +489,8 @@ program _cc, rclass
   syntax , n(real) ADiff(real) [Ratio(real 1) DEFlate(real 0)]
   local a = (`ratio'+1)/(`adiff'*`ratio')
   if `deflate' {
-    local n = ((2*`n'-`a')^2)/(4*`n')
+    if `n' <= `a'/2 local n=0 		// If the control group <= a/2, set uncorrected n to 0, min power
+	else local n = ((2*`n'-`a')^2)/(4*`n')
   }
   else {
     local cf=((1+sqrt(1+2*`a'/`n'))^2)/4

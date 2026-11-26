@@ -1,5 +1,6 @@
 {smcl}
-{* *! version 1.13 23may2023}{...}
+{* *! version 1.14 26nov2026}{...}
+{* version 1.13 23may2023}{...}
 {* 23dec2014}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {viewerjumpto "Definitions and usage" "artbindlg##def"}{...}
@@ -42,24 +43,31 @@ between -1 and 1.
 {p_end}
 
 {p 0 4}
-{cmd:Favourable or Unfavourable} are used with two-group trials
-to specify whether the outcome is {opt favourable} or {opt unfavourable}.
-If either option is used, {cmd:artbin} checks the assumptions;
-otherwise, it infers the favourability status.  Both American and 
-English spellings are allowed.
+{cmd:Favourable or Unfavourable} specifies whether the outcome is
+{opt favourable} or {opt unfavourable}. One of the two is always selected
+(Favourable by default). {cmd:artbin} checks the choice against the
+anticipated probabilities and stops with an error if they disagree: either
+change the selection or tick {cmd:Force}. Used with two-group trials only;
+with more than two groups the choice is ignored and a warning is shown.
 {p_end}
 
 {p 0 4}
-{cmd:Power or N} Power is the power of the trial, N is the total sample size 
-(all groups combined). When using Menu, the radio buttons allow you to choose 
+{cmd:Force (override favourable/unfavourable check)} makes {cmd:artbin} use
+the selected direction even when it disagrees with the anticipated
+probabilities. A warning is shown. Ignored for trials with more than two groups.
+{p_end}
+
+{p 0 4}
+{cmd:Power or N} Power is the power of the trial (0.8 by default), N is the total sample size 
+(all groups combined). In the dialog, the radio buttons allow you to choose 
 whether the program will display the power for given N or the N for specified 
-power.
+power. N must be entered when "Specify sample size" is selected.
 {p_end}
 
 {p 0 4}
 {cmd:Allocation ratios} By default, all groups are assumed of equal size, so
 			the allocation ratios (more precisely, weights) are
-			all equal to 1. You can very this, e.g. 1 2 2 would
+			all equal to 1. You can vary this, e.g. 1 2 2 would
 			specify that groups 2 and 3 should have twice as many
 			patients allocated as group 1.
 {p_end}
@@ -131,7 +139,9 @@ up to the nearest integer. The default is to round.
 
 {marker combinationsofoptions}{...}
 {title:Combinations of options not allowed/uncoded which will result in error/warning messages}
-
+{p 0 4}
+Favourable/Unfavourable that disagrees with the anticipated probabilities, unless Force is ticked.
+{p_end}
 {p 0 4}
 Non-inferiority/substantial-superiority design with conditional test or trend.
 {p_end}
@@ -161,16 +171,15 @@ Favourable                 Yes          Allocation ratios	[Default]
 Specify power		   Yes          Power or N		0.8	
 Alpha			   0.05         One-sided test	        No 
 Trend		           No           Dose                    Ltfu   
-
     
 Score test (default)  Yes   Wald test No   Local alternatives No   Conditional test No  
-Continuity Correction No    Do not round No
+Continuity Correction No    Do not round No   Force No
              
 {hi:Result}
 
 . artbin, pr(0.2 0.3) alpha(0.05) power(0.8) fav
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.3 26nov2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -189,15 +198,15 @@ Continuity correction                  no
 Anticipated event probabilities        0.200  0.300 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         588
 
 Sample size per group (calculated)     294 294
-Expected total number of events        147.00   
+Expected total number of events        147
+Expected number of events per group    58.8 88.2
 ------------------------------------------------------------------------------
-
 
 Machin et. al. 2008 (Table 3.1, p. 38) gives n = 294 per group.
 
@@ -205,7 +214,7 @@ Machin et. al. 2008 (Table 3.1, p. 38) gives n = 294 per group.
 {hi:Example 2}
 
 Anticipated probabilities  0.1 0.2 0.3 0.4  Margin (NI/SS only)  [Default]
-Favourable                 n/a              Allocation ratios	 [Default]
+Favourable                 Yes (ignored)    Allocation ratios	 [Default]
 Specify power		   Yes              Power or N		 0.9	
 Alpha			   0.05             One-sided test	 No 
 Trend		           No               Dose                 Ltfu    
@@ -216,9 +225,10 @@ Continuity Correction No    Do not round No
 
 {hi:Result}
 
-. artbin, pr(0.1 0.2 0.3 0.4) local alpha(0.05) power(0.9)
+. artbin, pr(0.1 0.2 0.3 0.4) local alpha(0.05) power(0.9) fav
+WARNING: favourable/unfavourable/force are ignored for >2 groups.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.3 26nov2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -237,12 +247,14 @@ Continuity correction                  no
 Anticipated event probabilities        0.100 0.200 0.300 0.400
 
 Alpha                                  0.050 (two-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.900
 
 Total sample size (calculated)         216
 
 Sample size per group (calculated)     54 54 54 54
-Expected total number of events        54.00    
+Expected total number of events        54
+Expected number of events per group    5.4 10.8 16.2 21.6
 ------------------------------------------------------------------------------
 
 
@@ -250,9 +262,10 @@ Expected total number of events        54.00
 
 As Example 2 but with Trend checked (doses unspecified)
 
-. artbin, pr(0.1 0.2 0.3 0.4) local alpha(0.05) power(0.9) trend
+. artbin, pr(0.1 0.2 0.3 0.4) local alpha(0.05) power(0.8) fav trend
+WARNING: favourable/unfavourable/force are ignored for >2 groups.
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.3 26nov2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -272,12 +285,14 @@ Linear trend test: doses are           1, 2, 3, 4
 Anticipated event probabilities        0.100 0.200 0.300 0.400
 
 Alpha                                  0.050 (two-sided)
-Power (designed)                       0.900
+                                        (taken as .025 one-sided)
+Power (designed)                       0.800
 
-Total sample size (calculated)         160
+Total sample size (calculated)         120
 
-Sample size per group (calculated)     40 40 40 40
-Expected total number of events        40.00    
+Sample size per group (calculated)     30 30 30 30
+Expected total number of events        30
+Expected number of events per group    3 6 9 12
 ------------------------------------------------------------------------------
 
 
@@ -293,11 +308,12 @@ Trend		           No           Dose                    Ltfu
 
     
 Score test (default)  No   Wald test Yes   Local alternatives No   Conditional test No  
-Continuity Correction No    Do not round No
+Continuity Correction No    Do not round No    Force No
+
 
 . artbin, pr(0.2 0.2) margin(0.1) alpha(0.05) power(0.8) unf wald
 
-ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.0.2 23may2023)
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.3 26nov2026)
 ------------------------------------------------------------------------------
 A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
 Ella Marley-Zagar and Ian White
@@ -312,19 +328,79 @@ Statistical test assumed               unconditional comparison of 2
                                         using the wald test
 Local or distant                       distant
 Continuity correction                  no
-Null hypothesis H0:                    H0: pi2 - pi1 >= .1
-Alternative hypothesis H1:             H1: pi2 - pi1 < .1
+Null hypothesis                        H0: pi2 - pi1 >= .1
+Alternative hypothesis                 H1: pi2 - pi1 < .1
 
 Anticipated event probabilities        0.200  0.200 
 
 Alpha                                  0.050 (two-sided)
-                                       (taken as .025 one-sided)
+                                        (taken as .025 one-sided)
 Power (designed)                       0.800
 
 Total sample size (calculated)         504
 
 Sample size per group (calculated)     252 252
-Expected total number of events        100.80   
+Expected total number of events        100.8
+Expected number of events per group    50.4 50.4
+------------------------------------------------------------------------------
+
+{hi:Example 5}
+
+As Example 1 but with anticipated probabilities 0.3 0.2 and Favourable kept.
+The probabilities suggest an unfavourable outcome, so {cmd:artbin} stops unless
+{cmd:Force} is ticked.
+
+Anticipated probabilities  0.3 0.2      Margin (NI/SS only)     0
+Favourable                 Yes          Allocation ratios       [Default]
+Specify power              Yes          Power or N              0.8
+Alpha                      0.05         One-sided test          No
+Trend                      No           Dose                    Ltfu
+
+
+Score test (default)  Yes   Wald test No   Local alternatives No   Conditional test No
+Continuity Correction No    Do not round No    Force No
+
+. artbin, pr(0.3 0.2) alpha(0.05) power(0.8) fav
+artbin thinks your outcome is unfavourable. Please check your command. If your command is correct then conside
+> r using the -force- option.
+r(198);
+
+If the outcome really is favourable, tick {cmd:Force}:
+
+Score test (default)  Yes   Wald test No   Local alternatives No   Conditional test No
+Continuity Correction No    Do not round No    Force Yes
+
+. artbin, pr(0.3 0.2) alpha(0.05) power(0.8) fav force
+ WARNING: artbin thinks your outcome should be unfavourable.
+ NOTE: with force, sample size/power are calculated for H1: pi2 - pi1 < 0
+
+ART - ANALYSIS OF RESOURCES FOR TRIALS (binary version 2.1.3 26nov2026)
+------------------------------------------------------------------------------
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+------------------------------------------------------------------------------
+Type of trial                          superiority
+Number of groups                       2
+Favourable/unfavourable outcome        favourable
+Allocation ratio                       equal group sizes
+Statistical test assumed               unconditional comparison of 2
+                                        binomial proportions
+                                        using the score test
+Local or distant                       distant
+Continuity correction                  no
+
+Anticipated event probabilities        0.300  0.200 
+
+Alpha                                  0.050 (two-sided)
+                                        (taken as .025 one-sided)
+Power (designed)                       0.800
+
+Total sample size (calculated)         588
+
+Sample size per group (calculated)     294 294
+Expected total number of events        147
+Expected number of events per group    88.2 58.8
 ------------------------------------------------------------------------------
 
 

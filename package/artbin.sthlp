@@ -1,5 +1,6 @@
 {smcl}
-{* *! version 2.1.0 04jan2024}{...}
+{* *! version 2.1.3 26nov2026}{...}
+{* version 2.1.0 04jan2024}{...}
 {vieweralsosee "sampsi (if installed)" "sampsi"}{...}
 {vieweralsosee "power (if installed)" "power"}{...}
 {vieweralsosee "artbin_whatsnew" "artbin_whatsnew"}{...}
@@ -12,6 +13,7 @@
 {viewerjumpto "Use for Observational Studies" "artbin##observationaluse"}{...}
 {viewerjumpto "Changes from artbin version 1.1.2 to version 2.0.1" "artbin##whatsnew"}{...}
 {viewerjumpto "Changes from artbin version 2.0.1 to version 2.1" "artbin##whatsnew21"}{...}
+{viewerjumpto "Changes from artbin version 2.1.2 to version 2.1.3" "artbin##whatsnew213"}{...}
 {viewerjumpto "Examples" "artbin##examples"}{...}
 {viewerjumpto "References" "artbin##references"}{...}
 {viewerjumpto "Citation" "artbin##citation"}{...}
@@ -63,7 +65,7 @@
 {syntab:Method}
 {synopt :{opt lo:cal}}calculates under local alternatives (only valid for small treatment effects){p_end}
 {synopt :{opt noround}}the calculated sample size in each group should not be rounded up to the nearest integer{p_end}
-{synopt :{opt force}}overrides the program's inference of the favourable/ unfavourable outcome type{p_end}
+{synopt :{opt force}}overrides the program's check of the favourable/unfavourable outcome type{p_end}
 {synoptline}
 
 
@@ -146,8 +148,8 @@ is then {it:pi2 – pi1 <= m} and the alternative hypothesis is
 while {it:m > 0} denotes a substantial-superiority trial.
 
 {pmore}
-The hypothesised margin for the difference in anticipated probabilities, {it:#}, must lie
-between -1 and 1. 
+The hypothesised margin for the difference in anticipated probabilities, {it:#}, must lie strictly
+between -1 and 1; otherwise {cmd:artbin} stops with an error.
 
 {phang}
 {opt favourable} or {opt unfavourable} are used with two-group trials
@@ -155,6 +157,7 @@ to specify whether the outcome is {opt favourable} or {opt unfavourable}.
 If either option is used, {cmd:artbin} checks the assumptions;
 otherwise, it infers the favourability status.  Both American and 
 English spellings are allowed.
+With more than two groups these options are ignored and a warning is shown.
 
 {dlgtab:Power and sample size}
 
@@ -174,6 +177,8 @@ The allocation ratio for group {it:k} is {it:#k}, {it:k = 1,...,K} e.g. {cmd:ara
 means two participants are randomised to the experimental group for each one randomised
 to the control group. With two groups, {cmd:aratios(#)} is taken to mean {opt aratios(1 #)}.
 The default is equal allocation to all groups.
+With more than two groups, one ratio must be given for each group. Giving more ratios than there are
+probabilities in {opt pr()} is an error.
 
 {phang}               
 {opt ltfu(#)} assumes a proportional loss to follow-up of {it:#}, where {it:#}
@@ -221,6 +226,7 @@ doses for groups {it:1,...,r}.  If {it:r < K} (the total number of groups), the 
 is assumed equal to #r for groups {it:r+1, r+2, ..., K}. 
 If {opt trend} is specified without {opt doses()} then the default is {opt doses(1 2 ... K)}.
 {opt doses()} is not permitted for a two-group trial.
+Doses must be non-negative and at least two must differ. Giving more doses than there are groups is an error.
 
 {phang}
 {opt condit} specifies that the trial will be analysed using Peto's conditional test. 
@@ -231,7 +237,7 @@ with other conditional tests.
 The default is the usual Pearson chisquare test. 
 
 {pmore}
-{opt condit} is not available for non-inferiority and super-superiority trials.
+{opt condit} is not available for non-inferiority and substantial-superiority trials.
 {opt condit} cannot be used with {opt wald} since only one test type is allowed.
 {opt condit} implies {opt local}.
 The {opt ccorrect} option is not available with {opt condit}.
@@ -246,7 +252,7 @@ The Wald test inherently allows for distant alternatives so {opt wald} and {opt 
 
 {phang}
 {opt ccorrect} specifies that the trial will be analysed using a continuity correction. {opt ccorrect} is not
-available with {opt condit}. The default is no continuity correction.
+available with {opt condit} or with more than two groups. The default is no continuity correction.
 
 {dlgtab:Method}
 
@@ -263,9 +269,13 @@ The Wald test inherently allows for distant alternatives so {opt wald} and {opt 
 {opt noround} prevents rounding of the calculated sample size. The default is to round the calculated sample size in each group up to the nearest integer. 
 
 {phang}
-{opt force} can be used with two-group studies to override the program's inference of the
-{opt favourable}/ {opt unfavourable} outcome type. This may be needed for example when designing an observational 
-study with a harmful risk factor, the favourability types would be reversed and the {opt force} option applied.
+{opt force} can be used with two-group studies to override the program's check of the
+{opt favourable}/{opt unfavourable} outcome type. This may be needed for example when designing an observational
+study with a harmful risk factor, where the favourability types would be reversed and the {opt force} option applied.
+{opt force} changes only the outcome type: the sample size or power is always calculated for the direction
+implied by {opt pr()} and {opt margin()}, and the trial type and hypotheses shown in the output are the ones
+used in the calculation. If they differ from the outcome type specified, {cmd:artbin} displays a note giving
+the alternative hypothesis used. {opt force} is ignored, with a warning, for trials with more than two groups.
 
 
 {marker remarks}{...}
@@ -293,6 +303,14 @@ This approximation may fail with very small sample sizes, in which case the cont
 We suggest using the usual rule for the Pearson chi-squared test, namely to mistrust the results when any expected 
 cell count is lower than about 5. Concerned users should check the power by simulation.
  
+{pstd}For more than two groups with the default (distant) method, power is
+calculated from an approximation to the distribution of the test statistic that is
+not valid for very small sample sizes. When power is requested for such a sample
+size, {cmd:artbin} stops with an error. When a sample size is requested for a power
+below what the approximation can give, {cmd:artbin} stops and reports the smallest
+sample size at which the approximation is valid and the power there. Use a larger
+sample size or power, or check the power by simulation.
+
 {pstd}
 For a full description of the methods and formulae used in {cmd:artbin}, please see {help artbin##citation:the accompanying Stata Journal paper}.
 
@@ -324,6 +342,11 @@ For a detailed description of what's new in artbin, please see {helpb artbin_wha
 
 {pstd}Rounding now behaves exactly as stated in the help file, i.e. sample sizes are rounded up to the nearest integer in each group.
 
+{marker whatsnew213}
+{title:Changes from {cmd:artbin} version 2.1.2 to version 2.1.3}
+
+{pstd}Some designs now give an error instead of a wrong or missing result, and some
+sample sizes change. See {help artbin_whatsnew##whatsnew213:What's new in artbin}.
 
 {marker examples}{...}
 {title:Examples}
@@ -389,7 +412,7 @@ Trials 21, 145 (2020). {browse "https://doi.org/10.1186/s13063-020-4070-4"}
 {synopt:{cmd:r(D1)}}Events expected in group 1 {p_end}
 {synopt:{cmd:r(D2)}}Events expected in group 2 {p_end}
 {synopt:{cmd:r(power)}}Power  {p_end}
-{pstd}The same quantities are returned, whether {cmd:artbin} has calculated power from sample size or sample size from power.
+{pstd}The same quantities are returned, whether {cmd:artbin} has calculated power from sample size or sample size from power, and whether or not the output table is shown.
 Further scalars {cmd:r(n3)} etc. are returned for trials with more than 2 arms.
 
 

@@ -1,4 +1,5 @@
-*!version 2.1.2 IW     19feb2026
+*!version 2.1.3 TMP    26nov2026
+* version 2.1.2 IW     19feb2026
 * version 2.1.1 IW     30apr2024
 * version 2.1.0 IW     04jan2024
 * version 2.0.2 EMZ    23may2023
@@ -35,6 +36,32 @@
 *	History
 	
 /*
+2.1.3				- Add check and error when aratios(#) > pr(#)
+					- Add range check for margin(); help says between -1 and 1
+					- Widen starting interval of the iterative sample-size search for >2 groups (default method) until it contains the solution
+					- Power no longer missing when the noncentrality is beyond the range of nchi2() under version 8 (very high power, large effects or
+                      extreme probabilities): new subprogram _nchi2 uses nchi2() under version 13 (noncentrality up to 10,000) and a normal approximation
+					  beyond that; results that were not missing before are unchanged; the >2-group sample-size search no longer fails or returns a wrong n in these cases
+					- Error when the power approximation for >2 groups is not valid at the requested n; the sample-size search treats an invalid approximation 
+					  as too little power and says when the requested power is below what the approximation can give
+					- Match calculation with design displayed in output table when force is specified with margin()
+					- Fix nchi and condit with single aratio() (condit results change, e.g. pr(.2 .1) condit aratios(2): 374 -> 465)
+					- Add check for doses()
+					- Add error message for ccorrect and nchi (K-groups code has no continuity correction)
+					- Display unrounded allocation ratios in the >2-group output table
+					- Add error for when specified nvmethod is not 1,2,3
+					- add r(n) and r(power) back in when notable
+					- Remove 'inferred by the program' in table when American spellings un/favorable used
+					- Add warnings for un/favourable and force with >2 groups, nvm(#) with >2groups or condit, correct check for ngroups and pr mismatch
+					- Add check to stop if convcrit() < 1E-15
+					- Numbers of >= 1,000,000 are now shown not rounded in the output table
+					- Fix output table inconsistencies (0.000 probabilities, a missing "taken as ... one-sided" line, the conditional test labelled as a score test)
+					- "(taken as alpha/2 one-sided)" not shown for >2-group chi-square tests (full alpha used)
+					- Display doses() unrounded in the output table
+					- ap2() has no effect: a valid value is now accepted and ignored with a warning (out-of-range values still give an error)
+					- >2-group sample-size search: start at n = 1 when the local start value is 0 or missing (power <= alpha), so the widening
+					  loop no longer doubles 0 forever (e.g. pr(.1 .2 .3) power(.05) hung); such commands now give the "approximation is valid
+					  only for n >= ..." error
 2.1.2 remove pre-syntax check that gives error if no space after comma
 2.1.1 parse aratios as numlist not string - better error messages
 2.1.0   22nov2023   ltfu() was wrong for n -> power
@@ -166,8 +193,8 @@ program define artbin, rclass
 version 8
 
 * update these two lines
-local artbin_version 2.1.2
-local artbin_date 19feb2026
+local artbin_version 2.1.3
+local artbin_date 26nov2026
 
 if _caller() >= 12 {
     local hidden hidden
@@ -224,20 +251,26 @@ local minpr : word 1 of `r(numlist)'
     }  
 	
 if "`margin'"!="" & `npr'>2 & `npr'!=. { 
-	di as err "Can not have margin with >2 groups"
+	di as err "Cannot have margin with >2 groups"
 	exit 198
     } 
 	
+if "`margin'"!="" {
+	if `margin'<=-1 | `margin'>=1 {
+		di as err "Margin must lie strictly between -1 and 1"
+		exit 198
+	}
+}	
 	
 if `npr'==2 & `minpr'==`maxpr' & "`margin'"=="" {
     di as err "Event probabilities can not be equal with 2 groups"
     exit 198
     } 
 
-if ("`ngroups'"!="") & ("`ngroups'"!="`npr'") {
-    di "{it: WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ignored.}"
+if "`ngroups'"!="" {
+	if `ngroups'!=`npr' di "{it: WARNING: Mismatch between the number of proportions and the number of groups specified - ngroups value will be ignored.}"
 }
-local ngroups = `npr'
+local ngroups = `npr'      
 
 * create a marker -niss- to indicate if non-inferiority/super-superiority trial (niss=1), otherwise superiority (niss=0).  
 
@@ -258,11 +291,9 @@ if `onesided2'==0 & `onesided2missing'!=1 & "`onesided'"!=""  {
 * want if `onesided'==1, then onesided, otherwise two-sided.  
 if (`onesided2'>0 | "`onesided'"!="") {
 	local onesided 1 
-	local sided two
 }
 else {
 	local onesided 0
-	local sided one
 }
 
 
@@ -283,7 +314,7 @@ else local ccorrect 0
 
 * Produce warning message if user specifies ni/ss trial and nchi 
 if `niss' & "`nchi'" == "nchi" {
-		di "{it: WARNING: nchi will be ignored.}"
+		di "{it:WARNING: nchi will be ignored.}"
 }
 
 * Add in error messages to not allow local and wald at the same time
@@ -292,11 +323,16 @@ if `niss' & "`nchi'" == "nchi" {
                 exit 198
 	}
 	
-* Do not allowe conditional and wald together
+* Do not allow conditional and wald together
 	if !mi("`condit'") & !mi("`wald'") {
 			di as error " Conditional and Wald not allowed together"
 			exit 198
 	}
+	  
+if (`npr'>2 | !mi("`condit'")) & !mi("`nvmethod'") {
+        di "{it:WARNING: nvmethod() is only used for 2-group unconditional tests and is ignored.}"
+        local nvmethod      // drop it so the Wald/local nvm checks below are not run
+}
 
 * Do not allow wald & nvmethod ~=1 (if nvm is specified)
 	  if "`wald'"!="" & "`nvmethod'"!="" & "`nvmethod'"!="1" {
@@ -307,16 +343,17 @@ if `niss' & "`nchi'" == "nchi" {
 * If nvm() is not specified and wald is selected, default to nvm(1) 
 	if "`wald'"!="" & "`nvmethod'"=="" {
 		local nvmethod = 1
-*	  	di "{it: WARNING: the default nvm(3) has been changed to nvm(1) as Wald has been selected}"
+*	  	di "{it:WARNING: the default nvm(3) has been changed to nvm(1) as Wald has been selected}"
 	  }
 
 * Make nvmethod=3 the default if not specified 
-	 if "`nvmethod'"!="" {
-		if `nvmethod'>3 | `nvmethod'<1  {
-		local nvmethod 3
+	if "`nvmethod'"!="" {
+		if !inlist(`nvmethod',1,2,3) {
+			di as err "nvmethod() must be 1, 2 or 3"
+			exit 198
 		}
-	 }
-	 else if "`nvmethod'"=="" local nvmethod 3
+	}
+	else local nvmethod 3
 	  	  
 * Do not allow local & nvmethod ~=3
 	  if "`local'"!="" & `nvmethod'!=3 {
@@ -356,22 +393,32 @@ if `npr' == 2 & "`nchi'"!="" & "`trend'"!="" {
 
 * If conditional and not local (i.e. default distant) are selected, produce warning message saying local will be used instead
 if !mi("`condit'") & "`local'"=="" {
-		* change to local with a warning message
-		local local "local"
-    	di "{it: NOTE: As conditional has been selected local will be used.}"
+	* change to local with a warning message
+	local local "local"
+    di "{it:NOTE: As conditional has been selected local will be used.}"
 }
-
 
 * Produce error message if ccorrect is specified in the 2-arm superiority conditional case as it is currently not coded
 if `npr'==2 & (mi("`margin'") | "`margin'" == "0") & !mi("`condit'") & `ccorrect' {
-    	di as err "Sorry ccorrect is not currently available in the 2-arm superiority conditional case"
+    di as err "Sorry ccorrect is not currently available in the 2-arm superiority conditional case"
 	exit 198
 } 
 
+* Error message for ccorect & nchi
+if `npr'==2 & "`nchi'"!="" & `niss'==0 & `ccorrect' {
+	di as err "ccorrect is not available with nchi"
+	exit 198
+}
+
 * Event probability in group 2 under the alternative hypothesis H1: range check*
 if (`ap2'<0 | `ap2'>1) {
-		di as err  "Group 2 event probability under the alternative hypothesis must be >0 & <1"
-		exit 198
+	di as err  "Group 2 event probability under the alternative hypothesis must be >0 & <1"
+	exit 198
+}
+* ap2() has no effect (the only code that used it cannot be reached): accept it, warn, and ignore it
+if `ap2'!=0 {
+	di "{it:WARNING: ap2() has no effect and is ignored.}"
+	local ap2 0
 }
 
 
@@ -395,8 +442,17 @@ if !mi("`aratios'") {
 			di as err "Please specify the same number of aratios() as pr() for >2 groups"
 			exit 198
 		}
+		if `nar' > `npr' {
+			di as err "Please specify the same number of aratios() as pr()"
+			exit 198
+		}
 }
 else local nar `npr'
+
+if `npr'==2 & `nar'==1 {
+	local aratios 1 `aratios'
+	local nar 2
+}
 
 * obtain cumulative sum of allocation ratios for sample size per group calculation
 if !mi("`aratios'") {
@@ -414,17 +470,21 @@ forvalues a=1/`nar' {
 	else local totalallr = `totalallr' + `allr`a''
 }
 
-* create marker if user has not entered fav/unfav status
-if mi("`favourable'") & mi("`unfavourable'") local infer 1
-else local infer 0
-
 * From artcat: accommodate American spellings
 if !mi("`favorable'") local favourable favourable
 if !mi("`unfavorable'") local unfavourable unfavourable
 
+* create marker if user has not entered fav/unfav status
+if mi("`favourable'") & mi("`unfavourable'") local infer 1
+else local infer 0
+
 if !mi("`unfavourable'") & !mi("`favourable'") {
-	di as err "Can not specify both unfavourable and favourable"
+	di as err "Cannot specify both unfavourable and favourable"
 	exit 198
+}
+
+if `npr'>2 & !mi("`favourable'`unfavourable'`force'") {
+   di "{it:WARNING: favourable/unfavourable/force are ignored for >2 groups.}"
 }
 
  if `npr'==2 {
@@ -472,6 +532,27 @@ if !mi("`unfavourable'") & !mi("`favourable'") {
 			di "{it: WARNING: artbin thinks your outcome should be unfavourable.}"
 		}
 		
+		* direction actually used in the calculation (art2bin uses |p2 - p1 - margin|)
+		local calcdir = cond(`w2' < `threshold', "unfavourable", "favourable")
+		if ("`calcdir'"=="unfavourable" & `margin'>0 | "`calcdir'"=="favourable" & `margin'<0) {
+			local trialtype "non-inferiority"
+		}
+		else if ("`calcdir'"=="unfavourable" & `margin'<0 | "`calcdir'"=="favourable" & `margin'>0) {
+			local trialtype "substantial-superiority"
+		}
+		if "`calcdir'"=="unfavourable" {
+			local H0 = "H0: pi2 - pi1 >= `margin'"
+			local H1 = "H1: pi2 - pi1 < `margin'"
+		}
+		else {
+			local H0 = "H0: pi2 - pi1 <= `margin'"
+			local H1 = "H1: pi2 - pi1 > `margin'"
+		}
+		if "`calcdir'"!="`trialoutcome'" {
+			di "{it: NOTE: with force, sample size/power are calculated for `H1'}"
+		}
+
+		/*
 		* Define NI and substantial-superiority
 		if ("`trialoutcome'" == "unfavourable" & `margin' > 0 | "`trialoutcome'" == "favourable" & `margin' < 0) {
 			local trialtype "non-inferiority"
@@ -487,11 +568,12 @@ if !mi("`unfavourable'") & !mi("`favourable'") {
 			local H0 = "H0: pi2 - pi1 <= `margin'"
 			local H1 = "H1: pi2 - pi1 > `margin'"
 		}
+		*/
 	}
 	
 * Produce error message if user selects NI trial and niss=0
 	if !`niss' & "`trialtype'" == "non-inferiority" {
-		di as error "Can not select non-inferiority trial and superiority option (margin=0 or missing)"
+		di as error "Cannot select non-inferiority trial and superiority option (margin=0 or missing)"
         exit 198
 	  }
 
@@ -506,7 +588,7 @@ if "`debug'"=="debug" {
 }
 else local qui qui
 
-if mi("`format'") local format %-9.2f
+if mi("`format'") local format %-12.2f
 
 // END OF PARSING
 
@@ -538,7 +620,7 @@ if mi("`format'") local format %-9.2f
 	  * for output table at the end
 	  local p1 = `w1'
 	  local p2 = `w2'
-	  local Power `r(power)'
+	  local Power = `r(power)'
 *	  local Margin1 `r(margin)'
 *	  local nvm `r(nvm)'
 *	  local method`nvm' "`r(vmethod)'"
@@ -561,13 +643,17 @@ if mi("`format'") local format %-9.2f
 *	  frac_ddp `altd1' 3
 	  local altd1 : di %6.3f `altd1'
 *	  local altd `r(ddp)'
-*	  frac_ddp `w1' 3
-	  local w1dp : di %-6.3f `w1'
-*	  local w1dp `r(ddp)'
-*	  frac_ddp `w2' 3
+      local w1dp : di %-6.3f `w1'
+	  if abs(`w1dp' - `w1') > 1e-10 {          // 3 d.p. would hide the value
+		local w1dp = strofreal(`w1', "%9.0g")
+        if substr("`w1dp'",1,1)=="." local w1dp 0`w1dp'
+      }
       local w2dp : di %-6.3f `w2'
-*	  local w2dp `r(ddp)'
-	  local altp "`w1dp' `w2dp'"
+      if abs(`w2dp' - `w2') > 1e-10 {
+         local w2dp = strofreal(`w2', "%9.0g")
+         if substr("`w2dp'",1,1)=="." local w2dp 0`w2dp'
+      }
+	  local altp = trim(itrim("`w1dp' `w2dp'"))
 	  local off 40
       local longstring 38
       local maxwidth 78
@@ -635,9 +721,11 @@ local Power `power'	/* as supplied */
 	/* Method of estimating event probabilities for the purpose of estimating
 		the variance of the difference in proportions under the null hypothesis H0 */
 	local nvm = `nvmethod'  
+	/*
 	if `nvm'>3 | `nvm'<1 {
 		local nvm 3
 	}
+	*/
 	local method1 Sample estimate
 	local method2 Fixed marginal totals
 	local method3 Constrained maximum likelihood
@@ -663,7 +751,7 @@ local Power `power'	/* as supplied */
 *	frac_ddp `margin' 3
 	local margin : di %6.3f `margin'
 *	local Margin `r(ddp)'
-	local p2 = cond(`ap2'==0, `p1', `ap2')
+	local p2 `p1' // ap2() is ignored
 	local altp
 	local co
 	forvalues i=1/2 {
@@ -698,7 +786,7 @@ local Power `power'	/* as supplied */
 		local n1 = floor(`n'*`ar21'/(1+`ar21'))
 		`qui' art2bin `p1' `p2', margin(`margin') ar(`ar21') n0(`n0')	///
 			n1(`n1') alpha(`alpha') nvmethod(`nvm') `onesided' `ccorrect' `local' `wald' noround
-		local power `r(power)'	
+		local power = `r(power)'	
 		local artcalcused "2-arm"
 	}
 *	local D = ceil(`n'*(`p1' + `p2'*`ar21')/(1+`ar21'))                      
@@ -724,9 +812,14 @@ else {                                                                          
 	tempname PI pibar
 	qui gen double `PI'=.
 	tokenize `pr'
-*	local altp : di %6.3f "`1'"
-	frac_ddp "`1'" 3
-	local altp `r(ddp)'
+    frac_ddp "`1'" 3
+    local pdp `r(ddp)'
+    if abs(`pdp' - `1') > 1e-10 {
+          local pdp = strofreal(`1', "%9.0g")
+          if substr("`pdp'",1,1)=="." local pdp 0`pdp'
+    }
+    local altp `pdp'
+	
 	forvalues i=1/`npr' {
 		confirm number `1'
 		if max(`1',1-`1')>=1 { 
@@ -734,10 +827,15 @@ else {                                                                          
 			exit 198
 		}	
 		qui replace `PI'=`1' in `i'
-		if `i'>1 {
+        if `i'>1 {
 			frac_ddp `1' 3
-			local altp `altp' `r(ddp)'
-		}
+            local pdp `r(ddp)'
+            if abs(`pdp' - `1') > 1e-10 {
+				local pdp = strofreal(`1', "%9.0g")
+                if substr("`pdp'",1,1)=="." local pdp 0`pdp'
+            }
+            local altp `altp' `pdp'
+         }
 		macro shift
 	}
 	summ `PI',meanonly
@@ -758,8 +856,10 @@ else {                                                                          
 		tokenize `aratios'
 		* currently allocation ratios for this section are displayed as 1.00 : 2.00 instead of 1:2 like all other sections so changing it to be the same
 		* frac_ddp `1' 2
-		frac_ddp `1' 0
-		local allocr `r(ddp)'
+		* frac_ddp `1' 0
+		* local allocr `r(ddp)'
+		local allocr = trim(string(`1', "%9.0g")) 
+
 		local i 1
 		while `i'<=_N {
 			if "`1'"!="" {
@@ -776,8 +876,10 @@ else {                                                                          
 			if `i'>1 {
 				* currently alloc ratios for this section are displayed as 1.00 : 2.00 instead of 1:2 like all other sections so changing it to be the same
 				* frac_ddp `AR'[`i'] 2
-				frac_ddp `AR'[`i'] 0
-				local allocr `allocr':`r(ddp)'
+				* frac_ddp `AR'[`i'] 0
+				* local allocr `allocr':`r(ddp)'
+				local ri = trim(string(`AR'[`i'], "%9.0g"))
+				local allocr `allocr':`ri'
 			}
 			local ++i
 			macro shift
@@ -805,9 +907,15 @@ else {                                                                          
 			local doses "`tabledose'"
 		}
 		else {
+			local ndoses : word count `doses'
+			if `ndoses' > `ngroups' {
+				di as err "Please specify the same number of doses() as pr()."
+				exit 198
+			}
 			parse "`doses'",parse(" ")
-			frac_ddp "`1'" 2
-			local score `r(ddp)'
+			confirm number `1'
+            local score = strofreal(`1', "%9.0g")
+            if substr("`score'",1,1)=="." local score 0`score'
 			local i 1
 			while `i'<=_N {
 				if "`1'"!="" {
@@ -820,14 +928,21 @@ else {                                                                          
 				}
 				else qui replace `DOSE'=`DOSE'[`i'-1] in `i'
 				if `i'>1 {
-					frac_ddp `DOSE'[`i'] 2
-					local score `score', `r(ddp)'
+					local dstr = strofreal(`DOSE'[`i'], "%9.0g")
+                    if substr("`dstr'",1,1)=="." local dstr 0`dstr'
+                    local score `score', `dstr'
 				}
 				local ++i
 				macro shift
 			}
 			local doses "`score'"
 		}
+		qui summ `DOSE'
+		if r(max)==r(min) {
+			di as err "doses() must contain at least two distinct values."
+			exit 198
+		}
+		
 		sum `DOSE' [w=`AR'],meanonly
 		qui replace `DOSE'=`DOSE'-r(mean)
 	}
@@ -874,7 +989,11 @@ else {                                                                          
 *					else local D=`n'*`pibar'
 					local D=`n'*`pibar'
 				}
-				else scalar `b'=nchi2(`K',`n'*`q0',`a')
+				else {
+					tempname lw
+					scalar `lw'=`n'*`q0'
+					_nchi2 `K' `lw' `a' `b'
+				}
 			}
 			else {
 				tempname S sbar W  a0 a1 q1 eta g psi l
@@ -892,26 +1011,55 @@ else {                                                                          
 					* Solve for n iteratively (interval bisection)
 					* Convergence criteria tightened up, IW 22nov2023
 					* previously 0.001 for change in b and 1 for change in n
-					if `convcrit'<1E-15 di as error "convcrit < 1E-15: program may hang"
+					*if `convcrit'<1E-15 di as error "convcrit < 1E-15: program may hang"
+					if `convcrit'<1E-15 {
+						di as error "convcrit() must be at least 1E-15"
+						exit 198
+					}
 					tempname n0 nl nu b0 sm
 					scalar `sm'=`convcrit'
 					local i 1
 					scalar `n0'=npnchi2(`K',`a',`b')/`q0'
+					if mi(`n0') | `n0'<1 scalar `n0'=1	// power <= alpha gives n0 = 0 (or missing): start the search at n = 1
 					_pe2 `a0' `q0' `a1' `q1' `K' `n0' `a' `b0'
 					if abs(`b0'-`b')<=`sm' {
 						local i 0
 					}
-					else {
-						if `b0'<`b' {
+					
+					else	{ 											//widen interval until it contains the solution before halving
+						if `b0'<`b'	{ 									//too much power at n0: solution is < n0
 							scalar `nu'=`n0'
-							scalar `nl'=`n0'/2                                   
+							scalar `nl'=`n0'/2
+							_pe2 `a0' `q0' `a1' `q1' `K' `nl' `a' `b0'
+							while `b0'<`b' & `nl'>1 {
+								scalar `nu'=`nl'
+								scalar `nl'=`nl'/2
+								_pe2 `a0' `q0' `a1' `q1' `K' `nl' `a' `b0'
+							}
 						}
-						else {
+						else	{ 										//too little power at n0: solution is > n0
 							scalar `nl'=`n0'
-							scalar `nu'=2*`n0'                                   
+							scalar `nu'=2*`n0'
+							_pe2 `a0' `q0' `a1' `q1' `K' `nu' `a' `b0'
+							while `b0'>`b' & `nu'<1E9 {
+								scalar `nl'=`nu'
+								scalar `nu'=2*`nu'
+								_pe2 `a0' `q0' `a1' `q1' `K' `nu' `a' `b0'
+							}
+							if `b0'>`b' {			// also true if b0 is missing
+								di as err "Sample size search failed: power(`power') not reached for n up to " trim(string(`nu',"%15.0fc"))
+								exit 430
+							}
 						}
 					}
+					
+					local iter 0  
 					while `i' {
+						local ++iter
+						if `iter'>500 {
+							di as error "Sample size search did not converge"
+							exit 430
+						}
 						scalar `n0'=(`nl'+`nu')/2
 						_pe2 `a0' `q0' `a1' `q1' `K' `n0' `a' `b0'
 						if abs(`b0'-`b')<=`sm' {
@@ -926,8 +1074,20 @@ else {                                                                          
 						}
 					}
 					local n=`n0'
+					if mi(`b0') | `b0'<`b'-`sm' {	// search stopped at the edge of the valid region
+						_pe2 `a0' `q0' `a1' `q1' `K' `nu' `a' `b0'
+						di as err "Sample size for power(`power') cannot be calculated: the power approximation is"
+						di as err "valid only for n >= " trim(string(`nu',"%9.2f")) ", where the power is already " %5.3f 1-`b0' "."
+						exit 498
+					}					
 				}
-				else _pe2 `a0' `q0' `a1' `q1' `K' `n' `a' `b'
+				else {
+					_pe2 `a0' `q0' `a1' `q1' `K' `n' `a' `b'
+					if mi(`b') {
+						di as err "Power approximation not valid for n = `n'; sample size too small"
+						exit 498
+					}
+				}
 			}
 		}
 		else {
@@ -985,7 +1145,7 @@ else {                                                                          
 			else {
 				scalar `d'=`n'*`pibar'
 				scalar `l'=`d'*(`n'-`d')*`q0'/(`n'-1)
-				scalar `b'=nchi2(`K',`l',`a')
+				_nchi2 `K' `l' `a' `b'
 			}
 		}
 		else {
@@ -1038,6 +1198,7 @@ if "`debug'"=="debug" {
 }  // END OF GENERAL K-GROUPS CALCULATION 
 
 
+/*
 * Change rounding option so rounds UP to the nearest integer if noround is not specified - PER GROUP, FOR ALL ARMS (incl results from art2bin)
 
 * if ngroups = 2 but user has only specified 1 allocation ratio, redefine allr1 and allr2 (at present allr1 will be aratio and allr2 is blank)
@@ -1048,6 +1209,7 @@ if `npr'==2 & `nar'==1 {
 	 local aratios 1 `allr2'
 	 local allocr 1:`allr2'
 }
+*/
 
 * If first allocation ratio is not 1 (e.g. 2:3) re-scale so that rounding works
 * (otherwise artbin, pr(.15 .15) margin(.1) aratio(1 1.5) vs. artbin, pr(.15 .15) margin(.1) aratio(2 3) doea not give the same answer:
@@ -1137,7 +1299,7 @@ forvalues i=1/`nlines' {
 	}
 	else di as text _col(`off') as res " `r(line`i')'"
 	}
-	if mi("`wald'")  di as text _col(`off') as res " using the score test"
+	if mi("`wald'") & mi("`condit'") di as text _col(`off') as res " using the score test"
 	if !mi("`wald'") di as text _col(`off') as res " using the wald test"
 
 di as text "Local or distant" _col(`off') as res "`localdescr'"
@@ -1155,11 +1317,17 @@ if `ngroups'>2 & "`trtest'"!="" {
 	di as text "`trtest'" _col(`off') as res "`doses'"
 }
 di as text _n "Anticipated event probabilities" _col(`off') as res "`altp'"
-if mi("`onesided'") {
-    di as text _n "Alpha" _col(`off') %5.3f as res `Alpha' " (`sided'-sided)"
-	if "`sided'" == "two" di as text _col(`off') as res " (taken as `Alphadiv2' one-sided)"
+
+if "`sided'"=="two" {
+    di as text _n "Alpha" _col(`off') %5.3f as res `Alpha' " (two-sided)"
+	*>2 groups without trend/doses use the overall chi-square test at the full alpha,
+    *which has no one-sided version, so do not show the one-sided equivalent
+    if !(`ngroups'>2 & "`trtest'"=="") {
+		di as text _col(`off') as res " (taken as `Alphadiv2' one-sided)"
+	}
 }
-else di as text _n "Alpha" _col(`off') %5.3f as res `Alpha' " (`sided'-sided)"
+else di as text _n "Alpha" _col(`off') %5.3f as res `Alpha' " (one-sided)"
+
 if `ssize'==1 {
  	di as text "Power (designed)" _col(`off') %5.3f as res `Power'
 	return scalar power=`Power'
@@ -1183,15 +1351,15 @@ return scalar D=`D'
 }
 else if "`notable'"!="" {
 	if `ssize'==0 {
- 	di as text "Power (calculated) is: " %5.3f as res `power'
-	return scalar power=`power'
-	return scalar D=`D' 
+		di as text "Power (calculated) is: " %5.3f as res `power'
+		return scalar power=`power'
 	}
-	else if `ssize'==1 {
- 	di as text "Total sample size (calculated) is: " as res `ntotal'
+	else {
+		di as text "Total sample size (calculated) is: " as res `ntotal'
+		return scalar power=`Power'
+	}
 	return scalar n=`ntotal'
 	return scalar D=`D' 
-	}
 }
 
 
@@ -1223,8 +1391,25 @@ tempname b0 b1 f l
 scalar `b0'=`a0'+`n'*`q0'
 scalar `b1'=`a1'+2*`n'*`q1'
 scalar `l'=`b0'^2-`k'*`b1'
+if `l'<0 {
+	scalar `b'=.		// approximation not valid at this n: the user decides what to do
+	exit
+}
 scalar `f'=sqrt(`l'*(`l'+`k'*`b1'))
 scalar `l'=(`l'+`f')/`b1'
 scalar `f'=`a'*(`k'+`l')/`b0'
-scalar `b'=nchi2(`k',`l',`f')
+_nchi2 `k' `l' `f' `b'
+end
+
+program define _nchi2
+version 8
+* beta = nchi2(k, l, x), also when the noncentrality l is beyond the range of nchi2()
+args k l x b
+scalar `b'=nchi2(`k',`l',`x')			// version 8: l <= 1000
+if mi(`b') & c(stata_version)>=13 {
+	version 13: scalar `b'=nchi2(`k',`l',`x')	// version 13+: l <= 10000
+}
+if mi(`b') & `l'>0 & !mi(`l') {				// normal approximation; beta is then negligible
+	scalar `b'=normal((`x'-(`k'+`l'))/sqrt(2*(`k'+2*`l')))
+}
 end

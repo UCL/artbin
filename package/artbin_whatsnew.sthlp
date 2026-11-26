@@ -1,10 +1,11 @@
 {smcl}
-{* *! version 0.4 23may2023}{...}
+{* *! version 0.5 26nov2026}{...}
+{* version 0.4 23may2023}{...}
 {vieweralsosee "Main artbin help page" "artbin"}{...}
 {title:Title}
 
 {phang}
-{bf:What's new in artbin} {hline 2} Changes from {cmd:artbin} version 1.1.2 to version 2.0.2
+{bf:What's new in artbin} {hline 2} Changes from {cmd:artbin} version 1.1.2 to version 2.0.2, and from version 2.1.2 to version 2.1.3
 
 {title:New features}
 
@@ -92,6 +93,53 @@ Therefore the control group event probability for non-inferiority trials is {it:
 trials. Previously {cmd:art2bin} was only called for non-inferiority trials in {cmd:artbin},
 now it is called for all 2-group trials. {cmd:art2bin} can be used as a standalone but we do not
 recommend this.
+
+{marker whatsnew213}
+{title:Changes from {cmd:artbin} version 2.1.2 to version 2.1.3}
+
+{pstd}{cmd:artbin} now stops with an error, instead of giving a wrong or missing
+result, when more {opt aratios()} than groups are given, when {opt margin()} is not
+strictly between -1 and 1, and when {opt doses()} has more values than groups or
+all values equal.
+
+{pstd}For more than two groups, the iterative sample-size search now always
+contains the solution. Some sample sizes change: for example
+{cmd:artbin, pr(.001 .002 .003 .5) aratios(5 1 1 1) power(.99)} now gives 111
+(previously 104, which was underpowered).
+
+{pstd}For more than two groups with the default (distant) method, the power
+approximation is not valid for very small sample sizes. When power is requested
+for such a sample size, {cmd:artbin} now stops with an error (previously the power
+was reported as missing). When a sample size is requested for a power below what
+the approximation can give, {cmd:artbin} stops and reports the smallest sample size
+at which the approximation is valid and the power there.
+
+{pstd}For more than two groups, a power very close to 1 is no longer reported as
+missing, and the sample-size search no longer goes the wrong way for such designs.
+For example, {cmd:artbin, pr(.001 .5 .999) power(.99)} now gives 12 (previously 66).
+
+{pstd}With {opt condit} and a single allocation ratio, e.g. {cmd:aratios(2)},
+{cmd:artbin} previously calculated the sample size for equal allocation and then
+split it 1:2. It now uses the 1:2 allocation, as {cmd:aratios(1 2)} always did.
+Sample sizes for such designs change, e.g. {cmd:artbin, pr(.2 .1) condit aratios(2)}
+now gives 465 (previously 374).
+
+{pstd}With {opt force} and a non-zero {opt margin()}, the trial type and the
+hypotheses shown in the output now match the calculated sample size or power.
+
+{pstd}With {opt ccorrect}, the calculated power for very small sample sizes no
+longer decreases as the sample size increases.
+
+{pstd}Output: non-integer allocation ratios are shown unrounded (e.g. 1:1.5:2);
+sample sizes and numbers of events of 1,000,000 or more are shown in full;
+the "(taken as ... one-sided)" line is now shown for all two-sided tests that use
+alpha/2, but not for the chi-square test comparing more than two groups, which uses
+the full alpha;
+{opt favorable} and {opt unfavorable} are no longer reported as inferred; a warning
+is given when {opt favourable}, {opt unfavourable} or {opt force} is ignored for
+more than two groups; very small event probabilities in {opt pr()} are no longer shown as 0.000;
+the conditional test ({opt condit}) is no longer labelled as a score test;
+{opt doses()} are shown as entered instead of rounded to 2 decimal places.
 
 {title:Authors}
 

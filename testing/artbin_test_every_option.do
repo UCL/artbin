@@ -8,6 +8,7 @@ options untested here
 	eventtype(#)
 	force
 updated for v126 4may2021, still not testing n, ap2, force
+(ap2 is ignored with a warning from v2.1.3; tested in artbin_errortest_8.do)
 */
 local name artbin_test_every_option
 *local ver _v126

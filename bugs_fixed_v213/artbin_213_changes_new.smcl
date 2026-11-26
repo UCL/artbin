@@ -1,0 +1,1691 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}new
+       {txt}log:  {res}C:\Users\zcakf79\OneDrive - University College London\Desktop\artbin_bug\artbin_213_changes_new.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}26 Nov 2026, 22:52:20
+{txt}
+{com}. do "C:\Users\zcakf79\OneDrive - University College London\Desktop\artbin_bug\artbin_213_changes.do"
+{txt}
+{com}. /*******************************************************************************
+> artbin_213_changes.do
+> 
+> Illustrates the main changes between
+>     OLD: artbin 2.1.2 (19feb2026) 
+>     NEW: artbin 2.1.3 (26nov2026) 
+> 
+> Each section lists one change, what the old and new versions do
+> 
+> "OLD:" and "NEW:" in the comments give the results from running this file
+> with each version in StataNow 19 (26nov2026).
+> *******************************************************************************/
+. 
+. clear all
+{res}{txt}
+{com}. set more off
+{txt}
+{com}. args artbin_dir
+{txt}
+{com}. if `"`artbin_dir'"'=="" local artbin_dir "C:\Users\zcakf79\OneDrive - University College London\Desktop\artbin_bug\artbin-main"
+{txt}
+{com}. adopath ++ "`artbin_dir'"
+{txt}  [1]              "{res}C:\Users\zcakf79\OneDrive - University College London\Desktop\artbin_bug\artbin-main{txt}"
+  [2]  (BASE)      "{res}C:\Program Files\StataNow19\ado\base/{txt}"
+  [3]  (SITE)      "{res}C:\Program Files\StataNow19\ado\site/{txt}"
+  [4]              "{res}.{txt}"
+  [5]  (PERSONAL)  "{res}C:\Users\zcakf79\ado\personal/{txt}"
+  [6]  (PLUS)      "{res}C:\Users\zcakf79\ado\plus/{txt}"
+  [7]  (OLDPLACE)  "{res}c:\ado/{txt}"
+
+{com}. discard
+{txt}
+{com}. which artbin
+{txt}C:\Users\zcakf79\OneDrive - University College London\Desktop\artbin_bug\artbin-main\artbin.ado
+{res}*!version 2.1.3 TMP    26nov2026
+{txt}
+{com}. which art2bin
+{txt}C:\Users\zcakf79\OneDrive - University College London\Desktop\artbin_bug\artbin-main\art2bin.ado
+{res}*!version 1.02  25nov2026  TMP   - Add range check for margin(); must lie between -1 and 1
+{txt}
+{com}. 
+. 
+. *==============================================================================
+. * SECTION A. NEW ERROR MESSAGES (invalid input that used to give a wrong result)
+. *==============================================================================
+. 
+. *------------------------------------------------------------------------------
+. * A1. More allocation ratios than groups
+. *     OLD: for >2 groups the extra ratios were ignored in the calculation but
+. *          still counted when splitting n between the arms, so n was far too
+. *          small: pr(.1 .2 .3) gives n = 231, aratios(1 1 1 5) gave n = 87
+. *          (29 per arm), and the table showed the allocation ratio as 1:1:1.
+. *          For 2 groups the error was "Invalid allocation ratio".
+. *     NEW: error "Please specify the same number of aratios() as pr()".
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .2 .3)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}231
+
+{txt}Sample size per group (calculated){col 40}{res}77 77 77
+{txt}Expected total number of events{col 40}{res}46.2
+{txt}Expected number of events per group{col 40}{res}7.7 15.4 23.1
+{txt}{hline 78}
+
+{com}. cap noi artbin, pr(.1 .2 .3) aratios(1 1 1 5)
+{err}Please specify the same number of aratios() as pr()
+{txt}
+{com}. cap noi artbin, pr(.1 .2) aratios(1 2 3)
+{err}Please specify the same number of aratios() as pr()
+{txt}
+{com}. 
+. *------------------------------------------------------------------------------
+. * A2. margin() must lie strictly between -1 and 1 (artbin and art2bin)
+. *     OLD: no check. Message "You have found a case that we have never
+. *          encountered before! ..." and then a result: n = 2 for
+. *          margin(1), and a missing n (".") for margin(-1.5).
+. *     NEW: error "Margin must lie strictly between -1 and 1".
+. *------------------------------------------------------------------------------
+. cap noi artbin, pr(.2 .2) margin(1)
+{err}Margin must lie strictly between -1 and 1
+{txt}
+{com}. cap noi artbin, pr(.2 .2) margin(-1.5)
+{err}Margin must lie strictly between -1 and 1
+{txt}
+{com}. cap noi art2bin 0.2 0.2, margin(1)
+{err}Margin must lie strictly between -1 and 1
+{txt}
+{com}. 
+. *------------------------------------------------------------------------------
+. * A3. doses() checks (>2 groups, trend test)
+. *     OLD: doses(1 2 3 4) silently dropped the 4th dose (n = 186);
+. *          doses(2 2 2) gave a missing sample size (".").
+. *     NEW: errors "Please specify the same number of doses() as pr()." and
+. *          "doses() must contain at least two distinct values."
+. *------------------------------------------------------------------------------
+. cap noi artbin, pr(.1 .2 .3) doses(1 2 3 4)
+{err}Please specify the same number of doses() as pr().
+{txt}
+{com}. cap noi artbin, pr(.1 .2 .3) doses(2 2 2)
+{err}doses() must contain at least two distinct values.
+{txt}
+{com}. 
+. *------------------------------------------------------------------------------
+. * A4. ccorrect with nchi (2 groups)
+. *     OLD: ccorrect was accepted and the table said "Continuity correction
+. *          yes", but it was not applied (n = 124 with and without ccorrect).
+. *     NEW: error "ccorrect is not available with nchi".
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .3) nchi
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}124
+
+{txt}Sample size per group (calculated){col 40}{res}62 62
+{txt}Expected total number of events{col 40}{res}24.8
+{txt}Expected number of events per group{col 40}{res}6.2 18.6
+{txt}{hline 78}
+
+{com}. cap noi artbin, pr(.1 .3) nchi ccorrect
+{err}ccorrect is not available with nchi
+{txt}
+{com}. 
+. *------------------------------------------------------------------------------
+. * A5. nvmethod() must be 1, 2 or 3 (artbin and art2bin)
+. *     OLD: nvmethod(5) and nvmethod(0) were silently reset to 3 (n = 398);
+. *          nvmethod(2.5) failed with "unknown function *()".
+. *     NEW: error "nvmethod() must be 1, 2 or 3".
+. *------------------------------------------------------------------------------
+. cap noi artbin, pr(.1 .2) nvmethod(5)
+{err}nvmethod() must be 1, 2 or 3
+{txt}
+{com}. cap noi artbin, pr(.1 .2) nvmethod(2.5)
+{err}nvmethod() must be 1, 2 or 3
+{txt}
+{com}. cap noi art2bin 0.1 0.2, nvmethod(0)
+{err}nvmethod() must be 1, 2 or 3
+{txt}
+{com}. 
+. *------------------------------------------------------------------------------
+. * A6. convcrit() smaller than 1E-15
+. *     OLD: only a warning "convcrit < 1E-15: program may hang", then the
+. *          calculation went ahead (here n = 231).
+. *     NEW: error "convcrit() must be at least 1E-15".
+. *------------------------------------------------------------------------------
+. cap noi artbin, pr(.1 .2 .3) convcrit(1e-16)
+{err}convcrit() must be at least 1E-15
+{txt}
+{com}. artbin, pr(.1 .2 .3) convcrit(1e-15)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}231
+
+{txt}Sample size per group (calculated){col 40}{res}77 77 77
+{txt}Expected total number of events{col 40}{res}46.2
+{txt}Expected number of events per group{col 40}{res}7.7 15.4 23.1
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * A7. ap2() has no effect
+. *     OLD: ap2() was range-checked but only used in code that cannot be
+. *          reached, so a valid value was silently ignored.
+. *     NEW: a valid ap2() gives the warning "ap2() has no effect and is
+. *          ignored."; an out-of-range value still gives an error.
+. *------------------------------------------------------------------------------
+. artbin, pr(.2 .2) margin(.1)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}non-inferiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}unfavourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+{txt}Null hypothesis{col 40}{res}H0: pi2 - pi1 >= .1
+{txt}Alternative hypothesis{col 40}{res}H1: pi2 - pi1 < .1
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.200
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}510
+
+{txt}Sample size per group (calculated){col 40}{res}255 255
+{txt}Expected total number of events{col 40}{res}102
+{txt}Expected number of events per group{col 40}{res}51 51
+{txt}{hline 78}
+
+{com}. artbin, pr(.2 .2) margin(.1) ap2(.4)
+{it:WARNING: ap2() has no effect and is ignored.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}non-inferiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}unfavourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+{txt}Null hypothesis{col 40}{res}H0: pi2 - pi1 >= .1
+{txt}Alternative hypothesis{col 40}{res}H1: pi2 - pi1 < .1
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.200
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}510
+
+{txt}Sample size per group (calculated){col 40}{res}255 255
+{txt}Expected total number of events{col 40}{res}102
+{txt}Expected number of events per group{col 40}{res}51 51
+{txt}{hline 78}
+
+{com}. cap noi artbin, pr(.2 .2) margin(.1) ap2(1.5)
+{err}Group 2 event probability under the alternative hypothesis must be >0 & <1
+{txt}
+{com}. 
+. 
+. *==============================================================================
+. * SECTION B. BUG FIXES THAT CHANGE THE CALCULATED SAMPLE SIZE OR POWER
+. *==============================================================================
+. 
+. *------------------------------------------------------------------------------
+. * B1. Iterative sample-size search for >2 groups (distant method)
+. *     OLD: the search interval [n0/2, 2*n0] was not checked to contain the
+. *          solution, so n could be too small: n = 104 (65 13 13 13).
+. *     NEW: the interval is widened until it contains the solution:
+. *          n = 111 (69 14 14 14).
+. *     The power at the old n = 104 is 0.987, below the 0.99 requested.
+. *------------------------------------------------------------------------------
+. artbin, pr(.001 .002 .003 .5) aratios(5 1 1 1) power(.99)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}4
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}5:1:1:1
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 4
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.001 0.002 0.003 0.500
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.990
+
+{txt}Total sample size (calculated){col 40}{res}111
+
+{txt}Sample size per group (calculated){col 40}{res}69 14 14 14
+{txt}Expected total number of events{col 40}{res}7.14
+{txt}Expected number of events per group{col 40}{res}.07 .03 .04 7
+{txt}{hline 78}
+
+{com}. artbin, pr(.001 .002 .003 .5) aratios(5 1 1 1) n(104)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}4
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}5:1:1:1
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 4
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.001 0.002 0.003 0.500
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (calculated){col 40}{res}0.987
+
+{txt}Total sample size (designed){col 40}{res}104
+
+{txt}Sample size per group (designed){col 40}{res}65 13 13 13
+{txt}Expected total number of events{col 40}{res}6.63
+{txt}Expected number of events per group{col 40}{res}.07 .03 .04 6.5
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * B2. Power close to 1 for >2 groups (noncentral chi-square out of range)
+. *     OLD: power shown as missing (".") and the sample-size search went the
+. *          wrong way: pr(.001 .5 .999) power(.99) gave n = 66.
+. *     NEW: new subprogram _nchi2 (nchi2() under version 13, then a normal
+. *          approximation): n = 12, and power 1.000 instead of ".".
+. *------------------------------------------------------------------------------
+. artbin, pr(.001 .5 .999) power(.99)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.001 0.500 0.999
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.990
+
+{txt}Total sample size (calculated){col 40}{res}12
+
+{txt}Sample size per group (calculated){col 40}{res}4 4 4
+{txt}Expected total number of events{col 40}{res}6
+{txt}Expected number of events per group{col 40}{res}0 2 4
+{txt}{hline 78}
+
+{com}. artbin, pr(.001 .5 .999) n(66)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.001 0.500 0.999
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (calculated){col 40}{res}1.000
+
+{txt}Total sample size (designed){col 40}{res}66
+
+{txt}Sample size per group (designed){col 40}{res}22 22 22
+{txt}Expected total number of events{col 40}{res}33
+{txt}Expected number of events per group{col 40}{res}.02 11 21.98
+{txt}{hline 78}
+
+{com}. artbin, pr(.01 .5 .99) n(1000)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.010 0.500 0.990
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (calculated){col 40}{res}1.000
+
+{txt}Total sample size (designed){col 40}{res}1000
+
+{txt}Sample size per group (designed){col 40}{res}333.33 333.33 333.33
+{txt}Expected total number of events{col 40}{res}500
+{txt}Expected number of events per group{col 40}{res}3.33 166.67 330
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * B3. Power approximation not valid at very small n (>2 groups, distant)
+. *     OLD: n(3) gave power "."; power(.06) gave n = 9 and power(.05) gave
+. *          n = 0, where the approximation is not valid.
+. *     NEW: n(3): error "Power approximation not valid for n = 3; sample size
+. *          too small". power(.06) and power(.05): error giving the smallest
+. *          valid n (9.49) and the power there (0.075).
+. *     (power(.05), i.e. power = alpha, hung in an earlier draft of 2.1.3: the
+. *     search started at n0 = 0 and doubled it forever. It now starts at n = 1.)
+. *------------------------------------------------------------------------------
+. cap noi artbin, pr(.1 .2 .3) n(3)
+{err}Power approximation not valid for n = 3; sample size too small
+{txt}
+{com}. cap noi artbin, pr(.1 .2 .3) power(.06)
+{err}Sample size for power(.06) cannot be calculated: the power approximation is
+valid only for n >= 9.49, where the power is already 0.075.
+{txt}
+{com}. cap noi artbin, pr(.1 .2 .3) power(.05)
+{err}Sample size for power(.05) cannot be calculated: the power approximation is
+valid only for n >= 9.49, where the power is already 0.075.
+{txt}
+{com}. 
+. *------------------------------------------------------------------------------
+. * B4. condit with a single allocation ratio
+. *     OLD: calculated n for equal allocation, then split it 1:2:
+. *          aratios(2) gave 374 (125 249), but aratios(1 2) gave 465.
+. *     NEW: aratios(2) is treated as aratios(1 2): both give 465 (155 310).
+. *------------------------------------------------------------------------------
+. artbin, pr(.2 .1) condit aratios(2)
+{it:NOTE: As conditional has been selected local will be used.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}unfavourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}1:2
+{txt}Statistical test assumed{col 40}{res}Conditional test using Peto's
+{txt}{col 40}{res} approximation to the odds ratio
+{txt}Local or distant{col 40}{res}local
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.100
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}465
+
+{txt}Sample size per group (calculated){col 40}{res}155 310
+{txt}Expected total number of events{col 40}{res}62
+{txt}Expected number of events per group{col 40}{res}31 31
+{txt}{hline 78}
+
+{com}. artbin, pr(.2 .1) condit aratios(1 2)
+{it:NOTE: As conditional has been selected local will be used.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}unfavourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}1:2
+{txt}Statistical test assumed{col 40}{res}Conditional test using Peto's
+{txt}{col 40}{res} approximation to the odds ratio
+{txt}Local or distant{col 40}{res}local
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.100
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}465
+
+{txt}Sample size per group (calculated){col 40}{res}155 310
+{txt}Expected total number of events{col 40}{res}62
+{txt}Expected number of events per group{col 40}{res}31 31
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * B5. nchi with a single allocation ratio (2 groups)
+. *     OLD: aratio(2) gave 125 (42 83, equal allocation split 1:2);
+. *          aratio(1 2) gave 146.
+. *     NEW: both give 146 (49 97).
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .3) nchi aratio(2)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}1:2
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}146
+
+{txt}Sample size per group (calculated){col 40}{res}49 97
+{txt}Expected total number of events{col 40}{res}34
+{txt}Expected number of events per group{col 40}{res}4.9 29.1
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .3) nchi aratio(1 2)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}1:2
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}146
+
+{txt}Sample size per group (calculated){col 40}{res}49 97
+{txt}Expected total number of events{col 40}{res}34
+{txt}Expected number of events per group{col 40}{res}4.9 29.1
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * B6. Continuity correction for power at very small n
+. *     OLD: _cc deflation was applied even when n <= a/2, so power fell as n
+. *          rose: n = 4, 8, 12 gave power 0.106, 0.033, 0.030.
+. *     NEW: for n <= a/2 the corrected n is set to 0 (minimum power), so power
+. *          no longer decreases: 0.021, 0.021, 0.030.
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .3) n(4) ccorrect
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}yes
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (calculated){col 40}{res}0.021
+
+{txt}Total sample size (designed){col 40}{res}4
+
+{txt}Sample size per group (designed){col 40}{res}2 2
+{txt}Expected total number of events{col 40}{res}.8
+{txt}Expected number of events per group{col 40}{res}.2 .6
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .3) n(8) ccorrect
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}yes
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (calculated){col 40}{res}0.021
+
+{txt}Total sample size (designed){col 40}{res}8
+
+{txt}Sample size per group (designed){col 40}{res}4 4
+{txt}Expected total number of events{col 40}{res}1.6
+{txt}Expected number of events per group{col 40}{res}.4 1.2
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .3) n(12) ccorrect
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}yes
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (calculated){col 40}{res}0.030
+
+{txt}Total sample size (designed){col 40}{res}12
+
+{txt}Sample size per group (designed){col 40}{res}6 6
+{txt}Expected total number of events{col 40}{res}2.4
+{txt}Expected number of events per group{col 40}{res}.6 1.8
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * B7. art2bin returned results with ccorrect in power mode
+. *     OLD: n0 was overwritten by the continuity-corrected n, so r(Dart)
+. *          (expected number of events) was wrong: 39.025. r(n), r(n0), r(n1)
+. *          were not returned and r(power) was a local (string).
+. *     NEW: r(Dart) = 40 (100*0.1 + 100*0.3); r(n) = 200, r(n0) = r(n1) = 100
+. *          and r(power) are returned as scalars.
+. *------------------------------------------------------------------------------
+. art2bin 0.1 0.3, n(200) ccorrect
+{txt}Power = {res}.92572434
+{txt}
+{com}. return list
+
+{txt}scalars:
+               r(Dart) =  {res}40
+              {txt}r(alpha) =  {res}.05
+              {txt}r(power) =  {res}.9257243389713388
+                 {txt}r(n1) =  {res}100
+                 {txt}r(n0) =  {res}100
+                  {txt}r(n) =  {res}200
+
+{txt}macros:
+             r(allocr) : "{res}equal group sizes{txt}"
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * B8. force with a non-zero margin(): trial type and hypotheses
+. *     OLD: with force the table showed the stated (unfavourable) direction:
+. *          non-inferiority, H1: pi2 - pi1 < .05, but n was calculated for
+. *          the other direction.
+. *     NEW: the table shows the design that was calculated (substantial-
+. *          superiority, H1: pi2 - pi1 > .05), with the note "with force,
+. *          sample size/power are calculated for H1: pi2 - pi1 > .05".
+. *------------------------------------------------------------------------------
+. cap noi artbin, pr(.2 .3) margin(.05) unfavourable
+{err}artbin thinks your outcome is favourable. Please check your command. If your command is correct then consider using the -force- option.
+{txt}
+{com}. artbin, pr(.2 .3) margin(.05) unfavourable force
+{it: WARNING: artbin thinks your outcome should be favourable.}
+{it: NOTE: with force, sample size/power are calculated for H1: pi2 - pi1 > .05}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}substantial-superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}unfavourable
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+{txt}Null hypothesis{col 40}{res}H0: pi2 - pi1 <= .05
+{txt}Alternative hypothesis{col 40}{res}H1: pi2 - pi1 > .05
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}2334
+
+{txt}Sample size per group (calculated){col 40}{res}1167 1167
+{txt}Expected total number of events{col 40}{res}583.5
+{txt}Expected number of events per group{col 40}{res}233.4 350.1
+{txt}{hline 78}
+
+{com}. artbin, pr(.2 .3) margin(.05) favourable
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}substantial-superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+{txt}Null hypothesis{col 40}{res}H0: pi2 - pi1 <= .05
+{txt}Alternative hypothesis{col 40}{res}H1: pi2 - pi1 > .05
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}2334
+
+{txt}Sample size per group (calculated){col 40}{res}1167 1167
+{txt}Expected total number of events{col 40}{res}583.5
+{txt}Expected number of events per group{col 40}{res}233.4 350.1
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * B9a. notable in power mode: r(n) is returned
+. *     OLD: r(n) = .   NEW: r(n) = 1000.
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .2) n(1000) notable
+{txt}Power (calculated) is: {res}0.994
+{txt}
+{com}. display "r(n) = " r(n) "   r(power) = " r(power)
+{res}r(n) = 1000   r(power) = .99366066
+{txt}
+{com}. 
+. *------------------------------------------------------------------------------
+. * B9b. notable in sample-size mode: r(power) is returned
+. *     OLD: r(power) = .   NEW: r(power) = .8 (the power used).
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .2) notable
+{txt}Total sample size (calculated) is: {res}398
+{txt}
+{com}. display "r(n) = " r(n) "   r(power) = " r(power)
+{res}r(n) = 398   r(power) = .8
+{txt}
+{com}. 
+. 
+. *==============================================================================
+. * SECTION C. NEW OPTION AND NEW WARNINGS
+. *==============================================================================
+. 
+. *------------------------------------------------------------------------------
+. * C1. art2bin now accepts force
+. *     OLD: art2bin's error message suggests -force-, but force was not in its
+. *          syntax: "option force not allowed".
+. *     NEW: force overrides the check with a warning (n = 2334).
+. *------------------------------------------------------------------------------
+. cap noi art2bin 0.2 0.3, margin(0.05) unfavourable
+{err}artbin thinks your outcome is favourable. Please check your command. If your command is correct then consider using the -force- option.
+{txt}
+{com}. cap noi art2bin 0.2 0.3, margin(0.05) unfavourable force
+{it:WARNING: artbin thinks your outcome should be favourable.}
+{txt}Total sample size = {res}2334
+{txt}
+{com}. 
+. *------------------------------------------------------------------------------
+. * C2. favourable/unfavourable/force ignored for >2 groups
+. *     OLD: silently ignored.
+. *     NEW: warning "favourable/unfavourable/force are ignored for >2 groups."
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .2 .3) favourable
+{it:WARNING: favourable/unfavourable/force are ignored for >2 groups.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}231
+
+{txt}Sample size per group (calculated){col 40}{res}77 77 77
+{txt}Expected total number of events{col 40}{res}46.2
+{txt}Expected number of events per group{col 40}{res}7.7 15.4 23.1
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .2 .3) unfavourable force
+{it:WARNING: favourable/unfavourable/force are ignored for >2 groups.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}231
+
+{txt}Sample size per group (calculated){col 40}{res}77 77 77
+{txt}Expected total number of events{col 40}{res}46.2
+{txt}Expected number of events per group{col 40}{res}7.7 15.4 23.1
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * C3. nvmethod() ignored for >2 groups or with condit
+. *     OLD: silently ignored, except with local or wald for >2 groups, where
+. *          the 2-group checks still ran and gave an error: local nvm(1) gave
+. *          "Need nvm(3) if local specified" and wald nvm(3) gave "Need nvm(1)
+. *          if Wald specified".
+. *     NEW: warning "nvmethod() is only used for 2-group unconditional tests
+. *          and is ignored."; with local or wald the result is now calculated:
+. *          n = 234 (local) and n = 207 (wald).
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .2 .3) nvmethod(1)
+{it:WARNING: nvmethod() is only used for 2-group unconditional tests and is ignored.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}231
+
+{txt}Sample size per group (calculated){col 40}{res}77 77 77
+{txt}Expected total number of events{col 40}{res}46.2
+{txt}Expected number of events per group{col 40}{res}7.7 15.4 23.1
+{txt}{hline 78}
+
+{com}. artbin, pr(.2 .1) condit nvmethod(1)
+{it:WARNING: nvmethod() is only used for 2-group unconditional tests and is ignored.}
+{it:NOTE: As conditional has been selected local will be used.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}unfavourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}Conditional test using Peto's
+{txt}{col 40}{res} approximation to the odds ratio
+{txt}Local or distant{col 40}{res}local
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.100
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}374
+
+{txt}Sample size per group (calculated){col 40}{res}187 187
+{txt}Expected total number of events{col 40}{res}56.1
+{txt}Expected number of events per group{col 40}{res}37.4 18.7
+{txt}{hline 78}
+
+{com}. cap noi artbin, pr(.1 .2 .3) local nvmethod(1)
+{it:WARNING: nvmethod() is only used for 2-group unconditional tests and is ignored.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}local
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}234
+
+{txt}Sample size per group (calculated){col 40}{res}78 78 78
+{txt}Expected total number of events{col 40}{res}46.8
+{txt}Expected number of events per group{col 40}{res}7.8 15.6 23.4
+{txt}{hline 78}
+
+{com}. cap noi artbin, pr(.1 .2 .3) wald nvmethod(3)
+{it:WARNING: nvmethod() is only used for 2-group unconditional tests and is ignored.}
+{res}
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the wald test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}207
+
+{txt}Sample size per group (calculated){col 40}{res}69 69 69
+{txt}Expected total number of events{col 40}{res}41.4
+{txt}Expected number of events per group{col 40}{res}6.9 13.8 20.7
+{txt}{hline 78}
+
+{com}. 
+. 
+. *==============================================================================
+. * SECTION D. OUTPUT TABLE CHANGES (no change to the results)
+. *==============================================================================
+. 
+. *------------------------------------------------------------------------------
+. * D1. American spellings favorable/unfavorable
+. *     OLD: the table said the outcome was "Inferred by the program".
+. *     NEW: reported as specified by the user, as for the British spellings.
+. *------------------------------------------------------------------------------
+. artbin, pr(.2 .3) favorable
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}588
+
+{txt}Sample size per group (calculated){col 40}{res}294 294
+{txt}Expected total number of events{col 40}{res}147
+{txt}Expected number of events per group{col 40}{res}58.8 88.2
+{txt}{hline 78}
+
+{com}. artbin, pr(.2 .3) favourable
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}588
+
+{txt}Sample size per group (calculated){col 40}{res}294 294
+{txt}Expected total number of events{col 40}{res}147
+{txt}Expected number of events per group{col 40}{res}58.8 88.2
+{txt}{hline 78}
+
+{com}. artbin, pr(.3 .2) unfavorable
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}unfavourable
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.300 0.200
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}588
+
+{txt}Sample size per group (calculated){col 40}{res}294 294
+{txt}Expected total number of events{col 40}{res}147
+{txt}Expected number of events per group{col 40}{res}88.2 58.8
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * D2. Non-integer allocation ratios (>2 groups)
+. *     OLD: rounded in the table: 1:2:2 and 1:2:4.
+. *     NEW: shown unrounded: 1:1.5:2 and 1:2.25:3.5.
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .2 .3) aratios(1 1.5 2)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}1:1.5:2
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}264
+
+{txt}Sample size per group (calculated){col 40}{res}59 88 117
+{txt}Expected total number of events{col 40}{res}58.6
+{txt}Expected number of events per group{col 40}{res}5.9 17.6 35.1
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .2 .3) aratios(1 2.25 3.5)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}1:2.25:3.5
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}320
+
+{txt}Sample size per group (calculated){col 40}{res}48 107 165
+{txt}Expected total number of events{col 40}{res}75.7
+{txt}Expected number of events per group{col 40}{res}4.8 21.4 49.5
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * D3. Large sample sizes and numbers of events (>= 1,000,000)
+. *     OLD: rounded to 3 significant figures in the table: n = 7850000,
+. *          3920000 per group, even with noround.
+. *     NEW: shown in full: n = 7848870, 3924435 per group; with noround,
+. *          n = 7848869.5, 3924434.8 per group.
+. *------------------------------------------------------------------------------
+. artbin, pr(.5 .501)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.500 0.501
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}7848870
+
+{txt}Sample size per group (calculated){col 40}{res}3924435 3924435
+{txt}Expected total number of events{col 40}{res}3928359.4
+{txt}Expected number of events per group{col 40}{res}1962217.5 1966141.9
+{txt}{hline 78}
+
+{com}. artbin, pr(.5 .501) noround
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.500 0.501
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}7848869.5
+
+{txt}Sample size per group (calculated){col 40}{res}3924434.8 3924434.8
+{txt}Expected total number of events{col 40}{res}3928359.2
+{txt}Expected number of events per group{col 40}{res}1962217.4 1966141.8
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * D4. Very small event probabilities in pr()
+. *     OLD: shown as 0.000 0.000.
+. *     NEW: shown with enough digits: 0.0001 0.0002.
+. *     (For 2 groups the double space between probabilities is also gone.)
+. *------------------------------------------------------------------------------
+. artbin, pr(.0001 .0002)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.0001 0.0002
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}470860
+
+{txt}Sample size per group (calculated){col 40}{res}235430 235430
+{txt}Expected total number of events{col 40}{res}70.63
+{txt}Expected number of events per group{col 40}{res}23.54 47.09
+{txt}{hline 78}
+
+{com}. artbin, pr(.0001 .0002 .0003)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.0001 0.0002 0.0003
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}289881
+
+{txt}Sample size per group (calculated){col 40}{res}96627 96627 96627
+{txt}Expected total number of events{col 40}{res}57.98
+{txt}Expected number of events per group{col 40}{res}9.66 19.33 28.99
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * D5. "(taken as alpha/2 one-sided)" line
+. *     OLD: missing for >2 groups with trend/doses, for 2 groups with nchi, and
+. *          for condit, although all use alpha/2.
+. *     NEW: shown for all two-sided tests that use alpha/2; still not shown for
+. *          the >2-group chi-square test, which uses the full alpha.
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .2 .3) trend
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+{txt}Linear trend test: doses are{col 40}{res}1, 2, 3
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}186
+
+{txt}Sample size per group (calculated){col 40}{res}62 62 62
+{txt}Expected total number of events{col 40}{res}37.2
+{txt}Expected number of events per group{col 40}{res}6.2 12.4 18.6
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .3) nchi
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}favourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 2
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}124
+
+{txt}Sample size per group (calculated){col 40}{res}62 62
+{txt}Expected total number of events{col 40}{res}24.8
+{txt}Expected number of events per group{col 40}{res}6.2 18.6
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .2 .3)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}231
+
+{txt}Sample size per group (calculated){col 40}{res}77 77 77
+{txt}Expected total number of events{col 40}{res}46.2
+{txt}Expected number of events per group{col 40}{res}7.7 15.4 23.1
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * D6. Conditional test no longer labelled as a score test
+. *     OLD: "... using the score test" was also shown with condit.
+. *     NEW: not shown with condit.
+. *------------------------------------------------------------------------------
+. artbin, pr(.2 .1) condit
+{it:NOTE: As conditional has been selected local will be used.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}2
+{txt}Favourable/unfavourable outcome{col 40}{res}unfavourable
+{col 40}{it:Inferred by the program}
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}Conditional test using Peto's
+{txt}{col 40}{res} approximation to the odds ratio
+{txt}Local or distant{col 40}{res}local
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.200 0.100
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}374
+
+{txt}Sample size per group (calculated){col 40}{res}187 187
+{txt}Expected total number of events{col 40}{res}56.1
+{txt}Expected number of events per group{col 40}{res}37.4 18.7
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .2 .3) condit
+{it:NOTE: As conditional has been selected local will be used.}
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}Conditional test using Peto's
+{txt}{col 40}{res} approximation to the odds ratio
+{txt}Local or distant{col 40}{res}local
+{txt}Continuity correction{col 40}{res}no
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}195
+
+{txt}Sample size per group (calculated){col 40}{res}65 65 65
+{txt}Expected total number of events{col 40}{res}39
+{txt}Expected number of events per group{col 40}{res}6.5 13 19.5
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * D7. doses() shown as entered
+. *     OLD: rounded to 2 decimal places: 0.00, 0.13, 0.50 and
+. *          1.00, 1.00, 2.00, 4.00.
+. *     NEW: shown as entered: 0, 0.125, 0.5 and 1, 1.005, 2, 4.
+. *------------------------------------------------------------------------------
+. artbin, pr(.1 .2 .3) doses(0 0.125 0.5)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}3
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 3
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+{txt}Linear trend test: doses are{col 40}{res}0, 0.125, 0.5
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}210
+
+{txt}Sample size per group (calculated){col 40}{res}70 70 70
+{txt}Expected total number of events{col 40}{res}42
+{txt}Expected number of events per group{col 40}{res}7 14 21
+{txt}{hline 78}
+
+{com}. artbin, pr(.1 .2 .3 .4) doses(1 1.005 2 4)
+
+{txt}{hi:ART} - {hi:A}NALYSIS OF {hi:R}ESOURCES FOR {hi:T}RIALS (binary version 2.1.3 26nov2026)
+{hline 78}
+A sample size program by Abdel Babiker, Patrick Royston, Friederike Barthel, 
+Ella Marley-Zagar and Ian White
+MRC Clinical Trials Unit at UCL, London WC1V 6LJ, UK.
+{hline 78}
+Type of trial{col 40}{res}superiority
+{txt}Number of groups{col 40}{res}4
+{txt}Favourable/unfavourable outcome{col 40}{res}not determined
+{txt}Allocation ratio{col 40}{res}equal group sizes
+{txt}Statistical test assumed{col 40}{res}unconditional comparison of 4
+{txt}{col 40}{res} binomial proportions
+{txt}{col 40}{res} using the score test
+{txt}Local or distant{col 40}{res}distant
+{txt}Continuity correction{col 40}{res}no
+{txt}Linear trend test: doses are{col 40}{res}1, 1.005, 2, 4
+
+{txt}Anticipated event probabilities{col 40}{res}0.100 0.200 0.300 0.400
+
+{txt}Alpha{col 40}{res}0.050 (two-sided)
+{txt}{col 40}{res} (taken as .025 one-sided)
+{txt}Power (designed){col 40}{res}0.800
+
+{txt}Total sample size (calculated){col 40}{res}148
+
+{txt}Sample size per group (calculated){col 40}{res}37 37 37 37
+{txt}Expected total number of events{col 40}{res}37
+{txt}Expected number of events per group{col 40}{res}3.7 7.4 11.1 14.8
+{txt}{hline 78}
+
+{com}. 
+. *------------------------------------------------------------------------------
+. * D8. Wording of error messages ("Can not" -> "Cannot")
+. *------------------------------------------------------------------------------
+. cap noi artbin, pr(.1 .2 .3) margin(.1)
+{err}Cannot have margin with >2 groups
+{txt}
+{com}. cap noi artbin, pr(.2 .3) favourable unfavourable
+{err}Cannot specify both unfavourable and favourable
+{txt}
+{com}. 
+. 
+. *==============================================================================
+. * SECTION E. DIALOG BOX (artbin.dlg version 2.3)
+. *     - New "force" checkbox.
+. *     - Switching to "Specify sample size" now clears the Power/N box.
+. *==============================================================================
+. * db artbin
+. 
+. adopath - "`artbin_dir'"
+{txt}  [1]  (BASE)      "{res}C:\Program Files\StataNow19\ado\base/{txt}"
+  [2]  (SITE)      "{res}C:\Program Files\StataNow19\ado\site/{txt}"
+  [3]              "{res}.{txt}"
+  [4]  (PERSONAL)  "{res}C:\Users\zcakf79\ado\personal/{txt}"
+  [5]  (PLUS)      "{res}C:\Users\zcakf79\ado\plus/{txt}"
+  [6]  (OLDPLACE)  "{res}c:\ado/{txt}"
+
+{com}. 
+{txt}end of do-file
+
+{com}. log close new
+      {txt}name:  {res}new
+       {txt}log:  {res}C:\Users\zcakf79\OneDrive - University College London\Desktop\artbin_bug\artbin_213_changes_new.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}26 Nov 2026, 22:52:23
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
